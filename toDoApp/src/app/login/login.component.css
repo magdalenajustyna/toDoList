@@ -1,0 +1,57 @@
+form {
+    padding: 8%; 
+    font-family: 'Courier New', Courier, monospace;
+    border: 3px solid #f1f1f1;
+    margin: 20px;
+    border-radius: 10px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+h2 {
+    text-align: center;
+    color: blueviolet;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 10%;
+}
+
+button.btn {
+    background-color: blueviolet;
+    border-color: blueviolet;
+    color: white;
+}
+
+button.btn:hover {
+    background-color: yellow;
+    color: blueviolet;
+}
+
+.psw {
+    text-decoration: none;
+    text-align: right;
+    display: block;
+    color: blueviolet;
+}
+
+.psw a {
+    text-decoration: none; 
+    color: blueviolet; 
+}
+
+.psw a:hover {
+    text-decoration: none;
+    background-color: yellow;
+}
+
+.new a {
+    color: blueviolet;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    margin-top: 8%;
+}
+
+.new a:hover {
+    text-decoration: none;
+    background-color: yellow;
+}
