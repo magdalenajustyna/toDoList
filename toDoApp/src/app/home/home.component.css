@@ -1,0 +1,18 @@
+h3 {
+    color: blueviolet;
+    margin-left: 20%;
+}
+
+button {
+    margin-left: 20%;
+    background-color: yellow;
+    color: blueviolet;
+}
+
+button.btn:hover {
+    background-color: blueviolet;
+}
+
+.form-check {
+    margin-left: 20%;
+}
