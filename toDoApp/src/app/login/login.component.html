@@ -1,3 +1,4 @@
+<app-header></app-header>
 <h2>Login</h2>
 <form>
   
@@ -6,17 +7,15 @@
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
 
-
-
  <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Passwort</label>
     <input type="password" class="form-control" id="exampleInputPassword1">
   </div>
 
-
   <span class="psw mb-5"><a href="#">Passwort vergessen?</a></span>
 
-  
-  <button type="submit" class="btn btn-primary w-100">Login</button>
-  <span class="new"><a href="#">Neu hier? Jetzt registrieren!</a></span>
+
+  <button type="submit" class="btn btn-primary w-100" [routerLink]="['/home']">Login</button>
+
+  <span class="new"><a [routerLink]="['/register']">Neu hier? Jetzt registrieren!</a></span>
 </form>

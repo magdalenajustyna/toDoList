@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="container-fluid text-center">
   <div class="justify-content-center mb-3 mt-3">
     <h2>Registrierung</h2>
@@ -27,10 +28,10 @@
     </div>
 
     <div class="d-grid gap-2 mt-5">
-      <button type="button" class="btn btn-success btn register">
+      <button type="button" class="btn btn-success btn register" [routerLink]="['/home']">
         Registrieren
       </button>
-      <button type="button" class="btn btn-secondary btn cancel">
+      <button type="button" class="btn btn-secondary btn cancel" [routerLink]="['/login']">
         Abbrechen
       </button>
     </div>
