@@ -1,0 +1,39 @@
+form {
+    padding: 7%;
+    border: 3px solid #f1f1f1;
+    margin: 18px;
+    border-radius: 10px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+h2 {
+    text-align: center;
+    color: blueviolet;
+    margin-top: 7%;
+}
+
+button.register {
+    background-color: blueviolet;
+    border-color: blueviolet;
+    color: white;
+    margin-top: 5%;
+}
+
+button.register:active {
+    background-color: blueviolet;
+    border-color: blueviolet;
+    color: white;
+}
+
+button.btn:hover {
+    background-color: yellow;
+    color: blueviolet;
+}
+
+button.cancel {
+    background-color:hsl(271, 68%, 83%);
+    border-color: blueviolet;
+    color: white;
+}
+
