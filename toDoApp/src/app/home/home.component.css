@@ -27,8 +27,8 @@ button.add:hover {
   border-radius: 10px;
 }
 
+
 .header-container {
-  display: flex;
   justify-content: space-between;
   background-color: rgb(220, 198, 241);
   padding: 10px;
@@ -41,6 +41,7 @@ button.add:hover {
   padding: 10px 20px;
   font-weight: bold;
   text-align: center;
+ 
 }
 
 #date {
@@ -59,3 +60,12 @@ button.add:hover {
   display: flex;
   align-items: center;
 }
+
+.table{
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+
+
