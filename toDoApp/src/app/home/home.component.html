@@ -1,12 +1,14 @@
-<!-- ich weiß leider nicht, wie man die cols nebeneinander lässt....ahhhhhhh
- Überschrift, Button neues ToDo & Suchzeile müssen noch responsive werden
- Priobutton wieder zentrieren!!! -->
+<!-- 
+ cols bleiben nebeneinander
+ musste das Layout allerdings bei den anderen Komponenten aktualisieren, Achtung mit container Klasse (erzeugt Grid)
+ hoffe, das Layout ist für dich auch so noch ok..ist nun etwas breiter :/
+ -->
 
 <app-header></app-header>
 
 <h3>Nadjas ToDo-Liste</h3>
 
-<div class="home-container">
+<div class="container home-container">
   <button type="button" class="btn btn-outline-primary add">
     Neues ToDo erstellen
   </button>
@@ -14,7 +16,7 @@
   <app-filter></app-filter>
 
   <div class="header-container">
-    <div class="row">
+    <div class="row ">
 
       <div class="col">
         <div class="header-item">

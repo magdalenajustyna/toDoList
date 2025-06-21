@@ -16,20 +16,22 @@ button.add:hover {
     background-color: blueviolet;
 }
 
+
 .form-check {
     margin-left: 20%;
 }
 
 .home-container {
-  margin-left: 20%;
-  margin-right: 20%;
+  padding: 1%;
   border: 3px solid #f1f1f1;
-  border-radius: 10px;
+  border-radius: 10px; 
+  width:90%;
+  
 }
 
 
-.header-container {
-  justify-content: space-between;
+.header-container { 
+  text-align: center;     
   background-color: rgb(220, 198, 241);
   padding: 10px;
   border-bottom: 2px solid #ddd;
@@ -37,16 +39,9 @@ button.add:hover {
   margin: 1%;
 }
 
-.header-item {
-  padding: 10px 20px;
-  font-weight: bold;
+.header-item {  
   text-align: center;
- 
-}
-
-#date {
-  background-color: rgb(220, 198, 241);
-  border-radius: 10px;
+  font-weight: bold;
 }
 
 .filter {
@@ -56,15 +51,12 @@ button.add:hover {
 .prioButton {
   background-color: rgb(220, 198, 241);
   color: black;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
+  font-weight: bold; 
 }
 
-.table{
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
+.col{
+  margin: auto;
+  
 }
 
 
