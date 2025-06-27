@@ -16,7 +16,6 @@ button.add:hover {
     background-color: blueviolet;
 }
 
-
 .form-check {
     margin-left: 20%;
 }
@@ -26,38 +25,13 @@ button.add:hover {
   border: 3px solid #f1f1f1;
   border-radius: 10px; 
   width:90%;
-  
-}
-
-
-.header-container { 
-  text-align: center;     
-  background-color: rgb(220, 198, 241);
-  padding: 10px;
-  border-bottom: 2px solid #ddd;
-  border-radius: 10px;
-  margin: 1%;
-}
-
-.header-item {  
-  text-align: center;
-  font-weight: bold;
 }
 
 .filter {
   margin: 1%;
 }
 
-.prioButton {
-  background-color: rgb(220, 198, 241);
-  color: black;
-  font-weight: bold; 
-}
 
-.col{
-  margin: auto;
-  
-}
 
 
 
