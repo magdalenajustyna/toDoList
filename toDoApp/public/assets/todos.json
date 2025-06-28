@@ -1,0 +1,22 @@
+[
+    {
+    "status" : "erledigt",
+    "todo" : "Exceptions wiederholen",
+    "prio" : "hoch",
+    "datum" : "01.07.2025"
+    },
+    
+    {
+    "status" : "offen",
+    "todo" : "Differentialrechnung wiederholen",
+    "prio" : "hoch",
+    "datum" : "02.07.2025"
+    } ,
+    
+    {
+    "status" : "offen",
+    "todo" : "Webtech bearbeiten",
+    "prio" : "hoch",
+    "datum" : "03.07.2025"
+    } 
+    ]

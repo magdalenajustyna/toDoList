@@ -1,3 +1,7 @@
+<!-- diese Komponente eher als Tabelle aufbauen? 
+ 
+Die Suchzeile reagiert nur, wenn sie in die Tabelle integriert ist, deswegen nicht als einzelne Komponente?-->
+
 <div class="list-container">
     <div class="row">
 
@@ -45,5 +49,39 @@
       </div>
     </div>
   </div>
+
+  <input
+  class="inputFilter w-75 form-control"
+  type="text"
+  placeholder="ToDo suchen"
+  aria-label="Aufgabensuche"
+  [formControl]="search" (input)="filter()">
+  <table>
+   
+    <thead>
+<tr>
+         <th>Status</th>
+        <th>ToDo</th>
+        <th>Prio</th>
+        <th>Datum</th>
+</tr>
+
+    </thead>
+
+    <tbody>
+    
+        @for(ToDo of filteredToDos; track $index) {
+            <tr>                
+                <td>{{ ToDo.status}}</td>
+                <td>{{ ToDo.todo }}</td>
+                <td>{{ ToDo.prio }}</td>
+                <td>{{ ToDo.datum }}</td>
+            </tr>
+
+        }
+        
+    </tbody>
+
+</table>
 
   
