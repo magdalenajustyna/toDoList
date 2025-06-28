@@ -1,0 +1,23 @@
+.list-container { 
+  text-align: center;     
+  background-color: rgb(220, 198, 241);
+  padding: 10px;
+  border-bottom: 2px solid #ddd;
+  border-radius: 10px;
+  margin: 1%;
+}
+
+.header-item {  
+  text-align: center;
+  font-weight: bold;
+}
+
+.prioButton {
+  background-color: rgb(220, 198, 241);
+  color: black;
+  font-weight: bold; 
+}
+
+.col{
+  margin: auto;
+}

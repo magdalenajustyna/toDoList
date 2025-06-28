@@ -7,12 +7,13 @@ import { FilterComponent } from './filter/filter.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
+import { ListComponent } from './list/list.component';
 
 
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, RegisterFormComponent, DeleteComponent, ArchivbuttonComponent, FilterComponent,
-            LoginComponent, HeaderComponent, HomeComponent],
+            LoginComponent, HeaderComponent, HomeComponent, ListComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
