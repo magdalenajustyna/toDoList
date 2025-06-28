@@ -3,9 +3,7 @@
  musste das Layout allerdings bei den anderen Komponenten aktualisieren, Achtung mit container Klasse (erzeugt Grid)
  hoffe, das Layout ist für dich auch so noch ok..ist nun etwas breiter :/
 
- FRAGEN: graue Linie unter Tabellenkopf?
-
- kleiner Versatz Login/Registrierung???
+  kleiner Versatz Login/Registrierung???
  
  -->
 
@@ -14,17 +12,30 @@
 <h3>Nadjas ToDo-Liste</h3>
 
 <div class="container home-container">
-  <button type="button" class="btn btn-outline-primary add">
-    Neues ToDo erstellen
-  </button>
+  <!-- diesen Container checken!?!-->
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <app-newtodobutton> </app-newtodobutton>
+      </div>
+
+      <div class="col text-end">
+        <app-logoutbutton></app-logoutbutton>
+      </div>
+    </div>
+  </div>
 
   <app-filter></app-filter>
 
   <app-list></app-list>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <app-archivbutton></app-archivbutton>
+      </div>
+    </div>
+  </div>
   
-  <app-archivbutton></app-archivbutton>
 </div>
-
-
-
-

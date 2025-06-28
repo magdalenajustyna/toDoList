@@ -1,0 +1,12 @@
+button.add {
+    background-color: yellow;
+    color: blueviolet;
+    margin-top: 3%;
+    margin-bottom: 2%;
+    margin-left: 1%; /* diese Margin weg? */
+}
+
+button.add:hover {
+    background-color: blueviolet;
+    color: yellow;
+}

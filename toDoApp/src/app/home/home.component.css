@@ -4,21 +4,9 @@ h3 {
     margin-top: 7%;
 }
 
-button.add {
-    background-color: yellow;
-    color: blueviolet;
-    margin-top: 3%;
-    margin-bottom: 2%;
-    margin-left: 1%;
-}
-
-button.add:hover {
-    background-color: blueviolet;
-}
-
-.form-check {
+.form-check { /* kann das weg?*/
     margin-left: 20%;
-}
+} 
 
 .home-container {
   padding: 1%;
@@ -29,7 +17,7 @@ button.add:hover {
 }
 
 
-.header-container { 
+.header-container { /* ist jetzt nicht mehr in home component*/
   text-align: center;     
   background-color: rgb(220, 198, 241);
   padding: 10px;
@@ -37,7 +25,7 @@ button.add:hover {
   margin: 1%;
 }
 
-.header-item {  
+.header-item { /* ist jetzt nicht mehr in home component*/
   text-align: center;
   font-weight: bold;
 }
