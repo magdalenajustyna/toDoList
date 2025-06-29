@@ -2,11 +2,10 @@ import { Component, inject, OnInit } from '@angular/core';
 import { TodosService } from '../shared/todos.service';
 import { Todo } from '../shared/todo';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { FilterComponent } from '../filter/filter.component';
 
 @Component({
   selector: 'app-list',
-  imports: [ReactiveFormsModule, FilterComponent],
+  imports: [ReactiveFormsModule],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })

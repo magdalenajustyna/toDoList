@@ -1,10 +1,10 @@
-.list-container { 
-  text-align: center;     
+.container {       
   background-color: rgb(220, 198, 241);
   padding: 10px;
-  border-radius: 10px;
-  margin: 1%;
+  /*border-radius: 10px;
+  margin: 1%;*/
 }
+
 
 .header-item {  
   text-align: center;
@@ -20,3 +20,12 @@
 .col{
   margin: auto;
 }
+
+.inputFilter{
+  margin-top: 1%;
+  margin-bottom: 2%;
+  margin-left: 1%;
+  margin-right: 2%;
+  
+}
+

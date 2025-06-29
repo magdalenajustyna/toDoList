@@ -2,29 +2,34 @@
  
 Die Suchzeile reagiert nur, wenn sie in die Tabelle integriert ist, deswegen nicht als einzelne Komponente?-->
 
+
+  
+  <div class="row"> 
   <input
   class="inputFilter w-75 form-control"
   type="text"
   placeholder="ToDo suchen"
   aria-label="Aufgabensuche"
   [formControl]="search" (input)="filter()">
- 
+</div>
+
+  
+
   <table class="table table-striped">
    
     <thead>
 <tr>
-        <th class="text-center">Status</th>
-        <th>ToDo</th>
-        <th>Prio</th>
-        <th>Datum</th>
-        <th class="text-center">Löschen</th>
+        <th scope="col" class="text-center">Status</th>
+        <th scope="col" >ToDo</th>
+        <th scope="col" >Prio</th>
+        <th scope="col" >Datum</th>
+        <th scope="col" class="text-center">Löschen</th>
 </tr>
-
     </thead>
 
     <tbody>
     
-        @for(ToDo of filteredToDos; track $index) {
+    @for(ToDo of filteredToDos; track $index) {
             <tr>                
                 <td>
                   <div class="text-center">
@@ -39,15 +44,34 @@ Die Suchzeile reagiert nur, wenn sie in die Tabelle integriert ist, deswegen nic
                   <i class="bi bi-trash align-items-center"></i>
                   </div>
                   </td>
-            </tr>
+            </tr> }  
 
-        }
+            <!-- <tr>                
+              <td>
+                <div class="text-center">
+                <i class="bi bi-check-circle"></i>
+              </div>
+            </td>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>
+                <div class="text-center">
+                <i class="bi bi-trash align-items-center"></i>
+                </div>
+                </td>
+          </tr> -->
+
+        
         
     </tbody>
 
 </table>
 
 
+
+
+<!--
 <button
             class="btn dropdown-toggle prioButton"
             type="button"
@@ -63,6 +87,6 @@ Die Suchzeile reagiert nur, wenn sie in die Tabelle integriert ist, deswegen nic
           </ul>
 
 <i class="bi bi-calendar"></i>
-
+        -->
 
   

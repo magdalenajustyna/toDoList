@@ -7,34 +7,47 @@
  kleiner Versatz Login/Registrierung???
  
  -->
+<div class="container container-header"> 
+<div class="row">
+  <div class="col"> 
+  <app-header></app-header> </div>
 
-<app-header></app-header>
+  <div class="col text-end">
+    <app-logoutbutton></app-logoutbutton>
+  </div>
+</div>
+</div>
 
 <h3>Nadjas ToDo-Liste</h3>
 
-<div class="container home-container">
-  <!-- diesen Container checken!?!-->
-
-  <div class="container">
-    <div class="row">
+<div class="container">
+    
+     <div class="row">
       <div class="col">
         <app-newtodobutton> </app-newtodobutton>
-      </div>
+      </div>      
+    </div> 
 
-      <div class="col text-end">
-        <app-logoutbutton></app-logoutbutton>
-      </div>
-    </div>
-  </div>
 
-  <app-list></app-list>
-
-  <div class="container">
-    <div class="row">
+<app-list></app-list>
+ 
+  <div class="row">    
       <div class="col">
         <app-archivbutton></app-archivbutton>
       </div>
-    </div>
-  </div>
-  
+    
+  </div>   
 </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  
+

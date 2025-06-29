@@ -4,35 +4,46 @@ h3 {
     margin-top: 7%;
 }
 
-.form-check { /* kann das weg?*/
-    margin-left: 20%;
-} 
 
-.home-container {
+
+.container {
+  border: 3px solid#f1f1f1;
+    border-radius: 10px;
+    /*max-width: 100%;*/
+    overflow-x: auto;
+
+}
+
+.container-header{
+  border: 3px solid#ffffff;
+
+}
+
+/*.home-container {
   padding: 1%;
-  border: 3px solid #f1f1f1;
+  border: 3px solid #54b6cf;
   border-radius: 10px; 
   width:90%;
    
-}
+}*/
 
-
-.header-container { /* ist jetzt nicht mehr in home component*/
+/* 
+.header-container { ist jetzt nicht mehr in home component
   text-align: center;     
   background-color: rgb(220, 198, 241);
   padding: 10px;
   border-radius: 10px;
   margin: 1%;
-}
+} */
 
-.header-item { /* ist jetzt nicht mehr in home component*/
+/*.header-item {  ist jetzt nicht mehr in home component
   text-align: center;
   font-weight: bold;
-}
+} */
 
-.filter {
+/*.filter {
   margin: 1%;
-}
+}*/
 
 
 

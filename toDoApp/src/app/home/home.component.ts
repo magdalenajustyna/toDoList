@@ -30,8 +30,8 @@ export class HomeComponent implements OnInit{
   async ngOnInit(): Promise<void>              // async Methode, die Promise zurückgibt
   {
    this.toDos = await this.dataservice.getAllToDos()
-   this.filteredToDos = this.toDos;        // initial alle Mitglieder in der Tabelle
-   console.log('toDos in table -> ', this.toDos);
+   this.filteredToDos = this.toDos.filter(t => t.status == "offen");
+   //console.log('toDos in table -> ', this.toDos);
   }
 
   filter() {
