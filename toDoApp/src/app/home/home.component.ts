@@ -11,7 +11,8 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, HeaderComponent, ArchivbuttonComponent, ListComponent, LogoutbuttonComponent, NewtodobuttonComponent, ReactiveFormsModule],
+  imports: [RouterLink, HeaderComponent, ArchivbuttonComponent, ListComponent,
+    LogoutbuttonComponent, NewtodobuttonComponent, ReactiveFormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

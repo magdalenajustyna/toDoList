@@ -8,12 +8,13 @@ import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
+import { CreatenewtodoComponent } from './createnewtodo/createnewtodo.component';
 
 
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, RegisterFormComponent, DeleteComponent, ArchivbuttonComponent, FilterComponent,
-            LoginComponent, HeaderComponent, HomeComponent, ListComponent],
+            LoginComponent, HeaderComponent, HomeComponent, ListComponent, CreatenewtodoComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
