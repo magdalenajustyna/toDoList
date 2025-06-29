@@ -6,7 +6,7 @@ import { FilterComponent } from '../filter/filter.component';
 
 @Component({
   selector: 'app-list',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, FilterComponent],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })

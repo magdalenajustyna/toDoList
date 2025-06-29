@@ -1,5 +1,4 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { FilterComponent } from '../filter/filter.component';
 import { RouterLink } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { ArchivbuttonComponent } from '../archivbutton/archivbutton.component';
@@ -12,7 +11,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
-  imports: [FilterComponent, RouterLink, HeaderComponent, ArchivbuttonComponent, ListComponent, LogoutbuttonComponent, NewtodobuttonComponent, ReactiveFormsModule],
+  imports: [RouterLink, HeaderComponent, ArchivbuttonComponent, ListComponent, LogoutbuttonComponent, NewtodobuttonComponent, ReactiveFormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

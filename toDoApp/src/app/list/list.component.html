@@ -2,68 +2,22 @@
  
 Die Suchzeile reagiert nur, wenn sie in die Tabelle integriert ist, deswegen nicht als einzelne Komponente?-->
 
-<div class="list-container">
-    <div class="row">
-
-      <div class="col">
-        <div class="header-item">
-          <i class="bi bi-check-circle"></i>
-          Status
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="header-item">ToDo</div>
-      </div>
-
-      <div class="col">
-        <div class="dropdown prioButton">
-          <button
-            class="btn dropdown-toggle prioButton"
-            type="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Prio
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">hoch</a></li>
-            <li><a class="dropdown-item" href="#">mittel</a></li>
-            <li><a class="dropdown-item" href="#">niedrig</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="header-item">
-          <i class="bi bi-calendar"></i>
-          Datum
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="header-item">
-          <i class="bi bi-trash"></i>
-          Löschen
-        </div>
-      </div>
-    </div>
-  </div>
-
   <input
   class="inputFilter w-75 form-control"
   type="text"
   placeholder="ToDo suchen"
   aria-label="Aufgabensuche"
   [formControl]="search" (input)="filter()">
-  <table>
+ 
+  <table class="table table-striped">
    
     <thead>
 <tr>
-         <th>Status</th>
+        <th class="text-center">Status</th>
         <th>ToDo</th>
         <th>Prio</th>
         <th>Datum</th>
+        <th class="text-center">Löschen</th>
 </tr>
 
     </thead>
@@ -72,10 +26,19 @@ Die Suchzeile reagiert nur, wenn sie in die Tabelle integriert ist, deswegen nic
     
         @for(ToDo of filteredToDos; track $index) {
             <tr>                
-                <td>{{ ToDo.status}}</td>
+                <td>
+                  <div class="text-center">
+                  <i class="bi bi-check-circle"></i>
+                </div>
+              </td>
                 <td>{{ ToDo.todo }}</td>
                 <td>{{ ToDo.prio }}</td>
                 <td>{{ ToDo.datum }}</td>
+                <td>
+                  <div class="text-center">
+                  <i class="bi bi-trash align-items-center"></i>
+                  </div>
+                  </td>
             </tr>
 
         }
@@ -83,5 +46,23 @@ Die Suchzeile reagiert nur, wenn sie in die Tabelle integriert ist, deswegen nic
     </tbody>
 
 </table>
+
+
+<button
+            class="btn dropdown-toggle prioButton"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Prio
+</button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">hoch</a></li>
+            <li><a class="dropdown-item" href="#">mittel</a></li>
+            <li><a class="dropdown-item" href="#">niedrig</a></li>
+          </ul>
+
+<i class="bi bi-calendar"></i>
+
 
   
