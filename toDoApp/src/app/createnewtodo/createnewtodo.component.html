@@ -1,0 +1,31 @@
+<app-header></app-header>
+<div class="container newtodo-container">
+<h2>Neues ToDo</h2>
+<form>
+
+ <div class="mb-3">
+    <label for="toDoNameInput" class="form-label">ToDo</label>
+    <input type="todo" class="form-control" id="toDoNameInput">
+  </div>
+
+<div class="mb-3">
+    <button
+        class="btn dropdown-toggle prioButton"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+        >Prio
+    </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">hoch</a></li>
+            <li><a class="dropdown-item" href="#">mittel</a></li>
+            <li><a class="dropdown-item" href="#">niedrig</a></li>
+          </ul>
+
+    <label for="passwordInput" class="form-label">fällig bis</label>
+    <input type="date">
+  </div>
+
+  <button type="submit" class="btn save btn-primary w-100" [routerLink]="['/home']">hinzufügen</button>
+
+</form>
