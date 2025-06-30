@@ -10,10 +10,15 @@
   font-weight: bold;
 }
 
+
 .prioButton {
-  background-color: rgb(220, 198, 241);
   color: black;
   font-weight: bold; 
+  text-align: center;
+}
+
+.prioButton:hover{
+  background-color: yellow;
 }
 
 .col{
