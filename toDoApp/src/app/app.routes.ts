@@ -5,10 +5,11 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { CreatenewtodoComponent } from './createnewtodo/createnewtodo.component';
 
 export const routes: Routes = [
-    { path: "login", component: LoginComponent },
+    { path: "login", component: LoginComponent},
     { path: "home", component: HomeComponent},
     { path: "register", component: RegisterFormComponent},
-    { path: "**", redirectTo: "login" },
     { path: "logout", component: LoginComponent },
-    { path: "createnew", component: CreatenewtodoComponent}
+    { path: "create", component: CreatenewtodoComponent},
+    { path: "", component: LoginComponent, pathMatch: 'full' },
+    { path: "**", redirectTo: "login" }, // dieser Pfad muss offenbar unten stehen!
 ];
