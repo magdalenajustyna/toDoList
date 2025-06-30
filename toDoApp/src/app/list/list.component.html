@@ -2,8 +2,6 @@
  
 Die Suchzeile reagiert nur, wenn sie in die Tabelle integriert ist, deswegen nicht als einzelne Komponente?-->
 
-
-  
   <div class="row"> 
   <input
   class="inputFilter w-75 form-control"
@@ -13,17 +11,14 @@ Die Suchzeile reagiert nur, wenn sie in die Tabelle integriert ist, deswegen nic
   [formControl]="search" (input)="filter()">
 </div>
 
-  
-
   <table class="table table-striped">
-   
     <thead>
 <tr>
         <th scope="col" class="text-center">Status</th>
         <th scope="col" >ToDo</th>
         <th scope="col" >Prio</th>
         <th scope="col" >Datum</th>
-        <th scope="col" class="text-center">Löschen</th>
+        <th scope="col" >Löschen</th>
 </tr>
     </thead>
 
@@ -40,9 +35,9 @@ Die Suchzeile reagiert nur, wenn sie in die Tabelle integriert ist, deswegen nic
                 <td>{{ ToDo.prio }}</td>
                 <td>{{ ToDo.datum }}</td>
                 <td>
-                  <div class="text-center">
+                  <button (click)="confirmAction()" class="btn trashButton btn-outline-primary">
                   <i class="bi bi-trash align-items-center"></i>
-                  </div>
+                  </button>
                   </td>
             </tr> }  
 
@@ -61,9 +56,7 @@ Die Suchzeile reagiert nur, wenn sie in die Tabelle integriert ist, deswegen nic
                 </div>
                 </td>
           </tr> -->     
-        
     </tbody>
-
 </table>
 
 

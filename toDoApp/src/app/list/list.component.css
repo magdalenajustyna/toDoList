@@ -5,7 +5,6 @@
   margin: 1%;*/
 }
 
-
 .header-item {  
   text-align: center;
   font-weight: bold;
@@ -27,5 +26,15 @@
   margin-left: 1%;
   margin-right: 2%;
   
+}
+
+.trashButton {
+  color: blueviolet;
+  border: none;
+  
+}
+
+.trashButton:hover {
+  background-color: yellow;
 }
 

@@ -36,11 +36,19 @@ export class ListComponent implements OnInit{
     this.filteredToDos = this.toDos.filter(t => t.todo.toLowerCase().includes(input) && t.status == "offen"); 
   
   }
+  
+    confirmAction() {
+    const confirmed = window.confirm('Möchtest du das ToDo wirklich löschen?');
+    if (confirmed) {
+      console.log('Aktion bestätigt!');
+    } else {
+      console.log('Aktion abgebrochen!');
+    }
+  }
+  
 
-  /* addItem(): void {
-    this.items.push(''); // fügt einen neuen leeren Eintrag hinzu
-  } */
- 
+  
 }
+ 
 
 
