@@ -33,8 +33,8 @@ export class ListComponent implements OnInit{
   filter() {
     let input = this.search.value?.toLocaleLowerCase() ||"";                //damit Zeile 35 funktioniert // ? prüft, ob null, wenn nicht, dann to lower Case
     console.log('input: ', input);
-    this.filteredToDos = this.toDos.filter(t => t.todo.toLowerCase().includes(input) && t.status == "offen"
-    || t.prio.toLowerCase().includes(input) && t.status == "offen"); 
+    this.filteredToDos = this.toDos.filter(t => (t.todo.toLowerCase().includes(input) || t.prio.toLowerCase().includes(input)) && t.status == "offen");
+     
   
   }
   
