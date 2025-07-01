@@ -16,12 +16,12 @@ export class ListComponent implements OnInit{
   // in dem Moment sollen alle Daten geladen werden
 
   dataservice = inject(TodosService);       // Injezierung des Services
-  toDos: Todo[] = [];                     // achtung Schreibweise!!
+  toDos: Todo[] = [];                     // Achtung Schreibweise!!
   filteredToDos: Todo[] = []; 
 
   search = new FormControl('');               // FormControl für die Suche, initial leer //ReactiveFormsModule muss auch in imports 
  
-  async ngOnInit(): Promise<void>              // async Methode, die Promise zurückgibt
+    async ngOnInit(): Promise<void>              // async Methode, die Promise zurückgibt
   {
    this.toDos = await this.dataservice.getAllToDos()
     this.filteredToDos = this.toDos.filter(t => t.status == "offen"); // initial nur offene ToDos anzeigen
@@ -33,7 +33,8 @@ export class ListComponent implements OnInit{
   filter() {
     let input = this.search.value?.toLocaleLowerCase() ||"";                //damit Zeile 35 funktioniert // ? prüft, ob null, wenn nicht, dann to lower Case
     console.log('input: ', input);
-    this.filteredToDos = this.toDos.filter(t => t.todo.toLowerCase().includes(input) && t.status == "offen"); 
+    this.filteredToDos = this.toDos.filter(t => t.todo.toLowerCase().includes(input) && t.status == "offen"
+    || t.prio.toLowerCase().includes(input) && t.status == "offen"); 
   
   }
   

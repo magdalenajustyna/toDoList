@@ -9,7 +9,7 @@ export class TodosService {
   constructor() { }
 
   /* getAllToDos noch anpassen, Datenbank auslesen */
-  /* ich will erstmal nur die offenen to DOs
+  /* ich will erstmal nur die offenen to DOs (neue Methode getAllOpenToDos?)
   get all ToDos für Archiv*/
 
   async getAllToDos(): Promise<Todo[]> {        // gibt Promise zurück, typisieren mit Datentype (Array von Interface Typ)

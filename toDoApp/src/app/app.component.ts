@@ -3,7 +3,6 @@ import { RouterOutlet } from '@angular/router';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { DeleteComponent } from './delete/delete.component';
 import { ArchivbuttonComponent } from './archivbutton/archivbutton.component';
-import { FilterComponent } from './filter/filter.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
@@ -14,7 +13,7 @@ import { NewtodobuttonComponent } from './newtodobutton/newtodobutton.component'
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RegisterFormComponent, DeleteComponent, ArchivbuttonComponent, FilterComponent,
+  imports: [RouterOutlet, RegisterFormComponent, DeleteComponent, ArchivbuttonComponent,
             LoginComponent, HeaderComponent, HomeComponent, ListComponent, CreatenewtodoComponent, NewtodobuttonComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

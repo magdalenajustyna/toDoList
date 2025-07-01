@@ -1,7 +1,7 @@
 [
     {
     "status" : "erledigt",
-    "todo" : "Exceptions wiederholen",
+    "todo" : "Exceptions wiederholen (erledigt)",
     "prio" : "hoch",
     "datum" : "01.07.2025"
     },
@@ -18,5 +18,24 @@
     "todo" : "Webtech bearbeiten",
     "prio" : "hoch",
     "datum" : "03.07.2025"
-    } 
+    } ,
+{
+    "status" : "offen",
+    "todo" : "Mathe AB 12 bearbeiten",
+    "prio" : "niedrig",
+    "datum" : "04.07.2025"
+},
+
+{
+    "status" : "offen",
+    "todo" : "Englischvortrag durchsprechen",
+    "prio" : "niedrig",
+    "datum" : "05.07.2025"
+},
+{
+    "status" : "offen",
+    "todo" : "Rechnungswesen üben",
+    "prio" : "mittel",
+    "datum" : "03.08.2025"
+}
     ]
