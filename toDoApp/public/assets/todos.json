@@ -5,6 +5,20 @@
     "prio" : "hoch",
     "datum" : "01.07.2025"
     },
+
+    {
+    "status" : "erledigt",
+    "todo" : "Mathe Wdh-AB zu Wahrscheinlichkeitstheorie beenden (erledigt)",
+    "prio" : "mittel",
+    "datum" : "16.07.2025"
+    },
+
+    {
+    "status" : "erledigt",
+    "todo" : "Englisch HA zu AI beenden (erledigt)",
+    "prio" : "mittel",
+    "datum" : "01.08.2025"
+    },
     
     {
     "status" : "offen",
@@ -19,23 +33,24 @@
     "prio" : "hoch",
     "datum" : "03.07.2025"
     } ,
-{
+    {
     "status" : "offen",
     "todo" : "Mathe AB 12 bearbeiten",
     "prio" : "niedrig",
     "datum" : "04.07.2025"
-},
+    },
 
-{
+    {
     "status" : "offen",
     "todo" : "Englischvortrag durchsprechen",
     "prio" : "niedrig",
     "datum" : "05.07.2025"
-},
-{
+    },
+
+    {
     "status" : "offen",
     "todo" : "Rechnungswesen üben",
     "prio" : "mittel",
     "datum" : "03.08.2025"
-}
+    }
     ]

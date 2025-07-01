@@ -1,0 +1,52 @@
+
+<div class="row">
+    <input class="inputFilter w-75 form-control" type="text" placeholder="ToDo suchen" aria-label="Aufgabensuche"
+      [formControl]="search" (input)="filter()">
+  </div>
+  
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col" class="text-center">Status</th>
+        <th scope="col">ToDo</th>
+        <th scope="col">
+          <button class="btn dropdown-toggle prioButton" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Prio
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">hoch</a>
+            <a class="dropdown-item" href="#">mittel</a>
+            <a class="dropdown-item" href="#">niedrig</a>
+          </div>
+        </th>
+        <th scope="col">Datum</th>
+        <th scope="col">Löschen</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+  
+      @for(ToDo of filteredToDos; track $index) {
+      <tr>
+        <td>
+          <div class="text-center">
+            <i class="bi bi-check-circle"></i>
+          </div>
+        </td>
+        <td>{{ ToDo.todo }}</td>
+        <td>{{ ToDo.prio }}</td>
+        <td>{{ ToDo.datum }}</td>
+        <td>
+          <button (click)="confirmAction()" class="btn trashButton btn-outline-primary">
+            <i class="bi bi-trash align-items-center"></i>
+          </button>
+        </td>
+      </tr> }
+  
+    
+    </tbody>
+  </table>
+  
+  
+  
+  
