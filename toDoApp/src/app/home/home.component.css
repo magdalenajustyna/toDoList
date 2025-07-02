@@ -5,9 +5,11 @@ h3 {
 }
 .container {
   border: 3px solid#f1f1f1;
-    border-radius: 10px;
-    /*max-width: 100%;*/
-    overflow-x: auto;
+  border-radius: 10px;
+  width: 60%;
+  overflow-x: auto;
+  padding: 1%;
+  margin: 0 auto; /* Zentriert das div horizontal */
   }
 
 .container-header{
