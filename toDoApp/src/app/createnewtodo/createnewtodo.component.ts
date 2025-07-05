@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { BackendService } from '../shared/backend.service';
+import { Todo } from '../shared/todo';
 
 @Component({
   selector: 'app-createnewtodo',
@@ -10,5 +12,16 @@ import { ReactiveFormsModule } from '@angular/forms';
   styleUrl: './createnewtodo.component.css'
 })
 export class CreatenewtodoComponent {
+
+  private dataservice = inject(BackendService)
+  private router = inject(Router)
+  todo: Todo = {_id: '', status: '', todoName: '', prio: '', datum: ''}
+  saved: boolean = false
+
+  form = new FormGroup({
+    todoNameControl : new FormControl<string>('', ),   // [Validators.required] muss das wieder rein?!?
+    // es fehlen hier noch Prio und Datum
+  });
+
 
 }
