@@ -37,6 +37,11 @@ export class ListComponent implements OnInit{
    //console.log('toDos in table -> ', this.toDos);
   }
 
+  delete(id: string): void {
+    this.dataservice.deleteOne(String(id))
+    console.log('delete in home-list: ', id)        
+  }
+
   filter() {
     let input = this.search.value?.toLocaleLowerCase() ||"";                //damit Zeile 35 funktioniert // ? prüft, ob null, wenn nicht, dann to lower Case
     console.log('input: ', input);
