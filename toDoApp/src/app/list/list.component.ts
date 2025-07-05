@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { TodosService } from '../shared/todos.service';
 import { Todo } from '../shared/todo';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { BackendService } from '../shared/backend.service';
 
 @Component({
   selector: 'app-list',
@@ -12,8 +12,8 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 export class ListComponent implements OnInit{  
   // in dem Moment in dem Tabl Component in Anwendung eingebunden wird, soll Service aufgerufen werden
   // in dem Moment sollen alle Daten geladen werden
-
-  dataservice = inject(TodosService);       // Injezierung des Services
+  
+  private dataservice = inject(BackendService)
   toDos: Todo[] = [];                     // Achtung Schreibweise!!
   filteredToDos: Todo[] = []; 
 
@@ -40,7 +40,7 @@ export class ListComponent implements OnInit{
   filter() {
     let input = this.search.value?.toLocaleLowerCase() ||"";                //damit Zeile 35 funktioniert // ? prüft, ob null, wenn nicht, dann to lower Case
     console.log('input: ', input);
-    this.filteredToDos = this.toDos.filter(t => (t.todo.toLowerCase().includes(input) || t.prio.toLowerCase().includes(input)) && t.status == "offen");
+    this.filteredToDos = this.toDos.filter(t => (t.todoName.toLowerCase().includes(input) || t.prio.toLowerCase().includes(input)) && t.status == "offen");
      
   
   }

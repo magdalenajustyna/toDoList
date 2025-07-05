@@ -1,3 +1,11 @@
+/*
+
+todos.service ist das gleiche wie backend service
+aufräumen!!
+
+*/
+
+
 import { Injectable } from '@angular/core';
 import { Todo } from './todo';
 

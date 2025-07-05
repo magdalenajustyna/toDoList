@@ -1,6 +1,6 @@
 export interface Todo {
-    status : String,
-    todo : String,
-    prio : String,
-    datum : String
+    status : string;
+    todoName : string;
+    prio : string;
+    datum : string
 }
