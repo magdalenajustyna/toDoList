@@ -16,6 +16,9 @@ export class ListComponent implements OnInit{
   private dataservice = inject(BackendService)
   toDos: Todo[] = [];                     // Achtung Schreibweise!!
   filteredToDos: Todo[] = []; 
+  todo!: Todo
+
+  deleteStatus: boolean = false;
 
   search = new FormControl('');               // FormControl für die Suche, initial leer //ReactiveFormsModule muss auch in imports 
  
@@ -37,18 +40,46 @@ export class ListComponent implements OnInit{
    //console.log('toDos in table -> ', this.toDos);
   }
 
-  delete(id: string): void {
-    this.dataservice.deleteOne(String(id))
-    console.log('delete in home-list: ', id)        
+
+  //diese Methode darf bei Sicherheitsabfrage nicht gleich löschen (getOne muss aufgerufen werden anstatt delete, siehe unten)
+  async delete(id: string) {
+    console.log('delete in home-list: ', id)
+    this.dataservice.deleteOne(id)
+    this.toDos = await this.dataservice.getAllToDos()     //warum aktualisiert der nicht selbstständig?
+ } 
+
+ 
+  /*delete(id: string): void {
+    this.dataservice.getOne(String(id))
+    .then(
+      response => {
+        this.todo = response
+        this.deleteStatus=true;
+      }
+    )
   }
+
+  confirm() {
+    this.dataservice.deleteOne(String(this.todo._id))
+    .then( () => {
+      this.dataservice.getAllToDos()
+      .then( response => {
+        this.toDos = response 
+        this.deleteStatus=false;
+      })
+    })
+  }
+
+  cancel() {
+    this.deleteStatus=false;
+  } */          
+  
 
   filter() {
     let input = this.search.value?.toLocaleLowerCase() ||"";                //damit Zeile 35 funktioniert // ? prüft, ob null, wenn nicht, dann to lower Case
     console.log('input: ', input);
     this.filteredToDos = this.toDos.filter(t => (t.todoName.toLowerCase().includes(input) || t.prio.toLowerCase().includes(input)) && t.status == "offen");
-     
-  
-  }
+       }
   
     confirmAction() {
     const confirmed = window.confirm('Möchtest du das ToDo wirklich löschen?');
@@ -58,7 +89,6 @@ export class ListComponent implements OnInit{
       console.log('Aktion abgebrochen!');
     }
   }
-  
 
   
 }

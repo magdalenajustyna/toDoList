@@ -4,7 +4,31 @@
     [formControl]="search" (input)="filter()">
 </div>
 
-<table class="table table-striped">
+<!-- @if(deleteStatus) {
+  <div class="modal" tabindex="-1">
+      <div class="modal-dialog">
+          <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title">Wirklich löschen?</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Abbrechen" (click)="cancel()"></button>
+          </div>
+          <div class="modal-body">
+              <p>Wollen Sie das ToDo wirklich löschen?</p>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cancel()">Abbrechen</button>
+              <button type="button" class="btn btn-danger" (click)="confirm()">Löschen</button>
+          </div>
+          </div>
+      </div>
+  </div>
+}
+
+@else { -->
+
+<table class="table table-striped"> 
+
+
   <thead>
     <tr>
       <th scope="col" class="text-center">Status</th>
@@ -26,44 +50,37 @@
 
   <tbody>
 
-    @for(ToDo of filteredToDos; track $index) {
+    @for(Todo of filteredToDos; track $index) {
     <tr>
       <td>
         <div class="text-center">
           <i class="bi bi-check-circle"></i>
         </div>
       </td>
-      <td>{{ ToDo.todoName }}</td>
-      <td>{{ ToDo.prio }}</td>
-      <td>{{ ToDo.datum }}</td>
+      <td>{{ Todo.todoName }}</td>
+      <td>{{ Todo.prio }}</td>
+      <td>{{ Todo.datum }}</td>
       <td>
-        <button (click)="confirmAction()" class="btn trashButton btn-outline-primary">
-          <i class="bi bi-trash align-items-center"></i>
+        <button  class="btn trashButton btn-outline-primary">
+          <i (click)="delete(Todo._id)" class="bi bi-trash align-items-center"></i>
         </button>
       </td>
-    </tr> }
+    </tr> 
+  }
+  </tbody> 
 
-    <!-- <tr>                
-              <td>
-                <div class="text-center">
-                <i class="bi bi-check-circle"></i>
-              </div>
-            </td>
-              <td>1</td>
-              <td>2</td>
-              <td>3</td>
-              <td>
-                <div class="text-center">
-                <i class="bi bi-trash align-items-center"></i>
-                </div>
-                </td>
-          </tr> -->
-  </tbody>
 </table>
+    <!-- } -->
+
+
 
 
 
 
 <!--
+
+(click)="confirmAction()" aus delete icon
+
+
 <i class="bi bi-calendar"></i>
 -->
