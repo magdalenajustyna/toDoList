@@ -1,0 +1,38 @@
+.newtodo-container {
+    padding: 1%;
+    border: 3px solid #f1f1f1;
+    border-radius: 10px;
+    width: 60%;
+    margin: 0 auto; /* Zentriert das div horizontal */
+}
+
+form {
+    padding: 5%;     
+    margin: 18px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+h2 {
+    text-align: center;
+    color: blueviolet;
+    margin-top: 7%;
+}
+
+button.save {
+    background-color: blueviolet;
+    border-color: blueviolet;
+    color: white;
+}
+
+button.btn:hover {
+    background-color: yellow;
+    color: blueviolet;
+}
+
+button.cancel {
+    background-color:hsl(271, 68%, 83%);
+    border-color: blueviolet;
+    color: white;
+}
+

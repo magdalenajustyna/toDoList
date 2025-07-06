@@ -62,16 +62,15 @@
       <td>{{ Todo.prio }}</td>
       <td>{{ Todo.datum }}</td>
       <td>
-        <button  class="btn pencilButton btn-outline-primary">
+        <button class="btn pencilButton btn-outline-primary" [routerLink]="['/update']">
           <i class="bi bi-pencil"></i>
         <!--
-           i (click)="update(Todo._id)"
+           i (click)="update(Todo._id)" // kann eigentlich weg, oder?
         -->
-          
         </button>
       </td>
       <td>
-        <button  class="btn trashButton btn-outline-primary">
+        <button class="btn trashButton btn-outline-primary">
           <i (click)="delete(Todo._id)" class="bi bi-trash align-items-center"></i>
         </button>
       </td>
@@ -80,11 +79,7 @@
   </tbody> 
 
 </table>
-    <!-- } -->
-
-
-
-
+   
 
 
 <!--
