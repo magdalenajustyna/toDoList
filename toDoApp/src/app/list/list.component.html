@@ -64,10 +64,10 @@
       <td>
         <button class="btn pencilButton btn-outline-primary" [routerLink]="['/update']">
           <i class="bi bi-pencil"></i>
-        <!--
-           i (click)="update(Todo._id)" // kann eigentlich weg, oder?
-        -->
         </button>
+        <!--
+           i (click)="update(Todo._id)" // das muss in update.html rein, oder?
+        -->
       </td>
       <td>
         <button class="btn trashButton btn-outline-primary">
@@ -79,13 +79,11 @@
   </tbody> 
 
 </table>
-   
 
 
 <!--
 
 (click)="confirmAction()" aus delete icon
-
 
 <i class="bi bi-calendar"></i>
 -->

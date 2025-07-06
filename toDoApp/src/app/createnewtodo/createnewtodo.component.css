@@ -30,3 +30,9 @@ button.btn:hover {
     color: blueviolet;
 }
 
+button.cancel {
+    background-color:hsl(271, 68%, 83%);
+    border-color: blueviolet;
+    color: white;
+}
+

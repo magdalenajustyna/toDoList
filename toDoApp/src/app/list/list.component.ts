@@ -2,10 +2,12 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Todo } from '../shared/todo';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { BackendService } from '../shared/backend.service';
+import { UpdateComponent } from '../update/update.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-list',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })

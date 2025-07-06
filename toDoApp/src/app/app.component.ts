@@ -9,12 +9,13 @@ import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
 import { CreatenewtodoComponent } from './createnewtodo/createnewtodo.component';
 import { NewtodobuttonComponent } from './newtodobutton/newtodobutton.component';
+import { UpdateComponent } from './update/update.component';
 
 
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, RegisterFormComponent, DeleteComponent, ArchivbuttonComponent,
-            LoginComponent, HeaderComponent, HomeComponent, ListComponent, CreatenewtodoComponent, NewtodobuttonComponent],
+            LoginComponent, HeaderComponent, HomeComponent, ListComponent, CreatenewtodoComponent, NewtodobuttonComponent, UpdateComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
