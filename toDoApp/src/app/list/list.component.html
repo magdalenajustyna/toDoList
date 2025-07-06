@@ -61,14 +61,17 @@
       <td>{{ Todo.todoName }}</td>
       <td>{{ Todo.prio }}</td>
       <td>{{ Todo.datum }}</td>
-      <td>
-        <button class="btn pencilButton btn-outline-primary" [routerLink]="['/update']">
+      <td><button class="btn pencilButton btn-outline-primary"> <a [routerLink]="['/todo', Todo._id ]"><span class="bi bi-pencil-square"></span></a> </button></td>
+      <!-- Zeile 64 soll URL /todos/id aufrufen (todo oder todos?)-->
+      <!-- <td>
+        <button class="btn pencilButton btn-outline-primary" [routerLink]="['/update', ToDo._id]">
           <i class="bi bi-pencil"></i>
-        </button>
+        </button> -->
         <!--
            i (click)="update(Todo._id)" // das muss in update.html rein, oder?
-        -->
-      </td>
+        
+      </td> -->
+
       <td>
         <button class="btn trashButton btn-outline-primary">
           <i (click)="delete(Todo._id)" class="bi bi-trash align-items-center"></i>

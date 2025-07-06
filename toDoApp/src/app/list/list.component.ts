@@ -7,6 +7,7 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-list',
+  standalone: true, //standalone aus seinem Code eingefügt
   imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
@@ -33,7 +34,8 @@ export class ListComponent implements OnInit{
       let dateA = new Date(a.datum.split('.').reverse().join('-'));
       let dateB = new Date(b.datum.split('.').reverse().join('-'));
       return dateA.getTime() - dateB.getTime();     
-   });       
+   });
+   console.log('todos in list: ', this.toDos) ;      
       
       // initial nur offene ToDos anzeigen und nach Datum sortieren 
       // für Datumssortierung habe ich Chat Ki gewählt
@@ -42,13 +44,18 @@ export class ListComponent implements OnInit{
    //console.log('toDos in table -> ', this.toDos);
   }
 
+  delete(id: string): void {
+    console.log(`member mit id=${id} löschen`)
+  }
 
   //diese Methode darf bei Sicherheitsabfrage nicht gleich löschen (getOne muss aufgerufen werden anstatt delete, siehe unten)
-  async delete(id: string) {
+ /*async delete(id: string) {
     console.log('delete in home-list: ', id)
     this.dataservice.deleteOne(id)
     this.toDos = await this.dataservice.getAllToDos()     //warum aktualisiert der nicht selbstständig?
- } 
+ } */
+
+      
 
  
   /*delete(id: string): void {

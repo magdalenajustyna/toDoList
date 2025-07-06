@@ -13,7 +13,7 @@ export const routes: Routes = [
     { path: "logout", component: LoginComponent },
     { path: "create", component: CreatenewtodoComponent},
     { path: "archiv", component: ArchivComponent },
-    { path: "update", component: UpdateComponent},
+    { path: "todo/:id", component: UpdateComponent},
     { path: "", component: LoginComponent, pathMatch: 'full' },
     { path: "**", redirectTo: "login" }, // dieser Pfad muss offenbar unten stehen!
 ];

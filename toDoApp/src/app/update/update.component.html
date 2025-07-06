@@ -1,10 +1,22 @@
 <app-header></app-header>
 <h2>ToDo bearbeiten</h2>
 <div class="container newtodo-container">
-  <form>
+  
+  <form [formGroup]="form" (ngSubmit)="update()">
+
     <div class="mb-3">
       <label for="toDoNameInput" class="form-label">ToDo</label>
-      <input type="todo" class="form-control" id="toDoNameInput" required>
+      <input type="text" class="form-control" id="toDoNameInput" formControlName="todoNameControl" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="prioInput" class="form-label">Prio</label>
+      <input type="text" class="form-control" id="prioInput" formControlName="prioControl" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="datumInput" class="form-label">fällig am:</label>
+      <input type="text" class="form-control" id="datumInput" formControlName="datumControl" required>
     </div>
 
     <div class="drowpdown mb-5">
@@ -16,7 +28,8 @@
         <li><a class="dropdown-item" href="#">mittel</a></li>
         <li><a class="dropdown-item" href="#">niedrig</a></li>
       </ul>
-      <label for="passwordInput" class="form-label">fällig am:</label>
+
+      <label for="dateInput" class="form-label">fällig am:</label>
       <input type="date">
     </div>
 
