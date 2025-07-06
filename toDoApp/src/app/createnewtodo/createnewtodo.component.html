@@ -1,14 +1,14 @@
 <app-header></app-header>
 <h2>Neues ToDo</h2>
 <div class="container newtodo-container">
-  <form>
+  <form [formGroup]="form" (ngSubmit)="create()">
     <div class="mb-3">
       <label for="toDoNameInput" class="form-label">ToDo</label>
-      <input type="todo" class="form-control" id="toDoNameInput" required>
+      <input type="todo" class="form-control" id="toDoNameInput" formControlName="todoNameControl" required>
     </div>
 
     <div class="drowpdown mb-5">
-      <button class="btn dropdown-toggle prioButton" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <button class="btn dropdown-toggle prioButton form-control" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         Prio
       </button>
       <ul class="dropdown-menu">
@@ -16,13 +16,13 @@
         <li><a class="dropdown-item" href="#">mittel</a></li>
         <li><a class="dropdown-item" href="#">niedrig</a></li>
       </ul>
-      <label for="passwordInput" class="form-label">fällig am:</label>
+      <label for="dateInput" class="form-label">fällig am:</label>
       <input type="date">
     </div>
 
     <div class="d-grid gap-2 mt-5">
     <button type="submit" class="btn save btn-primary w-100" [routerLink]="['/home']">Hinzufügen</button>
-    <button type="button" class="btn btn-secondary btn cancel" [routerLink]="['/home']">
+    <button type="button" class="btn btn-secondary btn cancel" (click)="cancel()" [routerLink]="['/home']">
         Abbrechen
       </button>
     </div>

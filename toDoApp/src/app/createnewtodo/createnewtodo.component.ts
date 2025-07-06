@@ -7,6 +7,7 @@ import { Todo } from '../shared/todo';
 
 @Component({
   selector: 'app-createnewtodo',
+  standalone: true, //aus seinem Code
   imports: [RouterLink, HeaderComponent, ReactiveFormsModule],
   templateUrl: './createnewtodo.component.html',
   styleUrl: './createnewtodo.component.css'
@@ -23,5 +24,27 @@ export class CreatenewtodoComponent {
     // es fehlen hier noch Prio und Datum
   });
 
+
+  create(): void {
+    const values = this.form.value;
+    console.log('values : ', values)
+    this.todo.todoName = values.todoNameControl || '';
+    //this.todo.prio = values.prioControl || '';
+    //this.todo.datum = values.datumControl || '';
+    console.log('new todo : ', this.todo)
+
+    if(this.todo.todoName!=''){ //&& this.member.lastname!='' && this.member.email!='') {
+      this.dataservice.create(this.todo)
+      .then( () => this.saved = true )
+    }
+  }
+
+  confirm(): void {
+    this.router.navigate(['/home'])
+  }
+
+  cancel(): void {
+
+  }
 
 }

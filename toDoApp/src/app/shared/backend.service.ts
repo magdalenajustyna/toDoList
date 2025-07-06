@@ -40,6 +40,20 @@ async update(id: string, updateData: Todo): Promise<Todo> {
   return todo; 
 }
 
+//post one
+async create(newData: Todo): Promise<Todo> {
+  let response = await fetch(this.URL + '/todos', {
+    method: "POST",      // Achtung, muss genau so heißen wie in Backend !
+    body: JSON.stringify(newData),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  let todo = await response.json();
+  console.log('todo in service (create) : ', todo)
+  return todo; 
+}
+
 
 
 
