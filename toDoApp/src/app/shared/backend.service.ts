@@ -27,9 +27,25 @@ async getOne(id: string): Promise<Todo> {
 }
 
 //update one
+async update(id: string, updateData: Todo): Promise<Todo> {
+  let response = await fetch(this.URL + '/todos/' + id, {
+    method: "PATCH",      // Achtung, muss genau so heißen wie in Backend !
+    body: JSON.stringify(updateData),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  let todo = await response.json();
+  console.log('todo in service (update) : ', todo)
+  return todo; 
+}
+
+
+
 
 // delete one
 async deleteOne(id: string): Promise<{message: string}> {
+
   let response = await fetch(this.URL + '/todos/' + id, {
     method: "DELETE"
   });

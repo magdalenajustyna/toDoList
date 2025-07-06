@@ -34,8 +34,8 @@
     </div>
 
     <div class="d-grid gap-2 mt-5">
-    <button type="submit" class="btn save btn-primary w-100" [routerLink]="['/home']">Speichern</button>
-    <button type="button" class="btn btn-secondary btn cancel" [routerLink]="['/home']">
+    <button type="submit" class="btn save btn-primary w-100" >Speichern</button>
+    <button type="button" class="btn btn-secondary btn cancel" (click)="cancel()">
         Abbrechen
       </button>
     </div>

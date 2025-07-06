@@ -16,6 +16,8 @@ export class UpdateComponent implements OnInit {
  
   private dataservice = inject(BackendService)
   private route = inject(ActivatedRoute)
+  private router = inject(Router) 
+
   todo!: Todo;
   id: string | null = ''
   form = new FormGroup({
@@ -38,12 +40,33 @@ export class UpdateComponent implements OnInit {
       })
       return this.todo
     })
-    .then( todo => console.log('todo in DetailComponent : ', todo )) 
+    .then( todo => {
+      if(!todo.todoName) {
+        this.router.navigate(['/home']);  // richtig??
+      } else {
+        console.log('todo in DetailComponent : ', todo )
+      }
+    })   
+  }
+
+  update(): void {
+    const values = this.form.value;
+    this.todo.todoName = values.todoNameControl!;
+    this.todo.prio = values.prioControl!;
+    this.todo.datum = values.datumControl!;
+
+    this.dataservice.update(this.id!, this.todo)
+    .then( () => this.router.navigate(['/home']))
+  }
+
+  cancel(): void {
+    this.router.navigate(['/home']);
   }
 
 
 
-  
+
+
 
 }
 
