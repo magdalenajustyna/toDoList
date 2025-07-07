@@ -1,7 +1,7 @@
 h3 {
-    text-align: center;
-    color: blueviolet;
-    margin-top: 7%;
+  text-align: center;
+  color: blueviolet;
+  margin-top: 7%;
 }
 .container {
   border: 3px solid#f1f1f1;
@@ -12,9 +12,11 @@ h3 {
   margin: 0 auto; /* Zentriert das div horizontal */
   }
 
-.container-header{
+.container-header {
   border: 3px solid#ffffff;
 }
+
+
 
 /*.home-container {
   padding: 1%;

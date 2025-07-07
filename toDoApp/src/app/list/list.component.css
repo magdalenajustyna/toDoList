@@ -1,8 +1,8 @@
 .container {       
   background-color: rgb(220, 198, 241);
   padding: 10px;
-  /*border-radius: 10px;
-  margin: 1%;*/
+  border-radius: 10px;
+  margin: 1%;
 }
 
 .header-item {  
@@ -10,11 +10,9 @@
   font-weight: bold;
 }
 
-
 .prioButton {
   color: black;
   font-weight: bold; 
-  text-align: center;
 }
 
 .prioButton:hover{
@@ -35,7 +33,6 @@
 .trashButton {
   color: blueviolet;
   border: none;
-  
 }
 
 .trashButton:hover {

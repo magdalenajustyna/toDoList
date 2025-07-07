@@ -1,8 +1,6 @@
 button { /* Position nochmal klären, wenn ToDos eingeblendet werden*/
-    margin-top: 2%;
+    margin-top: 5%;
     margin-bottom: 2%;
-    margin-left: 1%;
-    /* Margin-left weg? */
 }
 
 button:hover {
