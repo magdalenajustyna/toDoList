@@ -24,7 +24,8 @@ export class UpdateComponent implements OnInit {
     todoNameControl : new FormControl<string>(''),
     prioControlOld: new FormControl<string>(''),
     prioControlButton: new FormControl<string>(''),
-    datumControl: new FormControl<string>('')
+    datumControlOld: new FormControl<string>(''),
+    datumControlButton: new FormControl<string>('')
 });
 
   ngOnInit(): void //holt todo aus Datenbank und befüllt Formular
@@ -37,7 +38,7 @@ export class UpdateComponent implements OnInit {
       this.form.patchValue({
         todoNameControl: this.todo?.todoName,
         prioControlOld: this.todo?.prio,
-        datumControl: this.todo?.datum
+        datumControlOld: this.todo?.datum
       })
       return this.todo
     })
@@ -56,14 +57,36 @@ export class UpdateComponent implements OnInit {
     
   }
 
+  formatDateToString(date: Date): string {
+    const day = date.getDate();
+    const month = date.getMonth() + 1; // Monate sind nullbasiert -> Januar = 0
+    const year = date.getFullYear();
+
+    // Tag und Monat in 2-stelliges Format umwandeln
+    const dayString = day < 10 ? '0' + day : day.toString();
+    const monthString = month < 10 ? '0' + month : month.toString();
+    const datumNeu = dayString + '.' + monthString + '.' + year;
+    return datumNeu;
+    /* return `${dayString}.${monthString}.${year}`;*/
+    
+}
+
+  setDate(datum: Date) : void {    
+    //Datum aus Datepicker auslesen (YYYY-MM-DD) --> dieser muss in String DD-MM-YYYY umgewandelt werden
+    const datumNeu = this.formatDateToString(datum);   
+    this.form.patchValue({ datumControlButton: datumNeu });    //setzt Datum aus Dropdown ins Formular (zwischenspeichern)
+    
+    
+  }
+
   update(): void {
     const values = this.form.value;
     this.todo.todoName = values.todoNameControl!;   
-    this.todo.prio =  values.prioControlButton!;
-    this.todo.datum = values.datumControl!;
+    this.todo.prio =  values.prioControlButton!;    
+    this.todo.datum = values.datumControlButton!;
 
     this.dataservice.update(this.id!, this.todo)
-    .then( () => this.router.navigate(['/home']))     //geht nur zu Home wenn update erfolgteich
+    .then( () => this.router.navigate(['/home']))     //geht nur zu Home wenn update erfolgreich
   }
 
   cancel(): void {

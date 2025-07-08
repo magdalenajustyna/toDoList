@@ -19,9 +19,9 @@
       <input type="text" class="form-control" id="prioInput" formControlName="prioControlOld" required>
     </div> 
 
-    <div class="mb-3"> <!-- disabled, soll nur bisherige Prio anzeigen -->
+    <div class="mb-3"> <!-- disabled, soll nur bisheriges Datum anzeigen -->
       <label for="datumInput" class="form-label">fällig am:</label>
-      <input type="text" class="form-control" id="datumInput" formControlName="datumControl" required>
+      <input type="text" class="form-control" id="datumInput" formControlName="datumControlOld" required>
     </div>
 
     <div class="drowpdown mb-5">
@@ -35,7 +35,7 @@
       </ul>
 
       <label for="dateInput" class="form-label">fällig am:</label>
-      <input type="date">
+      <input type="date" formControlName="datumControlButton">
     </div>
 
     <div class="d-grid gap-2 mt-5">
