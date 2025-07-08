@@ -1,3 +1,8 @@
+<!-- TO DO:
+ Anzeige der bisherigen Prio
+ Anzeige des bisherigen Fälligkeitsdatum -->
+
+
 <app-header></app-header>
 <h2>ToDo bearbeiten</h2>
 <div class="container newtodo-container">
@@ -9,24 +14,24 @@
       <input type="text" class="form-control" id="toDoNameInput" formControlName="todoNameControl" required>
     </div>
 
-    <div class="mb-3">
+ <div class="mb-3">      <!-- disabled, soll nur bisherige Prio anzeigen -->
       <label for="prioInput" class="form-label">Prio</label>
-      <input type="text" class="form-control" id="prioInput" formControlName="prioControl" required>
-    </div>
+      <input type="text" class="form-control" id="prioInput" formControlName="prioControlOld" required>
+    </div> 
 
-    <div class="mb-3">
+    <div class="mb-3"> <!-- disabled, soll nur bisherige Prio anzeigen -->
       <label for="datumInput" class="form-label">fällig am:</label>
       <input type="text" class="form-control" id="datumInput" formControlName="datumControl" required>
     </div>
 
     <div class="drowpdown mb-5">
-      <button class="btn dropdown-toggle prioButton" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <button class="btn dropdown-toggle prioButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" formControlName="prioControlButton">
         Prio
       </button>
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">hoch</a></li>
-        <li><a class="dropdown-item" href="#">mittel</a></li>
-        <li><a class="dropdown-item" href="#">niedrig</a></li>
+        <li><a class="dropdown-item" (click)="setPrio('hoch')">hoch</a></li>
+        <li><a class="dropdown-item" (click)="setPrio('mittel')">mittel</a></li>
+        <li><a class="dropdown-item" (click)="setPrio('niedrig')">niedrig</a></li>
       </ul>
 
       <label for="dateInput" class="form-label">fällig am:</label>

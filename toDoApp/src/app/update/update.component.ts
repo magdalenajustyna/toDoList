@@ -22,11 +22,12 @@ export class UpdateComponent implements OnInit {
   id: string | null = ''
   form = new FormGroup({
     todoNameControl : new FormControl<string>(''),
-    prioControl: new FormControl<string>(''),
+    prioControlOld: new FormControl<string>(''),
+    prioControlButton: new FormControl<string>(''),
     datumControl: new FormControl<string>('')
 });
 
-  ngOnInit(): void //holt todo 
+  ngOnInit(): void //holt todo aus Datenbank und befüllt Formular
   {
     this.id = this.route.snapshot.paramMap.get('id');
     console.log('id = ', this.id)
@@ -35,7 +36,7 @@ export class UpdateComponent implements OnInit {
       this.todo = response 
       this.form.patchValue({
         todoNameControl: this.todo?.todoName,
-        prioControl: this.todo?.prio,
+        prioControlOld: this.todo?.prio,
         datumControl: this.todo?.datum
       })
       return this.todo
@@ -49,14 +50,20 @@ export class UpdateComponent implements OnInit {
     })   
   }
 
+  setPrio(prio: string) : void {    //mit Hilfe von ChatKI
+
+    this.form.patchValue({ prioControlButton: prio });    //setzt PrioWert aus Dropdown ins Formular (zwischenspeichern)
+    
+  }
+
   update(): void {
     const values = this.form.value;
-    this.todo.todoName = values.todoNameControl!;
-    this.todo.prio = values.prioControl!;
+    this.todo.todoName = values.todoNameControl!;   
+    this.todo.prio =  values.prioControlButton!;
     this.todo.datum = values.datumControl!;
 
     this.dataservice.update(this.id!, this.todo)
-    .then( () => this.router.navigate(['/home']))
+    .then( () => this.router.navigate(['/home']))     //geht nur zu Home wenn update erfolgteich
   }
 
   cancel(): void {
