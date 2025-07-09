@@ -10,7 +10,6 @@
     font-weight: bold;
 }
 
-
 .prioButton {
     color: black;
     font-weight: bold;
@@ -30,7 +29,6 @@
     margin-bottom: 2%;
     margin-left: 1%;
     margin-right: 2%;
-
 }
 
 .trashButton {
@@ -40,4 +38,8 @@
 
 .trashButton:hover {
     background-color: yellow;
+}
+
+th {
+  vertical-align: middle;
 }
