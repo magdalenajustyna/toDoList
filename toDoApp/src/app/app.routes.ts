@@ -7,13 +7,14 @@ import { ArchivComponent } from './archiv/archiv.component';
 import { UpdateComponent } from './update/update.component';
 
 export const routes: Routes = [
-    { path: "login", component: LoginComponent},
-    { path: "home", component: HomeComponent},
-    { path: "register", component: RegisterFormComponent},
-    { path: "logout", component: LoginComponent },
-    { path: "create", component: CreatenewtodoComponent},
-    { path: "archiv", component: ArchivComponent },
-    { path: "todo/:id", component: UpdateComponent},
-    { path: "", component: LoginComponent, pathMatch: 'full' },
-    { path: "**", redirectTo: "login" }, // dieser Pfad muss offenbar unten stehen!
+  { path: 'login', component: LoginComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'register', component: RegisterFormComponent },
+  { path: 'logout', component: LoginComponent },
+  { path: 'create', component: CreatenewtodoComponent },
+  { path: 'archiv', component: ArchivComponent },
+  { path: 'todo/:id', component: UpdateComponent },
+  //{ path: 'homeNew', component: HomeComponent, data: { onSameUrlNavigation: 'reload'} },
+  { path: '', component: LoginComponent, pathMatch: 'full' },
+  { path: '**', redirectTo: 'login' }, // dieser Pfad muss offenbar unten stehen!
 ];

@@ -57,7 +57,7 @@ export class UpdateComponent implements OnInit {
     this.form.patchValue({ prioControlButton: prio }); //setzt PrioWert aus Dropdown ins Formular (zwischenspeichern)
   }
 
-  //Methode um String umzusortieren   //Hilfe von Chat KI
+  //Methode um Datums String umzusortieren   //Hilfe von Chat KI
   formatDateString_DDMMYYYY(datum: string): string {
     const [year, month, day] = datum.split('-');
     return day + '.' + month + '.' + year;
