@@ -4,13 +4,13 @@ import { HeaderComponent } from '../header/header.component';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { BackendService } from '../shared/backend.service';
 import { Todo } from '../shared/todo';
-import { ToastModule } from 'primeng/toast';
+
 
 
 @Component({
   selector: 'app-createnewtodo',
   standalone: true, //aus seinem Code
-  imports: [RouterLink, HeaderComponent, ReactiveFormsModule, ToastModule],
+  imports: [RouterLink, HeaderComponent, ReactiveFormsModule],
   templateUrl: './createnewtodo.component.html',
   styleUrl: './createnewtodo.component.css',
 })

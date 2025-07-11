@@ -1,19 +1,22 @@
-<app-header></app-header>
+
+<!-- @if(saved){
 
 
-
-if(saved) {
-
-  <p-toast class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
       <div class="toast-body">
         Neues ToDo gespeichert.
-        <div class="mt-2 pt-2 border-top">
-          <button type="button" class="btn btn-success btn-sm" (click)="confirm()">Ok</button>
         </div>
+        <div class="mt-2 pt-2 border-top">
+          <button type="button" class="btn btn-success btn-sm" (click)="confirm()">Ok</button>        
       </div>
-  </p-toast>
+    </div>
+    </div> }
 
-} @else {
+    else{} --> 
+
+<div>
+  <app-header></app-header>
 
 <h2>Neues ToDo</h2>
 <div class="container newtodo-container">
@@ -43,4 +46,7 @@ if(saved) {
       </button>
     </div>
   </form>
-  </div>}
+  </div>
+  </div>
+ 
+
