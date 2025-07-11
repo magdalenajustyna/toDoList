@@ -65,16 +65,26 @@ export class UpdateComponent implements OnInit {
 
   update(): void {      //FUNKTIONIERT!!
     const values = this.form.value;
+    let datumNeu;
     this.todo.todoName = values.todoNameControl!;
     this.todo.prio = values.prioControlButton!;
 
-    let datumNeu = this.formatDateString_DDMMYYYY(values.datumControlButton!);
-    console.log('Ausgabe des Datum als String: ', datumNeu);
-    this.todo.datum = datumNeu;
+    if (values.datumControlButton!) {     //nur wenn Datepicker ausgefüllt, neues Datum auslesen und für neues ToDo verwenden
+      datumNeu = this.formatDateString_DDMMYYYY(values.datumControlButton!);
+      this.todo.datum = datumNeu;
+    } else    //ansonsten alten Wert behalten
+       {
+      this.todo.datum = values.datumControlOld!;
+    }
+         
 
     this.dataservice
       .update(this.id!, this.todo)
       .then(() => this.router.navigate(['/home'])); //geht nur zu Home wenn update erfolgreich
+      
+      
+      
+      console.log('Ausgabe des Datum als String: ', datumNeu);
   }
 
   cancel(): void {

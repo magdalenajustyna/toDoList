@@ -99,10 +99,12 @@ export class ListComponent implements OnInit {
     );
   }
 
-  confirmAction() {
+  confirmAction(id: string) {
     const confirmed = window.confirm('Möchtest du das ToDo wirklich löschen?');
     if (confirmed) {
+      this.delete(id);
       console.log('Aktion bestätigt!');
+      this.router.navigate(['/home']); // refresh??!!
     } else {
       console.log('Aktion abgebrochen!');
     }

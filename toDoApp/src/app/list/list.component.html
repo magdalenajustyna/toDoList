@@ -73,7 +73,7 @@
 
       <td>
         <button class="btn trashButton btn-outline-primary">
-          <i (click)="delete(Todo._id)" class="bi bi-trash align-items-center"></i>
+          <i (click)="confirmAction(Todo._id)" class="bi bi-trash align-items-center"></i>
         </button>
       </td>
     </tr> 
@@ -84,6 +84,8 @@
 
 
 <!--
+
+(click)="delete(Todo._id)"
 
 (click)="confirmAction()" aus delete icon
 

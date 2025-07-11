@@ -10,6 +10,7 @@ h3 {
   overflow-x: auto;
   padding: 1%;
   margin: 0 auto; /* Zentriert das div horizontal */
+  margin-bottom: 3%;
   }
 
 .container-header {

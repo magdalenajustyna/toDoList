@@ -45,6 +45,7 @@ export class CreatenewtodoComponent {
       this.dataservice
         .create(this.todo)
         .then(() => (this.saved = true))
+        .then(() => this.router.navigate(['/home']));   //wenn Toast funktioniert, kann diese Zeile raus, da in Toast confirm() aufgerufen wird
   
     }
   }
