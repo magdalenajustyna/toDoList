@@ -3,7 +3,6 @@
   padding: 10px;
   border-radius: 10px;
   margin: 1%;
-  
 }
 
 .header-item {  
@@ -13,6 +12,7 @@
 
 th {
   vertical-align: middle;
+  background-color: hsl(271, 68%, 83%);
 }
 
 .prioButton {
@@ -33,6 +33,15 @@ th {
   margin-bottom: 2%;
   margin-left: 1%;
   margin-right: 2%;  
+}
+
+.pencilButton {
+  color: blueviolet;
+  border: none;
+}
+
+.pencilButton:hover {
+  background-color: yellow;
 }
 
 .trashButton {

@@ -9,42 +9,10 @@ h3 {
   width: 60%;
   overflow-x: auto;
   padding: 1%;
-  margin: 0 auto; /* Zentriert das div horizontal */
+  margin: 0 auto;
   margin-bottom: 3%;
   }
 
 .container-header {
   border: 3px solid#ffffff;
 }
-
-
-
-/*.home-container {
-  padding: 1%;
-  border: 3px solid #54b6cf;
-  border-radius: 10px; 
-  width:90%;   
-}*/
-
-/* 
-.header-container { ist jetzt nicht mehr in home component
-  text-align: center;     
-  background-color: rgb(220, 198, 241);
-  padding: 10px;
-  border-radius: 10px;
-  margin: 1%;
-} */
-
-/*.header-item {  ist jetzt nicht mehr in home component
-  text-align: center;
-  font-weight: bold;
-} */
-
-/*.filter {
-  margin: 1%;
-}*/
-
-
-
-
-
