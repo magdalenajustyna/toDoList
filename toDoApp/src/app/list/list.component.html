@@ -37,9 +37,9 @@
           Prio
         </button>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">hoch</a>
-          <a class="dropdown-item" href="#">mittel</a>
-          <a class="dropdown-item" href="#">niedrig</a>
+          <a class="dropdown-item" (click)="filterPrio('hoch')">hoch</a>
+          <a class="dropdown-item" (click)="filterPrio('mittel')">mittel</a>
+          <a class="dropdown-item" (click)="filterPrio('niedrig')">niedrig</a>
         </div>
       </th>
       <th scope="col">Datum</th>

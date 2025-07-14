@@ -39,8 +39,6 @@ export class ListArchivComponent implements OnInit{
     let input = this.search.value?.toLocaleLowerCase() ||"";                //damit Zeile 35 funktioniert // ? prüft, ob null, wenn nicht, dann to lower Case
     console.log('input: ', input);
     this.filteredToDos = this.toDos.filter(t => (t.todoName.toLowerCase().includes(input) || t.prio.toLowerCase().includes(input)) && t.status == "erledigt");
-     
-  
   }
   
     confirmAction() {
@@ -52,6 +50,13 @@ export class ListArchivComponent implements OnInit{
     }
   }
   
+  filterPrio(prio: string): void {
+    console.log('ausgewählte Priorität: ', prio);
+    this.filteredToDos = this.toDos.filter(
+      (t) => t.prio.toLowerCase() === prio.toLowerCase() && t.status === 'erledigt'
+    );
+    console.log('Gefilterte ToDos:', this.filteredToDos);
+  }
 
   
 }

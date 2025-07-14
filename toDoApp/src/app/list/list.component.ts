@@ -109,4 +109,12 @@ export class ListComponent implements OnInit {
       console.log('Aktion abgebrochen!');
     }
   }
+
+  filterPrio(prio: string): void {
+    console.log('ausgewählte Priorität: ', prio);
+    this.filteredToDos = this.toDos.filter(
+      (t) => t.prio.toLowerCase() === prio.toLowerCase() && t.status === 'offen'
+    );
+    console.log('Gefilterte ToDos:', this.filteredToDos);
+  }
 }
