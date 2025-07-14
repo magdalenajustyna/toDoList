@@ -50,7 +50,6 @@ export class ListComponent implements OnInit {
         .getAllToDos()
         .then((response) => (this.toDos = response))
         .then(() => this.router.navigate(['/home'])); //geht nur zu Home wenn update erfolgreich
-
     });
 
     console.log(`member mit id=${id} löschen`);
@@ -95,8 +94,7 @@ export class ListComponent implements OnInit {
       (t) =>
         (t.todoName.toLowerCase().includes(input) ||
           t.prio.toLowerCase().includes(input)) &&
-        t.status == 'offen'
-    );
+        t.status == 'offen');
   }
 
   confirmAction(id: string) {
