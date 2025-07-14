@@ -82,8 +82,6 @@ export class UpdateComponent implements OnInit {
       .update(this.id!, this.todo)
       .then(() => this.router.navigate(['/home'])); //geht nur zu Home wenn update erfolgreich
       
-      
-      
       console.log('Ausgabe des Datum als String: ', datumNeu);
   }
 

@@ -4,53 +4,65 @@
  
  2 Fehlermeldungen mit Freiheit besprechen, Methoden funktionieren trotzdem -->
 
-<div class="container container-header">
+<div>
+  <div class="container container-header">
     <div>
-        <app-header></app-header>
+      <app-header></app-header>
     </div>
+  </div>
+
+  <h2>ToDo bearbeiten</h2>
+
+  <div class="container newtodo-container">
+
+    <form [formGroup]="form" (ngSubmit)="update()">
+
+      <div class="mb-3">
+        <label for="toDoNameInput" class="form-label">ToDo</label>
+        <input type="text" class="form-control" id="toDoNameInput" formControlName="todoNameControl" required>
+      </div>
+
+      <div class="mb-3"> <!-- disabled, soll nur bisherige Prio anzeigen -->
+        <div class="drowpdown mb-5">
+          <button class="btn dropdown-toggle prioButton" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+            formControlName="prioControlButton">
+            Prio
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" (click)="setPrio('hoch')">hoch</a></li>
+            <li><a class="dropdown-item" (click)="setPrio('mittel')">mittel</a></li>
+            <li><a class="dropdown-item" (click)="setPrio('niedrig')">niedrig</a></li>
+          </ul>
+
+        <!--
+        <select id="dropdownMenu" class="form-control">
+          <option value="Option1">hoch</option>
+          <option value="Option2">mittel</option>
+          <option value="Option3">niedrig</option>
+        </select>
+        -->
+        
+
+          <!-- <label for="prioInput" class="form-label">Prio</label> -->
+          <input type="text" class="form-control" id="prioInput" formControlName="prioControlOld">
+        </div>
+
+        <div class="mb-3"> <!-- disabled, soll nur bisheriges Datum anzeigen -->
+          <label for="datumInput" class="form-label">fällig am:</label>
+          <input type="text" class="form-control" id="datumInput" formControlName="datumControlOld" required>
+        </div>
+
+        <div>
+          <input type="date" formControlName="datumControlButton">
+        </div>
+      </div>
+
+      <div class="d-grid gap-2 mt-5">
+        <button type="submit" class="btn save btn-primary w-100">Speichern</button>
+        <button type="button" class="btn btn-secondary btn cancel" (click)="cancel()">
+          Abbrechen
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
-
-<h2>ToDo bearbeiten</h2>
-<div class="container newtodo-container">
-  
-  <form [formGroup]="form" (ngSubmit)="update()">
-
-    <div class="mb-3">
-      <label for="toDoNameInput" class="form-label">ToDo</label>
-      <input type="text" class="form-control" id="toDoNameInput" formControlName="todoNameControl" required>
-    </div>
-
- <div class="mb-3">      <!-- disabled, soll nur bisherige Prio anzeigen -->
-      <label for="prioInput" class="form-label">Prio</label>
-      <input type="text" class="form-control" id="prioInput" formControlName="prioControlOld" required>
-    </div> 
-
-    <div class="mb-3"> <!-- disabled, soll nur bisheriges Datum anzeigen -->
-      <label for="datumInput" class="form-label">fällig am:</label>
-      <input type="text" class="form-control" id="datumInput" formControlName="datumControlOld" required>
-    </div>
-
-    <div class="drowpdown mb-5">
-      <button class="btn dropdown-toggle prioButton" type="button" data-bs-toggle="dropdown" aria-expanded="false" formControlName="prioControlButton">
-        Prio
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" (click)="setPrio('hoch')">hoch</a></li>
-        <li><a class="dropdown-item" (click)="setPrio('mittel')">mittel</a></li>
-        <li><a class="dropdown-item" (click)="setPrio('niedrig')">niedrig</a></li>
-      </ul>
-
-      <label for="dateInput" class="form-label">fällig am:</label>
-      <input type="date" formControlName="datumControlButton"  > 
-    </div>
-
-    <div class="d-grid gap-2 mt-5">
-    <button type="submit" class="btn save btn-primary w-100" >Speichern</button>
-    <button type="button" class="btn btn-secondary btn cancel" (click)="cancel()">
-        Abbrechen
-      </button>
-    </div>
-  </form>
-
-
-  
