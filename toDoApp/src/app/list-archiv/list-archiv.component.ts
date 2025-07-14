@@ -39,7 +39,7 @@ export class ListArchivComponent implements OnInit {
 
     // initial nur erledigte ToDos anzeigen, KI für sort Methode genutzt
 
-    //this.filteredToDos = this.toDos;                     // initial alle Mitglieder in der Tabelle // wir wollen nur die offenen
+    //this.filteredToDos = this.toDos;                     // initial alle Mitglieder in der Tabelle // wir wollen nur die erledigten
     //console.log('toDos in table -> ', this.toDos);
   }
 
@@ -66,7 +66,9 @@ export class ListArchivComponent implements OnInit {
   confirmAction(id: string) {
     const confirmed = window.confirm('Möchtest du das ToDo wirklich löschen?');
     if (confirmed) {
+      this.delete(id);
       console.log('Aktion bestätigt!');
+      this.router.navigate(['/archiv']); // refresh??!!
     } else {
       console.log('Aktion abgebrochen!');
     }
