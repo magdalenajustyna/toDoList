@@ -54,7 +54,7 @@ export class CreatenewtodoComponent {
     this.router.navigate(['/home']);
   }
 
-  cancel(): void {}
+  
 
   formatDateString_DDMMYYYY(datum: string): string {
     const [year, month, day] = datum.split('-');

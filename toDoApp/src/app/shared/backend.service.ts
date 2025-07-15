@@ -58,12 +58,13 @@ async create(newData: Todo): Promise<Todo> {
 
 
 // delete one
-async deleteOne(id: string): Promise<{message: string}> {
+async deleteOne(id: string): Promise<{message: number}> {
 
   let response = await fetch(this.URL + '/todos/' + id, {
     method: "DELETE"
   });
-  let message = await response.json();
+  let status = await response.status;
+  let message = { message : status}
   console.log('message in service (deleteOne) : ', message)
   return message;
 }

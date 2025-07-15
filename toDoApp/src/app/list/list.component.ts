@@ -44,14 +44,12 @@ export class ListComponent implements OnInit {
     //console.log('toDos in table -> ', this.toDos);
   }
 
-  delete(id: string): void {      // warum refresh nicht?
-    this.dataservice.deleteOne(String(id)).then(() => {
-      this.dataservice
-        .getAllToDos()
-        .then((response) => (this.toDos = response))
-        .then(() => this.router.navigate(['/home'])); //geht nur zu Home wenn update erfolgreich
+  delete(id: string): void {     
+    this.dataservice.deleteOne(String(id))
+    .then(() => {
+        this.ngOnInit();
     });
-
+    
     console.log(`member mit id=${id} löschen`);
   }
 
