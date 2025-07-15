@@ -44,12 +44,11 @@ export class ListComponent implements OnInit {
     //console.log('toDos in table -> ', this.toDos);
   }
 
-  delete(id: string): void {     
-    this.dataservice.deleteOne(String(id))
-    .then(() => {
-        this.ngOnInit();
+  delete(id: string): void {
+    this.dataservice.deleteOne(String(id)).then(() => {
+      this.ngOnInit();
     });
-    
+
     console.log(`member mit id=${id} löschen`);
   }
 
@@ -92,7 +91,8 @@ export class ListComponent implements OnInit {
       (t) =>
         (t.todoName.toLowerCase().includes(input) ||
           t.prio.toLowerCase().includes(input)) &&
-        t.status == 'offen');
+        t.status == 'offen'
+    );
   }
 
   confirmAction(id: string) {
@@ -112,5 +112,19 @@ export class ListComponent implements OnInit {
       (t) => t.prio.toLowerCase() === prio.toLowerCase() && t.status === 'offen'
     );
     console.log('Gefilterte ToDos:', this.filteredToDos);
+  }
+
+  id: string | null = '';
+
+  erledigt(_id: string): void {
+
+    // ich will Radiobutton auslesen
+    // status auf erledigt setzen
+    // das Todo mit dem neuen Status speichern (update Methode?)
+
+    this.todo.status = 'erledigt';
+    this.dataservice
+      .update(this.id!, this.todo)
+      .then(() => this.router.navigate(['/home']));
   }
 }

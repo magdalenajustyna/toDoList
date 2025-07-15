@@ -1,6 +1,12 @@
 <div class="row">
-  <input class="inputFilter w-75 form-control" type="text" placeholder="ToDo suchen" aria-label="Aufgabensuche"
-    [formControl]="search" (input)="filter()">
+  <input
+    class="inputFilter w-75 form-control"
+    type="text"
+    placeholder="ToDo suchen"
+    aria-label="Aufgabensuche"
+    [formControl]="search"
+    (input)="filter()"
+  />
 </div>
 
 <!-- @if(deleteStatus) {
@@ -26,13 +32,17 @@
 @else { -->
 
 <table class="table table-striped">
-
   <thead>
     <tr>
       <th scope="col" class="text-center">Status</th>
       <th scope="col">ToDo</th>
       <th scope="col">
-        <button class="btn dropdown-toggle prioButton" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <button
+          class="btn dropdown-toggle prioButton"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
           Prio
         </button>
         <div class="dropdown-menu">
@@ -48,34 +58,43 @@
   </thead>
 
   <tbody>
-
     @for(Todo of filteredToDos; track $index) {
     <tr>
       <td>
-        <div class="text-center">
-          <i class="bi bi-check-circle"></i>
+        <div class="form-check text-center">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="flexRadioDefault"
+            id="flexRadioDefault1"
+            (click)="erledigt(Todo._id)"
+          />
         </div>
       </td>
       <td>{{ Todo.todoName }}</td>
       <td>{{ Todo.prio }}</td>
       <td>{{ Todo.datum }}</td>
       <td>
-        <a class="btn pencilButton btn-outline-primary" [routerLink]="['/todo', Todo._id ]">
+        <a
+          class="btn pencilButton btn-outline-primary"
+          [routerLink]="['/todo', Todo._id]"
+        >
           <span class="bi bi-pencil-square"></span>
         </a>
       </td>
 
       <td>
         <button class="btn trashButton btn-outline-primary">
-          <i (click)="confirmAction(Todo._id)" class="bi bi-trash align-items-center"></i>
+          <i
+            (click)="confirmAction(Todo._id)"
+            class="bi bi-trash align-items-center"
+          ></i>
         </button>
       </td>
     </tr>
     }
   </tbody>
-
 </table>
-
 
 <!-- Zeile 64 soll URL /todos/id aufrufen (todo oder todos?)-->
 <!-- <td>
