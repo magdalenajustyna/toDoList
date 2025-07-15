@@ -55,8 +55,6 @@ async create(newData: Todo): Promise<Todo> {
 }
 
 
-
-
 // delete one
 async deleteOne(id: string): Promise<{message: number}> {
 
