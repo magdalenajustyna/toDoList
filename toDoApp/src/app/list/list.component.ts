@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Todo } from '../shared/todo';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { BackendService } from '../shared/backend.service';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -16,12 +16,16 @@ export class ListComponent implements OnInit {
   // in dem Moment sollen alle Daten geladen werden
 
   private dataservice = inject(BackendService);
+
+  private route = inject(ActivatedRoute); // für update mit Radiobutton
+  private router = inject(Router);
+
   toDos: Todo[] = []; // Achtung Schreibweise!!
   filteredToDos: Todo[] = [];
   todo!: Todo;
+  id: string | null = '';
 
-  deleteStatus: boolean = false;
-  private router = inject(Router);
+  deleteStatus: boolean = false; //nutzen wir das?
 
   search = new FormControl(''); // FormControl für die Suche, initial leer
 
@@ -49,7 +53,7 @@ export class ListComponent implements OnInit {
       this.ngOnInit();
     });
 
-    console.log(`member mit id=${id} löschen`);
+    console.log(`Todo mit id=${id} löschen`);
   }
 
   //diese Methode darf bei Sicherheitsabfrage nicht gleich löschen (getOne muss aufgerufen werden anstatt delete, siehe unten)
@@ -114,17 +118,22 @@ export class ListComponent implements OnInit {
     console.log('Gefilterte ToDos:', this.filteredToDos);
   }
 
-  id: string | null = '';
-
   erledigt(_id: string): void {
-
-    // ich will Radiobutton auslesen
-    // status auf erledigt setzen
-    // das Todo mit dem neuen Status speichern (update Methode?)
-
-    this.todo.status = 'erledigt';
     this.dataservice
-      .update(this.id!, this.todo)
-      .then(() => this.router.navigate(['/home']));
+      .getOne(_id)                //holt Promise ToDo mit der ID aus Datenbank
+      .then((todo) => {           //wenn Promise vorhanden
+        
+        this.todo = todo; 
+        this.todo.status = 'erledigt'; //Status auf erledigt setzen
+        return this.todo;
+      })
+
+      .then(() => {
+        this.dataservice.update(_id, this.todo).then(() => {  //geändertes Todo updaten
+          this.ngOnInit(); // refresh der Seite
+        });
+      });  
+      
+      // Auswahl Radiobutton muss noch aufgehoben werden 
   }
 }

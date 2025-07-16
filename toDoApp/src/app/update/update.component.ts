@@ -76,8 +76,7 @@ export class UpdateComponent implements OnInit {
     } else    //ansonsten alten Wert behalten
        {
       this.todo.datum = values.datumControlOld!;
-    }
-         
+    }         
 
     this.dataservice
       .update(this.id!, this.todo)
