@@ -52,10 +52,12 @@ export class UpdateComponent implements OnInit {
       });
   }
 
+  // funktioniert auch ohne setPrio
   //mit Hilfe von ChatKI
-  setPrio(prio: string): void {
+  /*setPrio(prio: string): void {
     this.form.patchValue({ prioControlButton: prio }); //setzt PrioWert aus Dropdown ins Formular (zwischenspeichern)
   }
+    */
 
   //Methode um Datums String umzusortieren   //Hilfe von Chat KI
   formatDateString_DDMMYYYY(datum: string): string {
