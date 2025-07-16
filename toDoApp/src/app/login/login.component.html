@@ -1,29 +1,27 @@
 <div class="container container-header">
-    <div>
-        <app-header></app-header>
-    </div>
+  <div>
+    <app-header></app-header>
+  </div>
 </div>
 
 <h2>Login</h2>
 
 <div class="container login-container">
-<form>
-  <div class="mb-3">
-    <label for="usernameInput" class="form-label">Username</label>
-    <input type="username" class="form-control" id="usernameInput" aria-describedby="usernameHelp" required>
-  </div>
+  <form>
 
- <div class="mb-3">
-    <label for="passwordInput" class="form-label">Passwort</label>
-    <input type="password" class="form-control" id="passwordInput" required>
-  </div>
+    <div class="mb-3">
+      <label for="usernameInput" class="form-label">Username</label>
+      <input type="username" class="form-control" id="usernameInput" aria-describedby="usernameHelp" required>
+    </div>
 
-  <span class="psw mb-5"><a href="#">Passwort vergessen?</a></span>
+    <div class="mb-3">
+      <label for="passwordInput" class="form-label">Passwort</label>
+      <input type="password" class="form-control" id="passwordInput" required>
+    </div>
 
-  <button type="submit" class="btn btn-primary w-100" [routerLink]="['/home']">Login</button>
+    <span class="psw mb-5"><a href="#">Passwort vergessen?</a></span>
 
-  <span class="new"><a [routerLink]="['/register']">Neu hier? Jetzt registrieren!</a></span>
-</form>
+    <button type="submit" class="btn btn-primary w-100" [routerLink]="['/home']">Login</button>
 
-
-
+    <span class="new"><a [routerLink]="['/register']">Neu hier? Jetzt registrieren!</a></span>
+  </form>

@@ -10,8 +10,8 @@ import { UpdateComponent } from '../update/update.component';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, HeaderComponent, ArchivbuttonComponent, ListComponent,
-    LogoutbuttonComponent, NewtodobuttonComponent, UpdateComponent],
+  imports: [HeaderComponent, ArchivbuttonComponent, ListComponent,
+    LogoutbuttonComponent, NewtodobuttonComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

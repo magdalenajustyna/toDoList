@@ -7,7 +7,7 @@ import { Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-list-archiv',
   standalone: true, //standalone aus seinem Code eingefügt
-  imports: [ReactiveFormsModule, ListArchivComponent, RouterLink],
+  imports: [ReactiveFormsModule],
   templateUrl: './list-archiv.component.html',
   styleUrl: './list-archiv.component.css'
 })
@@ -43,15 +43,10 @@ export class ListArchivComponent implements OnInit {
     //console.log('toDos in table -> ', this.toDos);
   }
 
-  delete(id: string): void {      // funktioniert noch nicht!!!!!
+   delete(id: string): void {
     this.dataservice.deleteOne(String(id)).then(() => {
-      this.dataservice
-        .getAllToDos()
-        .then((response) => (this.toDos = response))
-        .then(() => this.router.navigate(['/archiv']));
+      this.ngOnInit();
     });
-
-    console.log(`todo mit id=${id} löschen`);
   }
 
   filter() {
@@ -68,7 +63,7 @@ export class ListArchivComponent implements OnInit {
     if (confirmed) {
       this.delete(id);
       console.log('Aktion bestätigt!');
-      this.router.navigate(['/archiv']); // refresh??!!
+      this.router.navigate(['/archiv']);
     } else {
       console.log('Aktion abgebrochen!');
     }

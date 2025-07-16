@@ -23,7 +23,7 @@ export class ListComponent implements OnInit {
   deleteStatus: boolean = false;
   private router = inject(Router);
 
-  search = new FormControl(''); // FormControl für die Suche, initial leer //ReactiveFormsModule muss auch in imports
+  search = new FormControl(''); // FormControl für die Suche, initial leer
 
   async ngOnInit(): Promise<void> {
     // async Methode, die Promise zurückgibt

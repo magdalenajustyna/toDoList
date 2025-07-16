@@ -6,7 +6,7 @@ import { UpdateComponent } from '../update/update.component';
 
 @Component({
   selector: 'app-login',
-  imports: [HeaderComponent, RouterLink, ReactiveFormsModule, UpdateComponent],
+  imports: [HeaderComponent, RouterLink, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

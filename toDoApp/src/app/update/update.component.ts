@@ -8,7 +8,7 @@ import { Todo } from '../shared/todo';
 @Component({
   selector: 'app-update',
   standalone: true, //aus seinem Code übernommen
-  imports: [RouterLink, HeaderComponent, ReactiveFormsModule],
+  imports: [HeaderComponent, ReactiveFormsModule],
   templateUrl: './update.component.html',
   styleUrl: './update.component.css',
 })
@@ -52,7 +52,7 @@ export class UpdateComponent implements OnInit {
       });
   }
 
-  // funktioniert auch ohne setPrio
+  // funktioniert auch ohne setPrio???
   //mit Hilfe von ChatKI
   /*setPrio(prio: string): void {
     this.form.patchValue({ prioControlButton: prio }); //setzt PrioWert aus Dropdown ins Formular (zwischenspeichern)
