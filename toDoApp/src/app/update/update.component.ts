@@ -22,7 +22,6 @@ export class UpdateComponent implements OnInit {
   form = new FormGroup({
     //Steuerelemente
     todoNameControl: new FormControl<string>(''),
-    prioControlOld: new FormControl<string>(''),
     prioControlButton: new FormControl<string>(''),
     datumControlOld: new FormControl<string>(''),
     datumControlButton: new FormControl<string>(''),
@@ -38,14 +37,14 @@ export class UpdateComponent implements OnInit {
         this.todo = response;
         this.form.patchValue({
           todoNameControl: this.todo?.todoName,
-          prioControlOld: this.todo?.prio,
+          prioControlButton: this.todo?.prio,
           datumControlOld: this.todo?.datum,
         });
         return this.todo;
       })
       .then((todo) => {
         if (!todo.todoName) {
-          this.router.navigate(['/home']); // richtig??
+          this.router.navigate(['/home']); 
         } else {
           console.log('todo in DetailComponent : ', todo);
         }
