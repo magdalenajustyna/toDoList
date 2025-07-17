@@ -21,36 +21,28 @@ export class CreatenewtodoComponent {
   saved: boolean = false;
 
   form = new FormGroup({
-    todoNameControl: new FormControl<string>('', Validators.required),
-    prioControl: new FormControl<string>('', Validators.required),
-    datumControl: new FormControl<string>('', Validators.required) // habe Validators hinzugefuegt, funktioniert trotzdem nicht fuer dateControl :(
+    todoNameControl: new FormControl<string>('', [Validators.required]),
+    prioControl: new FormControl<string>('', [Validators.required]),
+    datumControl: new FormControl<string>('', [Validators.required]) 
   });
 
-  create(): void {
-    const values = this.form.value;
-    console.log('values : ', values);
+  create(): void {    // nur möglich, wenn alle Felder ausgefüllt sind // Meldung noch einbauen oder reicht rote Umrandung der Eingabefelder?
+    if (this.form.valid) {      
+      const values = this.form.value;
 
-    let datumNeu = this.formatDateString_DDMMYYYY(values.datumControl!);
-    this.todo.status ='offen';
-    this.todo.todoName = values.todoNameControl || '';
-    this.todo.prio = values.prioControl || '';
-    this.todo.datum = datumNeu || '';
-    console.log('new todo : ', this.todo);
-
-    if (
-      this.todo.todoName != '' &&
-      this.todo.prio != '' &&
-      this.todo.datum != ''
-    ) {
+      let datumNeu = this.formatDateString_DDMMYYYY(values.datumControl!);
+      this.todo.status = 'offen';
+      this.todo.todoName = values.todoNameControl || '';    // was genau bedeutet || '' ? kann das raus, da wir mit validators arbeiten?
+      this.todo.prio = values.prioControl || '';
+      this.todo.datum = datumNeu || '';
+        
       this.dataservice
-        .create(this.todo)
-        .then(() => (this.saved = true))
-        .then(() => this.router.navigate(['/home']));   //wenn Toast funktioniert, kann diese Zeile raus, da in Toast confirm() aufgerufen wird
-  
+          .create(this.todo)
+          .then(() => this.router.navigate(['/home']));
     }
   }
 
-  confirm(): void {
+  confirm(): void {   //diese Methode wird nicht genutzt in createNewToDo, also raus?
     this.router.navigate(['/home']);
   }
 
@@ -60,10 +52,4 @@ export class CreatenewtodoComponent {
     return day + '.' + month + '.' + year;
   }
 
-// brauchen wir nicht mehr, oder?
-  /* 
-  setPrio(prio: string): void {
-    this.form.patchValue({ prioControl: prio }); //setzt PrioWert aus Dropdown ins Formular (zwischenspeichern)
-  }
-    */
 }

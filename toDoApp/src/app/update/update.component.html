@@ -18,7 +18,8 @@
 
     <div class="mb-3">
       <label for="toDoNameInput" class="form-label">ToDo</label>
-      <input type="text" class="form-control" id="toDoNameInput" formControlName="todoNameControl" required>
+      <input type="text" class="form-control" id="toDoNameInput" formControlName="todoNameControl" 
+      required>
     </div>
 
     <div class="mb-3">
@@ -32,14 +33,15 @@
 
     </div>
 
-    <div class="mb-3"> <!-- disabled, soll nur bisheriges Datum anzeigen -->
-      <label for="datumInput" class="form-label">fällig am</label>
-      <input type="text" class="form-control" id="datumInput" formControlName="datumControlOld" required>
-    </div>
+    <div class="mb-3">
+        <div>
+          <label for="datumInput" class="form-label">fällig am</label>
+        </div>
 
-    <div>
-      <input type="date" formControlName="datumControlButton">
-    </div>
+        <div>
+          <input type="date" class="form-control" id="datumInput" formControlName="datumControl" required>
+        </div>
+      </div>
 
 
     <div class="d-grid gap-2 mt-5">

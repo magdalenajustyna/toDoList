@@ -23,8 +23,8 @@ export class UpdateComponent implements OnInit {
     //Steuerelemente
     todoNameControl: new FormControl<string>(''),
     prioControlButton: new FormControl<string>(''),
-    datumControlOld: new FormControl<string>(''),
-    datumControlButton: new FormControl<string>(''),
+    datumControl: new FormControl<string>(''),
+   //datumControlButton: new FormControl<string>(''), brauchen wir nicht mehr
   });
 
   ngOnInit(): void {
@@ -38,8 +38,9 @@ export class UpdateComponent implements OnInit {
         this.form.patchValue({
           todoNameControl: this.todo?.todoName,
           prioControlButton: this.todo?.prio,
-          //datumControlOld: this.todo?.datum,
-          datumControlButton: this.todo?.datum,    // wird Datum im Datepicker angezeigt?
+          // um den Datepicker mit altem Datum zu belegen, muss Datum aus DB ins richtige Format gebracht werden
+          // String 10.07.2025 muss zu 2025-07-10 
+          datumControl: this.todo?.datum.split('.').reverse().join('-')    //Vorschlag von VS Code
         });
         return this.todo;
       })
@@ -52,38 +53,33 @@ export class UpdateComponent implements OnInit {
       });
   }
 
-  // funktioniert auch ohne setPrio???
-  //mit Hilfe von ChatKI
-  /*setPrio(prio: string): void {
-    this.form.patchValue({ prioControlButton: prio }); //setzt PrioWert aus Dropdown ins Formular (zwischenspeichern)
-  }
-    */
-
   //Methode um Datums String umzusortieren   //Hilfe von Chat KI
   formatDateString_DDMMYYYY(datum: string): string {
     const [year, month, day] = datum.split('-');
     return day + '.' + month + '.' + year;
   }
 
-  update(): void {      //FUNKTIONIERT!!
+  update(): void {
+    //FUNKTIONIERT!!
     const values = this.form.value;
-    let datumNeu;
-    this.todo.todoName = values.todoNameControl!;
-    this.todo.prio = values.prioControlButton!;
+    let datumNeu;   //Var für Datum
+    this.todo.todoName = values.todoNameControl!; //neuer Name aus Formular
+    this.todo.prio = values.prioControlButton!; //neue Prio aus Select Dropdown
 
-    if (values.datumControlButton!) {     //nur wenn Datepicker ausgefüllt, neues Datum auslesen und für neues ToDo verwenden
-      datumNeu = this.formatDateString_DDMMYYYY(values.datumControlButton!);
+    if (values.datumControl!) {   
+      //nur wenn Datepicker ausgefüllt, neues Datum auslesen und für ToDo verwenden
+      datumNeu = this.formatDateString_DDMMYYYY(values.datumControl!);
       this.todo.datum = datumNeu;
-    } else    //ansonsten alten Wert behalten
-       {
-      this.todo.datum = values.datumControlOld!;
-    }         
+    } //ansonsten alten Wert behalten
+    else {
+      this.todo.datum = values.datumControl!;
+    }
 
     this.dataservice
       .update(this.id!, this.todo)
       .then(() => this.router.navigate(['/home'])); //geht nur zu Home wenn update erfolgreich
-      
-      console.log('Ausgabe des Datum als String: ', datumNeu);
+
+    console.log('Ausgabe des Datum als String: ', datumNeu);
   }
 
   cancel(): void {
