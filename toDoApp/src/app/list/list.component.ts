@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Todo } from '../shared/todo';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { BackendService } from '../shared/backend.service';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -15,9 +15,7 @@ export class ListComponent implements OnInit {
   // in dem Moment in dem Tabl Component in Anwendung eingebunden wird, soll Service aufgerufen werden
   // in dem Moment sollen alle Daten geladen werden
 
-  private dataservice = inject(BackendService);
-
-  private route = inject(ActivatedRoute); // für update mit Radiobutton
+  private dataservice = inject(BackendService);  
   private router = inject(Router);
 
   toDos: Todo[] = []; // Achtung Schreibweise!!
@@ -25,7 +23,7 @@ export class ListComponent implements OnInit {
   todo!: Todo;
   id: string | null = '';
 
-  deleteStatus: boolean = false; //nutzen wir das?
+  deleteStatus: boolean = false; //nutzen wir das? eig nicht?
 
   search = new FormControl(''); // FormControl für die Suche, initial leer
 
