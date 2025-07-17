@@ -38,7 +38,8 @@ export class UpdateComponent implements OnInit {
         this.form.patchValue({
           todoNameControl: this.todo?.todoName,
           prioControlButton: this.todo?.prio,
-          datumControlOld: this.todo?.datum,
+          //datumControlOld: this.todo?.datum,
+          datumControlButton: this.todo?.datum,    // wird Datum im Datepicker angezeigt?
         });
         return this.todo;
       })
