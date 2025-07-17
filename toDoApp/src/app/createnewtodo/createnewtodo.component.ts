@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BackendService } from '../shared/backend.service';
 import { Todo } from '../shared/todo';
 
@@ -21,9 +21,9 @@ export class CreatenewtodoComponent {
   saved: boolean = false;
 
   form = new FormGroup({
-    todoNameControl: new FormControl<string>(''), // [Validators.required] muss das wieder rein?!?
-    prioControl: new FormControl<string>(''), // es fehlen hier noch Prio und Datum
-    datumControl: new FormControl<string>(''),
+    todoNameControl: new FormControl<string>('', [Validators.required]), 
+    prioControl: new FormControl<string>('', [Validators.required]),
+    datumControl: new FormControl<string>('', [Validators.required]), // habe Validators hinzugefuegt, funktioniert trotzdem nicht fuer dateControl :(
   });
 
   create(): void {
@@ -55,13 +55,15 @@ export class CreatenewtodoComponent {
   }
 
   
-
   formatDateString_DDMMYYYY(datum: string): string {
     const [year, month, day] = datum.split('-');
     return day + '.' + month + '.' + year;
   }
 
+// brauchen wir nicht mehr, oder?
+  /* 
   setPrio(prio: string): void {
     this.form.patchValue({ prioControl: prio }); //setzt PrioWert aus Dropdown ins Formular (zwischenspeichern)
   }
+    */
 }

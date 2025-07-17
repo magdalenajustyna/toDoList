@@ -21,40 +21,16 @@
       <input type="text" class="form-control" id="toDoNameInput" formControlName="todoNameControl" required>
     </div>
 
-    <div class="mb-3"> 
+    <div class="mb-3">
       <label for="dropdownMenu" class="form-label">Prio</label>
-      
+
       <select id="dropdownMenu" class="form-control" formControlName="prioControlButton">
         <option value="hoch">hoch</option>
         <option value="mittel">mittel</option>
         <option value="niedrig">niedrig</option>
       </select>
-      
+
     </div>
-
-    <!--
-
-    <button class="btn dropdown-toggle prioButton" type="button" data-bs-toggle="dropdown" aria-expanded="false"
-      formControlName="prioControlButton">
-        Prio
-    </button>
-
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" (click)="setPrio('hoch')">hoch</a></li>
-      <li><a class="dropdown-item" (click)="setPrio('mittel')">mittel</a></li>
-      <li><a class="dropdown-item" (click)="setPrio('niedrig')">niedrig</a></li>
-    </ul>
-    -->
-
-
-    <!-- <label for="prioInput" class="form-label">Prio</label> -->
-
-    <!--
-          
-          <input type="text" class="form-control" id="prioInput" formControlName="prioControlOld">
-      
-        -->
-
 
     <div class="mb-3"> <!-- disabled, soll nur bisheriges Datum anzeigen -->
       <label for="datumInput" class="form-label">fällig am</label>
@@ -74,5 +50,3 @@
     </div>
   </form>
 </div>
-
-

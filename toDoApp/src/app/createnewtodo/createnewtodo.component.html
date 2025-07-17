@@ -6,7 +6,7 @@
   </div>
 
   <h2>Neues ToDo</h2>
-  
+
   <div class="container newtodo-container">
     <form [formGroup]="form" (ngSubmit)="create()">
 
@@ -15,19 +15,26 @@
         <input type="todo" class="form-control" id="toDoNameInput" formControlName="todoNameControl" required>
       </div>
 
-      <div class="drowpdown mb-5">
-        <button class="btn dropdown-toggle prioButton form-control" type="button" data-bs-toggle="dropdown"
-          aria-expanded="false" formControlName="prioControl">
-          Prio
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" (click)="setPrio('hoch')">hoch</a></li>
-          <li><a class="dropdown-item" (click)="setPrio('mittel')">mittel</a></li>
-          <li><a class="dropdown-item" (click)="setPrio('niedrig')">niedrig</a></li>
-        </ul>
-        <label for="dateInput" class="form-label">fällig am:</label>
-        <input type="date" formControlName="datumControl">
+      <div class="mb-3">
+        <label for="dropdownMenu" class="form-label">Prio</label>
+
+        <select id="dropdownMenu" class="form-control" formControlName="prioControl" required>
+          <option value="hoch">hoch</option>
+          <option value="mittel">mittel</option>
+          <option value="niedrig">niedrig</option>
+        </select>
       </div>
+
+      <div class="mb-3">
+        <div>
+          <label for="datumInput" class="form-label">fällig am</label>
+        </div>
+
+        <div>
+          <input type="date" class="form-control" id="datumInput" formControlName="datumControl" required>
+        </div>
+      </div>
+
 
       <div class="d-grid gap-2 mt-5">
         <button type="submit" class="btn save btn-primary w-100">Hinzufügen</button>
