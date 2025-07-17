@@ -24,7 +24,6 @@ export class UpdateComponent implements OnInit {
     todoNameControl: new FormControl<string>(''),
     prioControlButton: new FormControl<string>(''),
     datumControl: new FormControl<string>(''),
-   //datumControlButton: new FormControl<string>(''), brauchen wir nicht mehr
   });
 
   ngOnInit(): void {
@@ -59,8 +58,9 @@ export class UpdateComponent implements OnInit {
     return day + '.' + month + '.' + year;
   }
 
-  update(): void {
-    //FUNKTIONIERT!!
+  update(): void {     //soll nur funktionieren, wenn to doName ausgefüllt ist  (der Rest wird ggf mit alten Werten befüllt)
+    if (this.form.controls.todoNameControl.valid) { 
+
     const values = this.form.value;
     let datumNeu;   //Var für Datum
     this.todo.todoName = values.todoNameControl!; //neuer Name aus Formular
@@ -78,9 +78,8 @@ export class UpdateComponent implements OnInit {
     this.dataservice
       .update(this.id!, this.todo)
       .then(() => this.router.navigate(['/home'])); //geht nur zu Home wenn update erfolgreich
-
-    console.log('Ausgabe des Datum als String: ', datumNeu);
   }
+}
 
   cancel(): void {
     this.router.navigate(['/home']);

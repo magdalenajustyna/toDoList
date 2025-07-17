@@ -1,8 +1,6 @@
 <!-- TO DO:
  
- Anzeige des bisherigen Fälligkeitsdatum disabled 
- 
- 2 Fehlermeldungen mit Freiheit besprechen, Methoden funktionieren trotzdem -->
+ Fehlermeldung NG0100 behandeln (seit Validators bei todoNameControl)-->
 
 <div class="container container-header">
   <div>
@@ -19,7 +17,9 @@
     <div class="mb-3">
       <label for="toDoNameInput" class="form-label">ToDo</label>
       <input type="text" class="form-control" id="toDoNameInput" formControlName="todoNameControl" 
-      required>
+      [class.is-invalid]="form.controls.todoNameControl.invalid"             
+          required
+            />
     </div>
 
     <div class="mb-3">
