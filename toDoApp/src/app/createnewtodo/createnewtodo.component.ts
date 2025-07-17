@@ -6,7 +6,6 @@ import { BackendService } from '../shared/backend.service';
 import { Todo } from '../shared/todo';
 
 
-
 @Component({
   selector: 'app-createnewtodo',
   standalone: true, //aus seinem Code
@@ -14,6 +13,7 @@ import { Todo } from '../shared/todo';
   templateUrl: './createnewtodo.component.html',
   styleUrl: './createnewtodo.component.css',
 })
+
 export class CreatenewtodoComponent {
   private dataservice = inject(BackendService);
   private router = inject(Router);
@@ -21,9 +21,9 @@ export class CreatenewtodoComponent {
   saved: boolean = false;
 
   form = new FormGroup({
-    todoNameControl: new FormControl<string>('', [Validators.required]), 
-    prioControl: new FormControl<string>('', [Validators.required]),
-    datumControl: new FormControl<string>('', [Validators.required]), // habe Validators hinzugefuegt, funktioniert trotzdem nicht fuer dateControl :(
+    todoNameControl: new FormControl<string>('', Validators.required),
+    prioControl: new FormControl<string>('', Validators.required),
+    datumControl: new FormControl<string>('', Validators.required) // habe Validators hinzugefuegt, funktioniert trotzdem nicht fuer dateControl :(
   });
 
   create(): void {
