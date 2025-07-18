@@ -19,8 +19,8 @@
           class="form-control"
           id="toDoNameInput"
           formControlName="todoNameControl"
-          [class.is-invalid]="form.controls.todoNameControl.invalid"
-          [class.is-valid]="form.controls.todoNameControl.valid"    
+          [class.is-invalid]="form.controls.todoNameControl.invalid && form.controls.todoNameControl.touched"
+          [class.is-valid]="form.controls.todoNameControl.valid && form.controls.todoNameControl.touched"    
           required
         />
        
@@ -33,8 +33,8 @@
           id="dropdownMenu"
           class="form-control"
           formControlName="prioControl"
-          [class.is-invalid]="form.controls.prioControl.invalid"
-          [class.is-valid]="form.controls.prioControl.valid"
+          [class.is-invalid]="form.controls.prioControl.invalid && form.controls.prioControl.touched"
+          [class.is-valid]="form.controls.prioControl.valid && form.controls.prioControl.touched"
           required
         >
           <option value="hoch">hoch</option>
@@ -54,8 +54,8 @@
             class="form-control"
             id="datumInput"
             formControlName="datumControl"
-            [class.is-invalid]="form.controls.datumControl.invalid"
-            [class.is-valid]="form.controls.datumControl.valid"
+            [class.is-invalid]="form.controls.datumControl.invalid && form.controls.datumControl.touched"
+            [class.is-valid]="form.controls.datumControl.valid && form.controls.datumControl.touched"
             required
           />
         </div>
