@@ -14,6 +14,7 @@ export const routes: Routes = [
   { path: 'create', component: CreatenewtodoComponent },
   { path: 'archiv', component: ArchivComponent },
   { path: 'todo/:id', component: UpdateComponent },
+  { path: 'user/:id', component: LoginComponent },
   //{ path: 'homeNew', component: HomeComponent, data: { onSameUrlNavigation: 'reload'} },
   { path: '', component: LoginComponent, pathMatch: 'full' },
   { path: '**', redirectTo: 'login' }, // dieser Pfad muss offenbar unten stehen!
