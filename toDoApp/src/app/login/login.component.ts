@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import {
   ReactiveFormsModule,
   FormControl,
@@ -8,6 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { AuthService } from '../shared/auth.service';
+import { User } from '../shared/user';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,8 @@ import { AuthService } from '../shared/auth.service';
 })
 export class LoginComponent {
   private auth = inject(AuthService);
+  private router = inject(Router);
+ /* //userValid : //User ;*/
 
   loginForm = new FormGroup({
     email: new FormControl('', Validators.required),
@@ -38,8 +41,22 @@ export class LoginComponent {
     let user = { email: emailVar, passwort: passwortVar };
     console.log('user', user); //erstellt User
 
-    this.auth.loginUser(user);
+    this.auth.loginUser(user)
+    .then((response) => {
+      //this.//userValid = response;
 
+      this.auth.setUser(response.token, response.user);
+      console.log('signal in auth service', response.token, response.user );
+      this.router.navigate(['/home']); 
+      console.log('USER IST JETZT WIRKLICH EINGELOGGT');
+    })
+    .catch((error) => {
+      console.error('Login failed', error);    
+    })
+    
+    
+    
+    //this.router.navigate(['/home']);
 
     //.then(() => {   //wenn es antwort gibt, user = response und user aufschlüsseln
 

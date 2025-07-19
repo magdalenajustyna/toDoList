@@ -35,8 +35,21 @@ export class AuthService {
     this.token.set('');
   }
 
-  registerUser(user: User): Observable<any> {
-    return this.http.post(this.baseUrl + '/todos/user/register', user); // URL checken?
+  async registerUser(user: User): Promise<any> {
+   // return this.http.post(this.baseUrl + '/todos/user/register', user); // URL checken?
+
+    let response = await fetch(this.baseUrl + '/todos/user/register', {
+      method: 'POST',
+      body: JSON.stringify(user),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    let user_register = await response.json();
+    this.user_id = user_register._id;
+    console.log('response register service', user_register);
+    return user_register; 
+
   }
 
   async loginUser(user: { email: any; passwort: string }): Promise<any> {
