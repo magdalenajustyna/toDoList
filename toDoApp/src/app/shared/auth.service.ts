@@ -9,7 +9,7 @@ import { User } from './user';
 })
 export class AuthService {
   baseUrl = 'http://localhost:3000';
-  id = '';
+  user_id = '';
   user: WritableSignal<User> = signal({
     _id: '',
     email: '',
@@ -32,19 +32,19 @@ export class AuthService {
     this.token.set('');
   }
 
-async loginUser(user: { email: string, passwort: string}): Promise<any> {
+async login(user: { email: string, passwort: string}): Promise<any> {
 
   let response = await fetch(this.baseUrl + '/todos/user/login', {
-    method: 'POST',
+    method: "POST",
     body: JSON.stringify(user),
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     
   });
   let body = await response.json();
-  this.id = body.user._id;
-  console.log('response login service', this.id);
+  this.user_id = body.user._id;
+  console.log('response login service', this.user_id);
   } 
 
 

@@ -6,9 +6,15 @@ import { Todo } from './todo';
 })
 export class BackendService {
 
-  URL = 'http://localhost:3000'
+  user_id: string ='';
+
+  URL = 'http://localhost:3000';
 
   constructor() { }
+
+
+
+
 
   //get all
   async getAllToDos(): Promise<Todo[]> {
