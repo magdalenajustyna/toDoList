@@ -20,7 +20,7 @@ import { User } from '../shared/user';
 export class LoginComponent {
   private auth = inject(AuthService);
   private router = inject(Router);
- /* //userValid : //User ;*/
+  //userValid! : User ;   //! damit es nicht gleich initialisiert werden muss
 
   loginForm = new FormGroup({
     email: new FormControl('', Validators.required),
@@ -38,24 +38,31 @@ export class LoginComponent {
     let emailVar = values.email!;
     let passwortVar = values.passwort!;
 
-    let user = { email: emailVar, passwort: passwortVar };
+    let user = { email: emailVar, passwort: passwortVar };    //user Objekt zusammenstellen
     console.log('user', user); //erstellt User
 
-    this.auth.loginUser(user)
-    .then((response) => {
-      //this.//userValid = response;
+    //bekomme response mit status 200 oder 401 zurück
+    this.auth.loginUser(user).then((response) => {  
 
-      this.auth.setUser(response.token, response.user);
-      console.log('signal in auth service', response.token, response.user );
-      this.router.navigate(['/home']); 
-      console.log('USER IST JETZT WIRKLICH EINGELOGGT');
-    })
-    .catch((error) => {
-      console.error('Login failed', error);    
-    })
-    
-    
-    
+      //console.log("TEST STATUS", response.Status);
+
+       if (response.message === 'Login successful') {  
+         //das muss doch auch mit Status gehen??? wie kann ich diesen von dem Objekt auslesen?? 
+          
+          this.auth.setUser(response.token, response.user);   //FUNKTIONIERT NOCH NICHT!
+          //muss user zwischenspeichern und dann in signal setzen??
+          console.log('signal in auth service', response.token, response.user);
+          this.router.navigate(['/home']);    // nur bei erfolgreichem Login zu Home
+          
+        } else if (response.message === 'Invalid email/password') {
+          console.log('Login failed with status: FALSCHES PW ODER MAIL STATUS =', response.message);
+          this.router.navigate(['/login']); // bei falschem PW oder Mail zurück zu Login}
+        }
+      })
+      .catch((error) => {
+        console.error('Login failed', error);
+      });
+
     //this.router.navigate(['/home']);
 
     //.then(() => {   //wenn es antwort gibt, user = response und user aufschlüsseln
@@ -64,14 +71,7 @@ export class LoginComponent {
     /*    this.auth.setUser(response.token, response.user); //   //signal setzen
       console.log('signal in auth service');
     })*/
-    //.then((user) => {     // wenn user eingeloggt console positiv // sonst negative
-    // if (!user.email) {
-    //         this.router.navigate(['/home']);
-    //     } else {
-    //     console.log('todo in DetailComponent : ', todo);
-    // }
 
-    //});
   }
 
   valid(): boolean {

@@ -61,10 +61,11 @@ export class AuthService {
     },
     
   });
-   let user_login = await response.json();
+
+  let user_login = await response.json();   //hier wird Antwort vom Endpunkt gespeichert (ist Object mit message)
   this.user_id = user_login._id;
-  console.log('response login service', user_login);
-  return user_login;  
+  console.log('response login service', user_login);    // wird bei Login erreicht
+  return user_login;  // eingeloggter user ()
     
   }
 }
