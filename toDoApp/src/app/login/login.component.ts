@@ -28,34 +28,33 @@ export class LoginComponent {
   });
   hide = true;
 
-  onSubmit() {    //const ode let variablen???
+  onSubmit() {
+    //const ode let variablen???
 
-
-    
     const values = this.loginForm.value;
     let emailVar = values.email!;
     let passwortVar = values.passwort!;
 
     let user = { email: emailVar, passwort: passwortVar };
-    console.log('user', user);            //erstellt User
+    console.log('user', user); //erstellt User
 
-    this.auth.loginUser(user)
-    .then((response) => {   //wenn es antwort gibt, user = response und user aufschlüsseln
-    
-      console.log('user logged in', user); //user ausgeben
-      this.auth.setUser(response.token, response.user); //   //signal setzen
+    this.auth.loginUser(user);
+
+
+    //.then(() => {   //wenn es antwort gibt, user = response und user aufschlüsseln
+
+    //   console.log('user logged in', user); //user ausgeben
+    /*    this.auth.setUser(response.token, response.user); //   //signal setzen
       console.log('signal in auth service');
-    })
+    })*/
     //.then((user) => {     // wenn user eingeloggt console positiv // sonst negative
-     // if (!user.email) {
-       //         this.router.navigate(['/home']); 
-         //     } else {
-           //     console.log('todo in DetailComponent : ', todo);
-             // }
-      
-    //}); 
+    // if (!user.email) {
+    //         this.router.navigate(['/home']);
+    //     } else {
+    //     console.log('todo in DetailComponent : ', todo);
+    // }
 
-
+    //});
   }
 
   valid(): boolean {

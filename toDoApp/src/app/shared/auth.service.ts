@@ -7,14 +7,17 @@ import { User } from './user';
 @Injectable({
   providedIn: 'root',
 })
+
 export class AuthService {
   baseUrl = 'http://localhost:3000';
+
   user_id = '';
   user: WritableSignal<User> = signal({
     _id: '',
     email: '',
     passwort: '',
   });
+
   token: WritableSignal<string> = signal('');
   loggedIn: Signal<boolean> = computed(
     () => (this.user()._id && this.user()._id! != '') || false
@@ -32,27 +35,23 @@ export class AuthService {
     this.token.set('');
   }
 
-async login(user: { email: string, passwort: string}): Promise<any> {
-
-  let response = await fetch(this.baseUrl + '/todos/user/login', {
-    method: "POST",
-    body: JSON.stringify(user),
-    headers: {
-      "Content-Type": "application/json",
-    },
-    
-  });
-  let body = await response.json();
-  this.user_id = body.user._id;
-  console.log('response login service', this.user_id);
-  } 
-
-
   registerUser(user: User): Observable<any> {
     return this.http.post(this.baseUrl + '/todos/user/register', user); // URL checken?
   }
 
-  //loginUser(user: { email: any; passwort: string }): Observable<any> {
-    //return this.http.post(this.baseUrl + '/todos/user/login', user); //URL checken?
-  //}
+  async loginUser(user: { email: any; passwort: string }): Promise<any> {
+  let response = await fetch(this.baseUrl + '/todos/user/login', {
+   method: "POST",
+    body: JSON.stringify(user),
+    headers: {
+    "Content-Type": "application/json",
+    },
+    
+  });
+   let user_login = await response.json();
+  this.user_id = user_login._id;
+  console.log('response login service', user_login);
+  return user_login;  
+    
+  }
 }
