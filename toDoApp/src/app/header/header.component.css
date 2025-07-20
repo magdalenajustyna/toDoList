@@ -1,7 +1,7 @@
 .container-header {
   display: flex;
-  justify-content: center; /* Zentriert den Inhalt horizontal */
-  align-items: center; /* Zentriert den Inhalt vertikal, falls nötig */
+  justify-content: center;
+  align-items: center;
   padding: 10px;
 }
 

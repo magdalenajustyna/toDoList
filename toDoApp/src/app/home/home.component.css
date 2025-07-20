@@ -3,6 +3,7 @@ h3 {
   color: blueviolet;
   margin-top: 7%;
 }
+
 .container {
   border: 3px solid#f1f1f1;
   border-radius: 10px;
@@ -11,8 +12,8 @@ h3 {
   padding: 1%;
   margin: 0 auto;
   margin-bottom: 3%;
-  }
+}
 
 .container-header {
-  border: 3px solid#ffffff;
+  border: none;
 }

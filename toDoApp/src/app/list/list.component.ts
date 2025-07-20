@@ -6,19 +6,20 @@ import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-list',
-  standalone: true, //standalone aus seinem Code eingefügt
+  standalone: true, // Code aus Skript
   imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css',
 })
+
 export class ListComponent implements OnInit {
-  // in dem Moment in dem Tabl Component in Anwendung eingebunden wird, soll Service aufgerufen werden
+  // in dem Moment, in dem ListComponent in Anwendung eingebunden wird, soll Service aufgerufen werden
   // in dem Moment sollen alle Daten geladen werden
 
-  private dataservice = inject(BackendService);  
+  private dataservice = inject(BackendService);
   private router = inject(Router);
 
-  toDos: Todo[] = []; // Achtung Schreibweise!!
+  toDos: Todo[] = [];
   filteredToDos: Todo[] = [];
   todo!: Todo;
   id: string | null = '';
@@ -61,31 +62,6 @@ export class ListComponent implements OnInit {
     this.toDos = await this.dataservice.getAllToDos()     //warum aktualisiert der nicht selbstständig?
  } */
 
-  /*delete(id: string): void {
-    this.dataservice.getOne(String(id))
-    .then(
-      response => {
-        this.todo = response
-        this.deleteStatus=true;
-      }
-    )
-  }
-
-  confirm() {
-    this.dataservice.deleteOne(String(this.todo._id))
-    .then( () => {
-      this.dataservice.getAllToDos()
-      .then( response => {
-        this.toDos = response 
-        this.deleteStatus=false;
-      })
-    })
-  }
-
-  cancel() {
-    this.deleteStatus=false;
-  } */
-
   filter() {
     let input = this.search.value?.toLocaleLowerCase() || ''; //damit Zeile 35 funktioniert // ? prüft, ob null, wenn nicht, dann to lower Case
     console.log('input: ', input);
@@ -120,8 +96,7 @@ export class ListComponent implements OnInit {
     this.dataservice
       .getOne(_id)                //holt Promise ToDo mit der ID aus Datenbank
       .then((todo) => {           //wenn Promise vorhanden
-        
-        this.todo = todo; 
+        this.todo = todo;
         this.todo.status = 'erledigt'; //Status auf erledigt setzen
         return this.todo;
       })
@@ -130,8 +105,8 @@ export class ListComponent implements OnInit {
         this.dataservice.update(_id, this.todo).then(() => {  //geändertes Todo updaten
           this.ngOnInit(); // refresh der Seite
         });
-      });  
-      
-      // Auswahl Radiobutton muss noch aufgehoben werden 
+      });
+
+    // Auswahl Radiobutton muss noch aufgehoben werden 
   }
 }

@@ -37,23 +37,21 @@ button.btn:hover {
 }
 
 button.cancel {
-    background-color:hsl(271, 68%, 83%);
+    background-color: hsl(271, 68%, 83%);
     border-color: blueviolet;
     color: white;
 }
 
 .container {
-  border: 3px solid#f1f1f1;
-  border-radius: 10px;
-  width: 60%;
-  overflow-x: auto;
-  padding: 1%;
-  margin: 0 auto;
-  margin-bottom: 3%;
-  }
-
-.container-header {
-  border: 3px solid#ffffff;
+    border: 3px solid#f1f1f1;
+    border-radius: 10px;
+    width: 60%;
+    overflow-x: auto;
+    padding: 1%;
+    margin: 0 auto;
+    margin-bottom: 3%;
 }
 
-
+.container-header {
+    border: none;
+}

@@ -7,6 +7,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './logoutbutton.component.html',
   styleUrl: './logoutbutton.component.css'
 })
+
 export class LogoutbuttonComponent {
 
 }

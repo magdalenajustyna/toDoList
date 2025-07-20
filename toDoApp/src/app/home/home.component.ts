@@ -5,8 +5,6 @@ import { ListComponent } from '../list/list.component';
 import { LogoutbuttonComponent } from '../logoutbutton/logoutbutton.component';
 import { NewtodobuttonComponent } from '../newtodobutton/newtodobutton.component';
 import { Component } from '@angular/core';
-import { UpdateComponent } from '../update/update.component';
-
 
 @Component({
   selector: 'app-home',
@@ -15,6 +13,7 @@ import { UpdateComponent } from '../update/update.component';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
+
 export class HomeComponent {}
 
 

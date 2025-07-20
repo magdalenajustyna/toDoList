@@ -7,6 +7,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './archivbutton.component.html',
   styleUrl: './archivbutton.component.css'
 })
+
 export class ArchivbuttonComponent {
 
 }

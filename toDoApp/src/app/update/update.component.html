@@ -1,7 +1,3 @@
-<!-- TO DO:
- 
- Fehlermeldung NG0100 behandeln (seit Validators bei todoNameControl)-->
-
 <div class="container container-header">
   <div>
     <app-header></app-header>
@@ -16,10 +12,8 @@
 
     <div class="mb-3">
       <label for="toDoNameInput" class="form-label">ToDo</label>
-      <input type="text" class="form-control" id="toDoNameInput" formControlName="todoNameControl" 
-      [class.is-invalid]="form.controls.todoNameControl.invalid"             
-          required
-            />
+      <input type="text" class="form-control" id="toDoNameInput" formControlName="todoNameControl"
+        [class.is-invalid]="form.controls.todoNameControl.invalid" required />
     </div>
 
     <div class="mb-3">
@@ -34,14 +28,14 @@
     </div>
 
     <div class="mb-3">
-        <div>
-          <label for="datumInput" class="form-label">fällig am</label>
-        </div>
-
-        <div>
-          <input type="date" class="form-control" id="datumInput" formControlName="datumControl" required>
-        </div>
+      <div>
+        <label for="datumInput" class="form-label">fällig am</label>
       </div>
+
+      <div>
+        <input type="date" class="form-control" id="datumInput" formControlName="datumControl" required>
+      </div>
+    </div>
 
 
     <div class="d-grid gap-2 mt-5">
@@ -50,5 +44,6 @@
         Abbrechen
       </button>
     </div>
+    
   </form>
 </div>

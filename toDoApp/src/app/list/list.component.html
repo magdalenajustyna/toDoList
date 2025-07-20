@@ -1,50 +1,17 @@
 <div class="row">
-  <input
-    class="inputFilter w-75 form-control"
-    type="text"
-    placeholder="ToDo suchen"
-    aria-label="Aufgabensuche"
-    [formControl]="search"
-    (input)="filter()"
-  />
+  <input class="inputFilter w-75 form-control" type="text" placeholder="ToDo suchen" aria-label="Aufgabensuche"
+    [formControl]="search" (input)="filter()" />
 </div>
-
-<!-- @if(deleteStatus) {
-  <div class="modal" tabindex="-1">
-      <div class="modal-dialog">
-          <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title">Wirklich löschen?</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Abbrechen" (click)="cancel()"></button>
-          </div>
-          <div class="modal-body">
-              <p>Wollen Sie das ToDo wirklich löschen?</p>
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cancel()">Abbrechen</button>
-              <button type="button" class="btn btn-danger" (click)="confirm()">Löschen</button>
-          </div>
-          </div>
-      </div>
-  </div>
-}
-
-@else { -->
 
 <table class="table table-striped">
   <thead>
     <tr>
       <th scope="col" class="text-center">
-        Offen       
+        Offen
       </th>
       <th scope="col">ToDo</th>
       <th scope="col">
-        <button
-          class="btn dropdown-toggle prioButton"
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
+        <button class="btn dropdown-toggle prioButton" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           Prio
         </button>
         <div class="dropdown-menu">
@@ -64,55 +31,25 @@
     <tr>
       <td>
         <div class="form-check d-flex justify-content-center">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="flexRadioDefault"
-            id="flexRadioDefault1"
-            (change)="erledigt(Todo._id)"
-          />
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+            (change)="erledigt(Todo._id)" />
         </div>
       </td>
       <td>{{ Todo.todoName }}</td>
       <td>{{ Todo.prio }}</td>
       <td>{{ Todo.datum }}</td>
       <td>
-        <a
-          class="btn pencilButton btn-outline-primary"
-          [routerLink]="['/todo', Todo._id]"
-        >
+        <a class="btn pencilButton btn-outline-primary" [routerLink]="['/todo', Todo._id]">
           <span class="bi bi-pencil-square"></span>
         </a>
       </td>
 
       <td>
         <button class="btn trashButton btn-outline-primary ">
-          <i
-            (click)="confirmAction(Todo._id)"
-            class="bi bi-trash "
-          ></i>
+          <i (click)="confirmAction(Todo._id)" class="bi bi-trash "></i>
         </button>
       </td>
     </tr>
     }
   </tbody>
 </table>
-
-<!-- Zeile 64 soll URL /todos/id aufrufen (todo oder todos?)-->
-<!-- <td>
-        <button class="btn pencilButton btn-outline-primary" [routerLink]="['/update', ToDo._id]">
-          <i class="bi bi-pencil"></i>
-        </button> -->
-<!--
-           i (click)="update(Todo._id)" // das muss in update.html rein, oder?
-        
-      </td> -->
-
-<!--
-
-(click)="delete(Todo._id)"
-
-(click)="confirmAction()" aus delete icon
-
-<i class="bi bi-calendar"></i>
--->

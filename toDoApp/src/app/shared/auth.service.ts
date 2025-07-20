@@ -1,6 +1,5 @@
 import { Injectable, computed, Signal, signal, WritableSignal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { User } from './user';
 
 
@@ -23,7 +22,7 @@ export class AuthService {
     () => (this.user()._id && this.user()._id! != '') || false
   );
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   setUser(token: string, user: User): void {
     this.user.set(user);
@@ -31,12 +30,12 @@ export class AuthService {
   }
 
   unsetUser(): void {
-    this.user.set({ _id: '', email: '', passwort: ''});
+    this.user.set({ _id: '', email: '', passwort: '' });
     this.token.set('');
   }
 
   async registerUser(user: User): Promise<any> {
-   // return this.http.post(this.baseUrl + '/todos/user/register', user); // URL checken?
+    // return this.http.post(this.baseUrl + '/todos/user/register', user); // URL checken?
 
     let response = await fetch(this.baseUrl + '/todos/user/register', {
       method: 'POST',
@@ -45,27 +44,25 @@ export class AuthService {
         'Content-Type': 'application/json',
       },
     });
+
     let user_register = await response.json();
     this.user_id = user_register._id;
     console.log('response register service', user_register);
-    return user_register; 
-
+    return user_register;
   }
 
   async loginUser(user: { email: any; passwort: string }): Promise<any> {
-  let response = await fetch(this.baseUrl + '/todos/user/login', {
-   method: "POST",
-    body: JSON.stringify(user),
-    headers: {
-    "Content-Type": "application/json",
-    },
-    
-  });
+    let response = await fetch(this.baseUrl + '/todos/user/login', {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-  let user_login = await response.json();   //hier wird Antwort vom Endpunkt gespeichert (ist Object mit message)
-  this.user_id = user_login._id;
-  console.log('response login service', user_login);    // wird bei Login erreicht
-  return user_login;  // eingeloggter user ()
-    
+    let user_login = await response.json();   //hier wird Antwort vom Endpunkt gespeichert (ist Object mit message)
+    this.user_id = user_login._id;
+    console.log('response login service', user_login);    // wird bei Login erreicht
+    return user_login;  // eingeloggter user ()
   }
 }

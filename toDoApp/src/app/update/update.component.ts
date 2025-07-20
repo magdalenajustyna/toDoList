@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router} from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { BackendService } from '../shared/backend.service';
@@ -7,11 +7,12 @@ import { Todo } from '../shared/todo';
 
 @Component({
   selector: 'app-update',
-  standalone: true, //aus seinem Code übernommen
+  standalone: true, //Code aus Skript übernommen
   imports: [HeaderComponent, ReactiveFormsModule],
   templateUrl: './update.component.html',
   styleUrl: './update.component.css',
 })
+
 export class UpdateComponent implements OnInit {
   private dataservice = inject(BackendService);
   private route = inject(ActivatedRoute);
@@ -19,6 +20,7 @@ export class UpdateComponent implements OnInit {
 
   todo!: Todo;
   id: string | null = '';
+
   form = new FormGroup({
     //Steuerelemente
     todoNameControl: new FormControl<string>(''),
@@ -58,7 +60,7 @@ export class UpdateComponent implements OnInit {
     return day + '.' + month + '.' + year;
   }
 
-  update(): void {     //soll nur funktionieren, wenn to doName ausgefüllt ist  (der Rest wird ggf mit alten Werten befüllt)
+  update(): void {     //soll nur funktionieren, wenn to doName ausgefüllt ist  (der Rest wird mit alten Werten befüllt)
     if (this.form.controls.todoNameControl.valid) { 
 
     const values = this.form.value;

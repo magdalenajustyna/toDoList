@@ -5,10 +5,9 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { BackendService } from '../shared/backend.service';
 import { Todo } from '../shared/todo';
 
-
 @Component({
   selector: 'app-createnewtodo',
-  standalone: true, //aus seinem Code
+  standalone: true, // Code aus Skript
   imports: [RouterLink, HeaderComponent, ReactiveFormsModule],
   templateUrl: './createnewtodo.component.html',
   styleUrl: './createnewtodo.component.css',
@@ -23,11 +22,11 @@ export class CreatenewtodoComponent {
   form = new FormGroup({
     todoNameControl: new FormControl<string>('', [Validators.required]),
     prioControl: new FormControl<string>('', [Validators.required]),
-    datumControl: new FormControl<string>('', [Validators.required]) 
+    datumControl: new FormControl<string>('', [Validators.required])
   });
 
-  create(): void {    // nur möglich, wenn alle Felder ausgefüllt sind // Meldung noch einbauen oder reicht rote Umrandung der Eingabefelder?
-    if (this.form.valid) {      
+  create(): void {    // nur möglich, wenn alle Felder ausgefüllt sind
+    if (this.form.valid) {
       const values = this.form.value;
 
       let datumNeu = this.formatDateString_DDMMYYYY(values.datumControl!);
@@ -35,18 +34,16 @@ export class CreatenewtodoComponent {
       this.todo.todoName = values.todoNameControl || '';    // was genau bedeutet || '' ? kann das raus, da wir mit validators arbeiten?
       this.todo.prio = values.prioControl || '';
       this.todo.datum = datumNeu || '';
-        
+
       this.dataservice
-          .create(this.todo)
-          .then(() => this.router.navigate(['/home']));
+        .create(this.todo)
+        .then(() => this.router.navigate(['/home']));
+    }
+    else {
+      this.form.markAllAsTouched();  // alle Felder als "berührt" markieren, um Validierung auszulösen
     }
   }
 
-  confirm(): void {   //diese Methode wird nicht genutzt in createNewToDo, also raus?
-    this.router.navigate(['/home']);
-  }
-
-  
   formatDateString_DDMMYYYY(datum: string): string {
     const [year, month, day] = datum.split('-');
     return day + '.' + month + '.' + year;

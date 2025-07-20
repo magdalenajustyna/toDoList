@@ -1,12 +1,12 @@
 .login-container {
-  padding: 1%;
-  border: 3px solid #f1f1f1;
-  border-radius: 10px;
-  width: 60%;
+    padding: 1%;
+    border: 3px solid #f1f1f1;
+    border-radius: 10px;
+    width: 60%;
 }
 
 form {
-    padding: 5%;     
+    padding: 5%;
     margin: 18px;
     margin-left: 20%;
     margin-right: 20%;
@@ -37,8 +37,8 @@ button.btn:hover {
 }
 
 .psw a {
-    text-decoration: none; 
-    color: blueviolet; 
+    text-decoration: none;
+    color: blueviolet;
 }
 
 .psw a:hover {
@@ -60,15 +60,15 @@ button.btn:hover {
 }
 
 .container {
-  border: 3px solid#f1f1f1;
-  border-radius: 10px;
-  width: 60%;
-  overflow-x: auto;
-  padding: 1%;
-  margin: 0 auto; /* Zentriert das div horizontal */
-  margin-bottom: 3%;
-  }
+    border: 3px solid#f1f1f1;
+    border-radius: 10px;
+    width: 60%;
+    overflow-x: auto;
+    padding: 1%;
+    margin: 0 auto;
+    margin-bottom: 3%;
+}
 
 .container-header {
-  border: 3px solid#ffffff;
+    border: none;
 }

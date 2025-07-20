@@ -11,18 +11,19 @@ import { Router, RouterLink } from '@angular/router';
   templateUrl: './list-archiv.component.html',
   styleUrl: './list-archiv.component.css',
 })
+
 export class ListArchivComponent implements OnInit {
-  // in dem Moment in dem Table Component in Anwendung eingebunden wird, soll Service aufgerufen werden
+  // in dem Moment, in dem ListArchivComponent in Anwendung eingebunden wird, soll Service aufgerufen werden
   // in dem Moment sollen alle Daten geladen werden
 
   private dataservice = inject(BackendService); // Injezierung des Services
-  toDos: Todo[] = []; // Achtung Schreibweise!!
+  toDos: Todo[] = [];
   filteredToDos: Todo[] = [];
   todo!: Todo;
 
   private router = inject(Router);
 
-  search = new FormControl(''); // FormControl für die Suche, initial leer //ReactiveFormsModule muss auch in imports
+  search = new FormControl(''); // FormControl für die Suche, initial leer
 
   async ngOnInit(): Promise<void> { // async Methode, die Promise zurückgibt
     this.toDos = await this.dataservice.getAllToDos();
@@ -34,8 +35,6 @@ export class ListArchivComponent implements OnInit {
         return dateA.getTime() - dateB.getTime();
       });
     console.log('todos in list: ', this.toDos);
-
-    // initial nur erledigte ToDos anzeigen, ChatKI für sort Methode genutzt    
   }
 
   delete(id: string): void {
@@ -80,7 +79,6 @@ export class ListArchivComponent implements OnInit {
       .getOne(_id) //holt Promise ToDo mit der ID aus Datenbank
       .then((todo) => {
         //wenn Promise vorhanden
-
         this.todo = todo;
         this.todo.status = 'offen'; //Status wieder auf offen setzen
         return this.todo;

@@ -8,7 +8,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { AuthService } from '../shared/auth.service';
-import { User } from '../shared/user';
 
 @Component({
   selector: 'app-login',

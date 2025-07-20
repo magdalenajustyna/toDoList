@@ -1,40 +1,43 @@
-
-  <div class="container container-header">
-    <div>
-      <app-header></app-header>
-    </div>
+<div class="container container-header">
+  <div>
+    <app-header></app-header>
   </div>
+</div>
 
-  <h2>Registrierung</h2>
+<h2>Registrierung</h2>
 
-  <div class="container register-container">
-    <form>
-      <div class="container-fluid">
+<div class="container register-container">
+  <form>
+    <div class="container-fluid">
 
-        <div class="mb-3">
-          <label for="usernameInput" class="form-label">Username</label>
-          <input type="inputUsername" class="form-control" id="anmeldename" required />
-        </div>
-
-        <div class="mb-3">
-          <label for="emailInput" class="form-label">E-Mail</label>
-          <input type="inputEmail" class="form-control" id="email" required />
-        </div>
-
-        <div class="mb-5">
-          <label for="passwordInput" class="form-label">Passwort</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" required />
-        </div>
-
-        <div class="d-grid gap-2 mt-5">
-          <button type="button" class="btn btn-success btn register" [routerLink]="['/home']">
-            Registrieren
-          </button>
-          <button type="button" class="btn btn-secondary btn cancel" [routerLink]="['/login']">
-            Abbrechen
-          </button>
-        </div>
-
+      <div class="mb-3">
+        <label for="usernameInput" class="form-label">Username</label>
+        <input type="inputUsername" class="form-control" id="anmeldename" aria-describedby="usernameHelp"
+          [class.is-invalid]="registerForm.controls.name.invalid && registerForm.controls.name.touched" required />
       </div>
-    </form>
-  </div>
+
+      <div class="mb-3">
+        <label for="emailInput" class="form-label">E-Mail</label>
+        <input type="inputEmail" class="form-control" id="email"
+          [class.is-invalid]="registerForm.controls.email.invalid && registerForm.controls.email.touched" required />
+      </div>
+
+      <div class="mb-5">
+        <label for="passwordInput" class="form-label">Passwort</label>
+        <input type="password" class="form-control" id="exampleInputPassword1"
+          [class.is-invalid]="registerForm.controls.passwort.invalid && registerForm.controls.passwort.touched"
+          required />
+      </div>
+
+      <div class="d-grid gap-2 mt-5">
+        <button type="button" class="btn btn-success btn register" [routerLink]="['/home']">
+          Registrieren
+        </button>
+        <button type="button" class="btn btn-secondary btn cancel" [routerLink]="['/login']">
+          Abbrechen
+        </button>
+      </div>
+
+    </div>
+  </form>
+</div>

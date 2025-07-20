@@ -1,8 +1,6 @@
 .container {
     background-color: rgb(220, 198, 241);
     padding: 10px;
-    /*border-radius: 10px;
-    margin: 1%;*/
 }
 
 .header-item {
@@ -19,10 +17,6 @@
 
 .prioButton:hover {
     background-color: yellow;
-}
-
-.col {  /* kann das raus?*/ 
-    margin: auto;
 }
 
 .inputFilter {
@@ -42,5 +36,5 @@
 }
 
 th {
-  vertical-align: middle;
+    vertical-align: middle;
 }

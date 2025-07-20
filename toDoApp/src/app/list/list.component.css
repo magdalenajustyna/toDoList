@@ -1,11 +1,11 @@
-.container {       
+.container {
   background-color: rgb(220, 198, 241);
   padding: 10px;
   border-radius: 10px;
   margin: 1%;
 }
 
-.header-item {  
+.header-item {
   text-align: center;
   font-weight: bold;
 }
@@ -18,22 +18,22 @@ th {
 .prioButton {
   color: black;
   font-weight: bold;
-  margin-left:-11%;
+  margin-left: -11%;
 }
 
-.prioButton:hover{
+.prioButton:hover {
   background-color: yellow;
 }
 
-.col{
+.col {
   margin: auto;
 }
 
-.inputFilter{
+.inputFilter {
   margin-top: 1%;
   margin-bottom: 2%;
   margin-left: 1%;
-  margin-right: 2%;  
+  margin-right: 2%;
 }
 
 .pencilButton {
@@ -53,4 +53,3 @@ th {
 .trashButton:hover {
   background-color: yellow;
 }
-

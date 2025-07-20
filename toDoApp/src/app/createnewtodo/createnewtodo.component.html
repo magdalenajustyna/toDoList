@@ -7,36 +7,20 @@
 
   <h2>Neues ToDo</h2>
 
-  <!-- valid / invalid beide lassen? oder reicht nur invalid?  
-   wollen wir auch noch eine Meldung dazu? eig finde ich es ohne besser-->
-
   <div class="container newtodo-container">
     <form [formGroup]="form" (ngSubmit)="create()">
       <div class="mb-3">
         <label for="toDoNameInput" class="form-label">ToDo</label>
-        <input
-          type="todo"
-          class="form-control"
-          id="toDoNameInput"
-          formControlName="todoNameControl"
+        <input type="todo" class="form-control" id="toDoNameInput" formControlName="todoNameControl"
           [class.is-invalid]="form.controls.todoNameControl.invalid && form.controls.todoNameControl.touched"
-          [class.is-valid]="form.controls.todoNameControl.valid && form.controls.todoNameControl.touched"    
-          required
-        />
-       
+          required />
       </div>
 
       <div class="mb-3">
         <label for="dropdownMenu" class="form-label">Prio</label>
 
-        <select
-          id="dropdownMenu"
-          class="form-control"
-          formControlName="prioControl"
-          [class.is-invalid]="form.controls.prioControl.invalid && form.controls.prioControl.touched"
-          [class.is-valid]="form.controls.prioControl.valid && form.controls.prioControl.touched"
-          required
-        >
+        <select id="dropdownMenu" class="form-control" formControlName="prioControl"
+          [class.is-invalid]="form.controls.prioControl.invalid && form.controls.prioControl.touched" required>
           <option value="hoch">hoch</option>
           <option value="mittel">mittel</option>
           <option value="niedrig">niedrig</option>
@@ -49,32 +33,20 @@
         </div>
 
         <div>
-          <input
-            type="date"
-            class="form-control"
-            id="datumInput"
-            formControlName="datumControl"
-            [class.is-invalid]="form.controls.datumControl.invalid && form.controls.datumControl.touched"
-            [class.is-valid]="form.controls.datumControl.valid && form.controls.datumControl.touched"
-            required
-          />
+          <input type="date" class="form-control" id="datumInput" formControlName="datumControl"
+            [class.is-invalid]="form.controls.datumControl.invalid && form.controls.datumControl.touched" required />
         </div>
-
-        
       </div>
 
       <div class="d-grid gap-2 mt-5">
         <button type="submit" class="btn save btn-primary w-100">
           Hinzufügen
         </button>
-        <button
-          type="button"
-          class="btn btn-secondary btn cancel"
-          [routerLink]="['/home']"
-        >
+        <button type="button" class="btn btn-secondary btn cancel" [routerLink]="['/home']">
           Abbrechen
         </button>
       </div>
+
     </form>
   </div>
 </div>

@@ -7,6 +7,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './zurueckbutton.component.html',
   styleUrl: './zurueckbutton.component.css'
 })
+
 export class ZurueckbuttonComponent {
 
 }
