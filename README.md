@@ -27,3 +27,4 @@ ChatKI zur Fehleranalyse, Fragen zu Layout-Design, Datepicker, Login einbinden F
 
 ## Screenshots
 
+![Screenshot1](./toDoApp/src/assets/images/screenshot1.png)
