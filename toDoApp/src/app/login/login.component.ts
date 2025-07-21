@@ -19,7 +19,7 @@ import { AuthService } from '../shared/auth.service';
 export class LoginComponent {
   private auth = inject(AuthService);
   private router = inject(Router);
-  //userValid! : User ;   //! damit es nicht gleich initialisiert werden muss
+  
 
   loginForm = new FormGroup({
     email: new FormControl('', Validators.required),
