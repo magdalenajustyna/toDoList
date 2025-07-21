@@ -9,10 +9,18 @@ Die todoApp ist eine benutzerfreundliche, responsive und intuitive Anwendung zur
 Frontend-Repository:
 `https://github.com/magdalenajustyna/toDoList.git`
 
+`cd toDoApp`
+`npm install`
+`ng serve`
+
 Backend-Repository:
 `https://github.com/magdalenajustyna/toDoList_BE.git`
 
-...
+`npm install`
+`node server.js (oder node --watch server.js)`
+
+Anwendung im Browser starten:
+`http://localhost:4200`
 
 ## Technologien
 
@@ -23,8 +31,18 @@ Backend-Repository:
 
 ## KI-Nutzung
 
-ChatKI zur Fehleranalyse, Fragen zu Layout-Design, Datepicker, Login einbinden Frontend...???
+ChatKI(ChatGPT an der HTW Berlin) zur Fehleranalyse, Fragen zu Layout-Design, Datepicker, Login einbinden im Frontend, Sort-Methoden 
 
 ## Screenshots
 
+![Screenshot1](./toDoApp/src/assets/images/screenshot0.png)
+
 ![Screenshot1](./toDoApp/src/assets/images/screenshot1.png)
+
+![Screenshot1](./toDoApp/src/assets/images/screenshot2.png)
+
+![Screenshot1](./toDoApp/src/assets/images/screenshot3.png)
+
+![Screenshot1](./toDoApp/src/assets/images/screenshot4.png)
+
+![Screenshot1](./toDoApp/src/assets/images/screenshot5.png)
