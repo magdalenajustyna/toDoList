@@ -6,20 +6,24 @@ Die todoApp ist eine benutzerfreundliche, responsive und intuitive Anwendung zur
 
 ## Installation
 
-Frontend-Repository:
+Frontend-Repository:  
 `https://github.com/magdalenajustyna/toDoList.git`
 
-`cd toDoApp`
-`npm install`
-`ng serve`
+``
+cd toDoApp
+npm install
+ng serve
+``
 
-Backend-Repository:
+Backend-Repository:  
 `https://github.com/magdalenajustyna/toDoList_BE.git`
 
-`npm install`
-`node server.js (oder node --watch server.js)`
+``
+npm install
+node server.js (oder node --watch server.js)
+``
 
-Anwendung im Browser starten:
+Anwendung im Browser starten:  
 `http://localhost:4200`
 
 ## Technologien
