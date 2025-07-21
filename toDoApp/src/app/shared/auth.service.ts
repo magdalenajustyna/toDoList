@@ -46,7 +46,7 @@ export class AuthService {
     });
 
     // Code analog zu loginUser erstellen!
-    
+
     let user_register = await response.json();
     this.user_id = user_register._id;
     console.log('response register service', user_register);
