@@ -10,21 +10,17 @@ Frontend-Repository:
 `https://github.com/magdalenajustyna/toDoList.git`
 
 ```
-``
 cd toDoApp
 npm install
 ng serve
-``
 ```
 
 Backend-Repository:  
 `https://github.com/magdalenajustyna/toDoList_BE.git`
 
 ```
-``
 npm install
 node server.js (oder node --watch server.js)
-``
 ```
 
 Anwendung im Browser starten:  
