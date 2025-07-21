@@ -31,45 +31,29 @@ export class LoginComponent {
   hide = true;
 
   onSubmit() {
-    //const ode let variablen???
-
+    
     const values = this.loginForm.value;
-    let emailVar = values.email!;
-    let passwortVar = values.passwort!;
+    const emailVar = values.email!.toLowerCase();
+    const passwortVar = values.passwort!;
 
-    let user = { email: emailVar, passwort: passwortVar };    //user Objekt zusammenstellen
-    console.log('user', user); //erstellt User
+    const user = { email: emailVar, passwort: passwortVar };    //user Objekt zusammenstellen
 
-    //bekomme response mit status 200 oder 401 zurück
+    //bekomme response true/false zurück
     this.auth.loginUser(user).then((response) => {  
 
-      //console.log("TEST STATUS", response.Status);
-
-       if (response.message === 'Login successful') {  
-         //das muss doch auch mit Status gehen??? wie kann ich diesen von dem Objekt auslesen?? 
-          
-          this.auth.setUser(response.token, response.user);   //FUNKTIONIERT NOCH NICHT!
-          //muss user zwischenspeichern und dann in signal setzen??
-          console.log('signal in auth service', response.token, response.user);
+       if (response) {  
+        
           this.router.navigate(['/home']);    // nur bei erfolgreichem Login zu Home
           
-        } else if (response.message === 'Invalid email/password') {
-          console.log('Login failed with status: FALSCHES PW ODER MAIL STATUS =', response.message);
+        } else { 
+
+          console.log('Login failed with status: FALSCHES PW ODER MAIL STATUS =', response);
           this.router.navigate(['/login']); // bei falschem PW oder Mail zurück zu Login}
-        }
+        } // eig nicht erneut seite aufrufen, nur Meldung über formular einblenden
       })
       .catch((error) => {
         console.error('Login failed', error);
       });
-
-    //this.router.navigate(['/home']);
-
-    //.then(() => {   //wenn es antwort gibt, user = response und user aufschlüsseln
-
-    //   console.log('user logged in', user); //user ausgeben
-    /*    this.auth.setUser(response.token, response.user); //   //signal setzen
-      console.log('signal in auth service');
-    })*/
 
   }
 

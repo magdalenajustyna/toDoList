@@ -51,7 +51,7 @@ export class AuthService {
     return user_register;
   }
 
-  async loginUser(user: { email: any; passwort: string }): Promise<any> {
+  async loginUser(user: { email: any; passwort: string }): Promise<boolean> {
     let response = await fetch(this.baseUrl + '/todos/user/login', {
       method: "POST",
       body: JSON.stringify(user),
@@ -59,10 +59,18 @@ export class AuthService {
         "Content-Type": "application/json",
       },
     });
-
-    let user_login = await response.json();   //hier wird Antwort vom Endpunkt gespeichert (ist Object mit message)
-    this.user_id = user_login._id;
+    if (response.status == 200){
+    
+    let user_login = await response.json();   //hier wird Antwort vom Endpunkt gespeichert
+    //this.user_id = user_login._id;
     console.log('response login service', user_login);    // wird bei Login erreicht
-    return user_login;  // eingeloggter user ()
+    
+    this.setUser(user_login.token, user_login.user); // User und Token setzen
+    return true;
+    }
+
+    else {
+      return false; 
+    }
   }
 }
