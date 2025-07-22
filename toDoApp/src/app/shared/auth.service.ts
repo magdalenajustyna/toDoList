@@ -6,7 +6,6 @@ import { User } from './user';
 @Injectable({
   providedIn: 'root',
 })
-
 export class AuthService {
   baseUrl = 'http://localhost:3000';
 
@@ -15,6 +14,7 @@ export class AuthService {
     _id: '',
     email: '',
     passwort: '',
+    name: '',
   });
 
   token: WritableSignal<string> = signal('');
@@ -22,7 +22,7 @@ export class AuthService {
     () => (this.user()._id && this.user()._id! != '') || false
   );
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   setUser(token: string, user: User): void {
     this.user.set(user);
@@ -30,11 +30,11 @@ export class AuthService {
   }
 
   unsetUser(): void {
-    this.user.set({ _id: '', email: '', passwort: '' });
+    this.user.set({ _id: '', email: '', passwort: '', name: '' }); //Namen hinzugefügt
     this.token.set('');
   }
 
-  async registerUser(user: User): Promise<any> {
+  async registerUser(user: { email: any; passwort: string, name: string }): Promise<boolean> {
     // return this.http.post(this.baseUrl + '/todos/user/register', user); // URL checken?
 
     let response = await fetch(this.baseUrl + '/todos/user/register', {
@@ -44,35 +44,36 @@ export class AuthService {
         'Content-Type': 'application/json',
       },
     });
+    if (response.status == 201) {  
+      let user_registered = await response.json(); //hier wird Antwort vom Endpunkt gespeichert//Body aus request wird ausgelesen
 
-    // Code analog zu loginUser erstellen!
+      console.log('response REGISTER service', user_registered); // wird bei Register erreicht
 
-    let user_register = await response.json();
-    this.user_id = user_register._id;
-    console.log('response register service', user_register);
-    return user_register;
+      return true;
+    } 
+    
+    else {
+      return false;
+    }
   }
 
   async loginUser(user: { email: any; passwort: string }): Promise<boolean> {
     let response = await fetch(this.baseUrl + '/todos/user/login', {
-      method: "POST",
+      method: 'POST',
       body: JSON.stringify(user),
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     });
-    if (response.status == 200){
-    
-    let user_login = await response.json();   //hier wird Antwort vom Endpunkt gespeichert
-    //this.user_id = user_login._id;
-    console.log('response login service', user_login);    // wird bei Login erreicht
-    
-    this.setUser(user_login.token, user_login.user); // User und Token setzen
-    return true;
-    }
+    if (response.status == 200) {
+      let user_login = await response.json(); //hier wird Antwort vom Endpunkt gespeichert
+      //this.user_id = user_login._id;
+      console.log('response login service', user_login); // wird bei Login erreicht
 
-    else {
-      return false; 
+      this.setUser(user_login.token, user_login.user); // User und Token setzen
+      return true;
+    } else {
+      return false;
     }
   }
 }

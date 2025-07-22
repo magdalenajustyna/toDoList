@@ -19,10 +19,9 @@ import { AuthService } from '../shared/auth.service';
 export class LoginComponent {
   private auth = inject(AuthService);
   private router = inject(Router);
-  
 
   loginForm = new FormGroup({
-    email: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
     passwort: new FormControl('', [
       Validators.required,
       Validators.minLength(8),
@@ -31,30 +30,29 @@ export class LoginComponent {
   hide = true;
 
   onSubmit() {
-    
     const values = this.loginForm.value;
     const emailVar = values.email!.toLowerCase();
     const passwortVar = values.passwort!;
 
-    const user = { email: emailVar, passwort: passwortVar };    //user Objekt zusammenstellen
+    const user = { email: emailVar, passwort: passwortVar }; //user Objekt zusammenstellen // gibt es hier Problem mit dem Namen?
 
     //bekomme response true/false zurück
-    this.auth.loginUser(user).then((response) => {  
-
-       if (response) {  
-        
-          this.router.navigate(['/home']);    // nur bei erfolgreichem Login zu Home
-          
-        } else { 
-
-          console.log('Login failed with status: FALSCHES PW ODER MAIL STATUS =', response);
+    this.auth
+      .loginUser(user)
+      .then((response) => {
+        if (response) {
+          this.router.navigate(['/home']); // nur bei erfolgreichem Login zu Home
+        } else {
+          console.log(
+            'Login failed with status: FALSCHES PW ODER MAIL STATUS =',
+            response
+          );
           this.router.navigate(['/login']); // bei falschem PW oder Mail zurück zu Login}
         } // eig nicht erneut seite aufrufen, nur Meldung über formular einblenden
       })
       .catch((error) => {
         console.error('Login failed', error);
       });
-
   }
 
   valid(): boolean {
