@@ -20,6 +20,7 @@ export class LoginComponent {
   private auth = inject(AuthService);
   private router = inject(Router);
   loginFailed = false; 
+  
 
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),

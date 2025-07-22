@@ -14,7 +14,8 @@ import { User } from '../shared/user';
 export class RegisterFormComponent {
   private auth = inject(AuthService);
   private router = inject(Router);
-  registerFailed = false; 
+  registerFailed = false;
+  registered = false;
 
   registerForm = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -42,12 +43,14 @@ export class RegisterFormComponent {
       .then((response) => {
         if (response) {
           console.log('Register erfolgreich, weiter zu Login', user);
-          this.router.navigate(['/login']); // nur bei erfolgreichem Register
-        } else {
+          this.router.navigate(['/register']); // nur bei erfolgreichem Register
+          this.registered= true;
+        } 
+        
+        else {
           console.log('Register failed Mail bereits vergeben', response);
           this.registerFailed = true;
-          
-        } 
+        }
       })
       .catch((error) => {
         console.error('Register failed', error);

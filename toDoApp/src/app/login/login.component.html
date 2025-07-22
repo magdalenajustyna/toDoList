@@ -15,17 +15,14 @@
 
 
 
+
+
   <form [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
     <div class="mb-3">
       <label for="usernameInput" class="form-label">Email</label>
       <input type="username" class="form-control" id="usernameInput" aria-describedby="usernameHelp"
         formControlName="email"
         [class.is-invalid]="loginForm.controls.email.invalid && loginForm.controls.email.touched" required />
-
-      <!-- lieber valid/invalid als Text ?!
-      @if(loginForm.controls['email'].hasError('required')) { 
-         Email
-      erforderlich }  -->
     </div>
 
     <div class="mb-3">
@@ -34,11 +31,7 @@
       <!--  hide code löschen oder benutzen?! -->
       <input [type]="hide ? 'password' : 'text'" class="form-control" id="passwordInput" formControlName="passwort"
         [class.is-invalid]="loginForm.controls.passwort.invalid && loginForm.controls.passwort.touched" required />
-      <!-- lieber valid/invalid als Text ?! 
-      @if(loginForm.controls['passwort'].hasError('required')) { Passwort
-      erforderlich  } 
-      @else if(loginForm.controls['passwort'].hasError('minlength')) {  Passwort muss
-      mind. 8 Zeichen enthalten! } -->
+      
     </div>
 
     <span class="psw mb-5"><a href="#">Passwort vergessen?</a></span>
@@ -50,5 +43,3 @@
     <span class="new"><a [routerLink]="['/register']">Neu hier? Jetzt registrieren!</a></span>
   </form>
 </div>
-
-<!-- [routerLink]="['/home']" -->
