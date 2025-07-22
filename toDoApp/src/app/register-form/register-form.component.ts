@@ -1,9 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { AuthService } from '../shared/auth.service';
-
 
 @Component({
   selector: 'app-register-form',
@@ -19,7 +23,7 @@ export class RegisterFormComponent {
 
   registerForm = new FormGroup({
     name: new FormControl('', Validators.required),
-    email: new FormControl('', [Validators.required, Validators.email]), //wird hier Mail in Korrekter Schreibweise geprüft
+    email: new FormControl('', [Validators.required, Validators.email]), 
     passwort: new FormControl('', [
       Validators.required,
       Validators.minLength(8),
@@ -30,7 +34,7 @@ export class RegisterFormComponent {
   onSubmit() {
     const values = this.registerForm.value;
 
-    const nameVar = values.name!; // dann muss auch Interface angepasst werden
+    const nameVar = values.name!; 
     const emailVar = values.email!.toLowerCase();
     const passwortVar = values.passwort!;
 
@@ -44,10 +48,8 @@ export class RegisterFormComponent {
         if (response) {
           console.log('Register erfolgreich, weiter zu Login', user);
           this.router.navigate(['/register']); // nur bei erfolgreichem Register
-          this.registered= true;
-        } 
-        
-        else {
+          this.registered = true;
+        } else {
           console.log('Register failed Mail bereits vergeben', response);
           this.registerFailed = true;
         }

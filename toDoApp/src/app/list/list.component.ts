@@ -4,6 +4,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { BackendService } from '../shared/backend.service';
 import { Router, RouterLink } from '@angular/router';
 
+
 @Component({
   selector: 'app-list',
   standalone: true, // Code aus Skript
@@ -18,11 +19,12 @@ export class ListComponent implements OnInit {
 
   private dataservice = inject(BackendService);
   private router = inject(Router);
-
+  
   toDos: Todo[] = [];
   filteredToDos: Todo[] = [];
   todo!: Todo;
   id: string | null = '';
+
 
   deleteStatus: boolean = false; //nutzen wir das? eig nicht?
 
@@ -30,6 +32,7 @@ export class ListComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     // async Methode, die Promise zurückgibt
+   
     this.toDos = await this.dataservice.getAllToDos();
     this.filteredToDos = this.toDos
       .filter((t) => t.status == 'offen')
@@ -39,12 +42,6 @@ export class ListComponent implements OnInit {
         return dateA.getTime() - dateB.getTime();
       });
     console.log('todos in list: ', this.toDos);
-
-    // initial nur offene ToDos anzeigen und nach Datum sortieren
-    // für Datumssortierung habe ich Chat Ki gewählt
-
-    //this.filteredToDos = this.toDos;                     // initial alle Mitglieder in der Tabelle // wir wollen nur die offenen
-    //console.log('toDos in table -> ', this.toDos);
   }
 
   delete(id: string): void {
@@ -55,15 +52,9 @@ export class ListComponent implements OnInit {
     console.log(`Todo mit id=${id} löschen`);
   }
 
-  //diese Methode darf bei Sicherheitsabfrage nicht gleich löschen (getOne muss aufgerufen werden anstatt delete, siehe unten)
-  /*async delete(id: string) {
-    console.log('delete in home-list: ', id)
-    this.dataservice.deleteOne(id)
-    this.toDos = await this.dataservice.getAllToDos()     //warum aktualisiert der nicht selbstständig?
- } */
 
   filter() {
-    let input = this.search.value?.toLocaleLowerCase() || ''; //damit Zeile 35 funktioniert // ? prüft, ob null, wenn nicht, dann to lower Case
+    let input = this.search.value?.toLocaleLowerCase() || ''; // ? prüft, ob null, wenn nicht, dann to lower Case
     console.log('input: ', input);
     this.filteredToDos = this.toDos.filter(
       (t) =>
@@ -78,7 +69,7 @@ export class ListComponent implements OnInit {
     if (confirmed) {
       this.delete(id);
       console.log('Aktion bestätigt!');
-      this.router.navigate(['/home']); // refresh??!!
+      this.router.navigate(['/home']); 
     } else {
       console.log('Aktion abgebrochen!');
     }

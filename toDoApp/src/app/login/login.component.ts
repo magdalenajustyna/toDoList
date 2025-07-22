@@ -19,8 +19,7 @@ import { AuthService } from '../shared/auth.service';
 export class LoginComponent {
   private auth = inject(AuthService);
   private router = inject(Router);
-  loginFailed = false; 
-  
+  loginFailed = false;
 
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -36,7 +35,7 @@ export class LoginComponent {
     const emailVar = values.email!.toLowerCase();
     const passwortVar = values.passwort!;
 
-    const user = { email: emailVar, passwort: passwortVar }; //user Objekt zusammenstellen 
+    const user = { email: emailVar, passwort: passwortVar }; //user Objekt zusammenstellen
 
     //bekomme response true/false zurück
     this.auth
@@ -45,11 +44,7 @@ export class LoginComponent {
         if (response) {
           this.router.navigate(['/home']); // nur bei erfolgreichem Login zu Home
         } else {
-          console.log(
-            'Login failed with status: FALSCHES PW ODER MAIL STATUS =',
-            response
-          );
-          this.loginFailed = true; 
+          this.loginFailed = true;
         }
       })
       .catch((error) => {

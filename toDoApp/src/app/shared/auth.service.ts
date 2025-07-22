@@ -1,5 +1,4 @@
 import { Injectable, computed, Signal, signal, WritableSignal } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { User } from './user';
 
 
@@ -9,12 +8,12 @@ import { User } from './user';
 export class AuthService {
   baseUrl = 'http://localhost:3000';
 
-  user_id = '';
+  user_id = '';   // benutzen wir das?
   user: WritableSignal<User> = signal({
     _id: '',
     email: '',
     passwort: '',
-    name: '',
+    name: '',   
   });
 
   token: WritableSignal<string> = signal('');
@@ -26,6 +25,7 @@ export class AuthService {
   setUser(token: string, user: User): void {
     this.user.set(user);
     this.token.set(token);
+    console.log('User set Signal??', this.user());
   }
 
   unsetUser(): void {
@@ -69,9 +69,10 @@ export class AuthService {
       let user_login = await response.json(); //hier wird Antwort vom Endpunkt gespeichert
       //this.user_id = user_login._id;
       console.log('response login service', user_login); // wird bei Login erreicht
-      console.log('loggedIn richtig ermittlet?', this.loggedIn);
+     
 
       this.setUser(user_login.token, user_login.user); // User und Token setzen
+      console.log('User set in AuthService', this.user());
       return true;
     } else {
       return false;

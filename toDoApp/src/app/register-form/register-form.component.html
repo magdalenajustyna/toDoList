@@ -7,51 +7,82 @@
 <h2>Registrierung</h2>
 
 <div class="container register-container">
+  
+  @if (registerFailed){
+  <span class="registerFailed text-danger mt-3">
+    <i class="bi bi-exclamation-triangle-fill"></i> Mail bereits vergeben!</span
+  >
+  } 
 
-  @if (registerFailed){ 
-<span class="registerFailed text-danger mt-3"> <i class="bi bi-exclamation-triangle-fill"></i>
-    Mail bereits vergeben!</span>
-} 
-
-@if(registered){
-  <span class="registered text-success mt-3"> <i class="bi bi-check-circle-fill"></i>
-    Registrierung erfolgreich. Bitte log dich ein!</span>
-}
-
+  @if(registered){
+  <span class="registered text-success mt-3">
+    <i class="bi bi-check-circle-fill"></i> Registrierung erfolgreich. Bitte log
+    dich ein!</span
+  >
+  }
 
   <form [formGroup]="registerForm" novalidate (ngSubmit)="onSubmit()">
     <div class="container-fluid">
-
       <div class="mb-3">
         <label for="usernameInput" class="form-label">Username</label>
-        <input type="inputUsername" class="form-control" id="anmeldename" aria-describedby="usernameHelp" formControlName="name"
-          [class.is-invalid]="registerForm.controls.name.invalid && registerForm.controls.name.touched" required />
+        <input
+          type="inputUsername"
+          class="form-control"
+          id="anmeldename"
+          aria-describedby="usernameHelp"
+          formControlName="name"
+          [class.is-invalid]="
+            registerForm.controls.name.invalid &&
+            registerForm.controls.name.touched" required
+        />
       </div>
 
       <div class="mb-3">
         <label for="emailInput" class="form-label">E-Mail</label>
-        <input type="inputEmail" class="form-control" id="email" formControlName="email"
-          [class.is-invalid]="registerForm.controls.email.invalid && registerForm.controls.email.touched" required />
+        <input
+          type="inputEmail"
+          class="form-control"
+          id="email"
+          formControlName="email"
+          [class.is-invalid]="
+            registerForm.controls.email.invalid &&
+            registerForm.controls.email.touched"
+          required
+        />
       </div>
 
       <div class="mb-5">
         <label for="passwordInput" class="form-label">Passwort</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" formControlName="passwort"
-          [class.is-invalid]="registerForm.controls.passwort.invalid && registerForm.controls.passwort.touched"
-          required />
+        <input
+          type="password"
+          class="form-control"
+          id="exampleInputPassword1"
+          formControlName="passwort"
+          [class.is-invalid]="
+            registerForm.controls.passwort.invalid &&
+            registerForm.controls.passwort.touched
+          "
+          required
+        />
       </div>
 
       <div class="d-grid gap-2 mt-5">
-        <button type="submit" class="btn btn-success btn register" [disabled]="!valid()!">
+        <button
+          type="submit"
+          class="btn btn-success btn register"
+          [disabled]="!valid()!"
+        >
           Registrieren
         </button>
 
-
-        <button type="button" class="btn btn-secondary btn cancel" [routerLink]="['/login']">
+        <button
+          type="button"
+          class="btn btn-secondary btn cancel"
+          [routerLink]="['/login']"
+        >
           Zurück zu Login
         </button>
       </div>
-
     </div>
   </form>
 </div>

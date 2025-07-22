@@ -7,31 +7,38 @@
 <h2>Login</h2>
 
 <div class="container login-container">
-
-@if (loginFailed){ 
-<span class="loginFailed text-danger mt-3"> <i class="bi bi-exclamation-triangle-fill"></i>
-    Login fehlgeschlagen!</span>
-} 
-
-
-
-
-
+  @if (loginFailed){
+  <span class="loginFailed text-danger mt-3">
+    <i class="bi bi-exclamation-triangle-fill"></i> Login fehlgeschlagen!</span
+  >
+  }
   <form [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
     <div class="mb-3">
       <label for="usernameInput" class="form-label">Email</label>
-      <input type="username" class="form-control" id="usernameInput" aria-describedby="usernameHelp"
+      <input
+        type="username"
+        class="form-control"
+        id="usernameInput"
+        aria-describedby="usernameHelp"
         formControlName="email"
-        [class.is-invalid]="loginForm.controls.email.invalid && loginForm.controls.email.touched" required />
+        [class.is-invalid]="
+          loginForm.controls.email.invalid && loginForm.controls.email.touched" required
+      />
     </div>
 
     <div class="mb-3">
       <label for="passwordInput" class="form-label">Passwort</label>
 
       <!--  hide code löschen oder benutzen?! -->
-      <input [type]="hide ? 'password' : 'text'" class="form-control" id="passwordInput" formControlName="passwort"
-        [class.is-invalid]="loginForm.controls.passwort.invalid && loginForm.controls.passwort.touched" required />
-      
+      <input
+        [type]="hide ? 'password' : 'text'"
+        class="form-control"
+        id="passwordInput"
+        formControlName="passwort"
+        [class.is-invalid]="
+          loginForm.controls.passwort.invalid &&
+          loginForm.controls.passwort.touched" required
+      />
     </div>
 
     <span class="psw mb-5"><a href="#">Passwort vergessen?</a></span>
@@ -40,6 +47,8 @@
       Login
     </button>
 
-    <span class="new"><a [routerLink]="['/register']">Neu hier? Jetzt registrieren!</a></span>
+    <span class="new"
+      ><a [routerLink]="['/register']">Neu hier? Jetzt registrieren!</a></span
+    >
   </form>
 </div>

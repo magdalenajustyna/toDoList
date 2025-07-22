@@ -6,4 +6,3 @@ export interface User {
 }
 
 
-// bisher angelegte brauchen noch Namen 
