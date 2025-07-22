@@ -36,7 +36,7 @@ export class LoginComponent {
     const emailVar = values.email!.toLowerCase();
     const passwortVar = values.passwort!;
 
-    const user = { email: emailVar, passwort: passwortVar }; //user Objekt zusammenstellen // gibt es hier Problem mit dem Namen?
+    const user = { email: emailVar, passwort: passwortVar }; //user Objekt zusammenstellen 
 
     //bekomme response true/false zurück
     this.auth
