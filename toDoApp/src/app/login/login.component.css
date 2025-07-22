@@ -72,3 +72,8 @@ button.btn:hover {
 .container-header {
     border: none;
 }
+
+.loginFailed {
+    text-align: center;
+    display: block;
+}

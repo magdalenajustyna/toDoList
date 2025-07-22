@@ -55,3 +55,8 @@ button.cancel {
 .container-header {
     border: none;
 }
+
+.registerFailed {
+    text-align: center;
+    display: block;
+}

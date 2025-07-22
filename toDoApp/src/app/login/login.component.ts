@@ -19,6 +19,7 @@ import { AuthService } from '../shared/auth.service';
 export class LoginComponent {
   private auth = inject(AuthService);
   private router = inject(Router);
+  loginFailed = false; 
 
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -47,8 +48,8 @@ export class LoginComponent {
             'Login failed with status: FALSCHES PW ODER MAIL STATUS =',
             response
           );
-          this.router.navigate(['/login']); // bei falschem PW oder Mail zurück zu Login}
-        } // eig nicht erneut seite aufrufen, nur Meldung über formular einblenden
+          this.loginFailed = true; 
+        }
       })
       .catch((error) => {
         console.error('Login failed', error);

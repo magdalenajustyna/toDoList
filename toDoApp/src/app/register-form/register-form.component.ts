@@ -14,11 +14,11 @@ import { User } from '../shared/user';
 export class RegisterFormComponent {
   private auth = inject(AuthService);
   private router = inject(Router);
-  //user! : User;
+  registerFailed = false; 
 
   registerForm = new FormGroup({
     name: new FormControl('', Validators.required),
-    email: new FormControl('', [Validators.required, Validators.email]),    //wird hier Mail in Korrekter Schreibweise geprüft
+    email: new FormControl('', [Validators.required, Validators.email]), //wird hier Mail in Korrekter Schreibweise geprüft
     passwort: new FormControl('', [
       Validators.required,
       Validators.minLength(8),
@@ -27,28 +27,27 @@ export class RegisterFormComponent {
   hide = true;
 
   onSubmit() {
-    const values = this.registerForm.value;    
+    const values = this.registerForm.value;
 
-    const nameVar = values.name!;   // dann muss auch Interface angepasst werden
-    const emailVar = values.email!.toLowerCase(); 
+    const nameVar = values.name!; // dann muss auch Interface angepasst werden
+    const emailVar = values.email!.toLowerCase();
     const passwortVar = values.passwort!;
 
-    const user = { email: emailVar, passwort: passwortVar, name : nameVar }; //user Objekt zusammenstellen
+    const user = { email: emailVar, passwort: passwortVar, name: nameVar }; //user Objekt zusammenstellen
     console.log('user RegisterFormComponent', user);
 
     //bekomme response true/false zurück
-   this.auth.registerUser(user)
+    this.auth
+      .registerUser(user)
       .then((response) => {
         if (response) {
           console.log('Register erfolgreich, weiter zu Login', user);
-          this.router.navigate(['/login']); // nur bei erfolgreichem Register 
-         
-       } else {
-          console.log(
-            'Register failed Mail bereits vergeben', response
-          );
-          this.router.navigate(['/register']); // bei falschem PW oder Mail zurück zu Login}
-        } // eig nicht erneut seite aufrufen, nur Meldung über formular einblenden
+          this.router.navigate(['/login']); // nur bei erfolgreichem Register
+        } else {
+          console.log('Register failed Mail bereits vergeben', response);
+          this.registerFailed = true;
+          
+        } 
       })
       .catch((error) => {
         console.error('Register failed', error);

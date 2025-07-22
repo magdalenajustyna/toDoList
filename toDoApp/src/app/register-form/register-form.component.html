@@ -7,6 +7,11 @@
 <h2>Registrierung</h2>
 
 <div class="container register-container">
+
+  @if (registerFailed){ 
+<span class="registerFailed text-danger mt-3"> <i class="bi bi-exclamation-triangle-fill"></i>
+    Mail bereits vergeben!</span>
+} 
   <form [formGroup]="registerForm" novalidate (ngSubmit)="onSubmit()">
     <div class="container-fluid">
 
