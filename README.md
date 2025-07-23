@@ -20,7 +20,7 @@ Backend-Repository:
 
 ```
 npm install
-node server.js (oder node --watch server.js)
+node server.js
 ```
 
 Anwendung im Browser starten:  
@@ -35,7 +35,7 @@ Anwendung im Browser starten:
 
 ## KI-Nutzung
 
-ChatKI(ChatGPT an der HTW Berlin) zur Fehleranalyse, Fragen zu Layout-Design, Datepicker, Login einbinden im Frontend, Sort-Methoden 
+ChatKI(ChatGPT an der HTW Berlin) zur Fehleranalyse, Fragen zu Layout-Design, Formatierung Datepicker, Sort-Methoden 
 
 ## Screenshots
 
@@ -50,3 +50,18 @@ ChatKI(ChatGPT an der HTW Berlin) zur Fehleranalyse, Fragen zu Layout-Design, Da
 ![Screenshot1](./toDoApp/src/assets/images/screenshot4.png)
 
 ![Screenshot1](./toDoApp/src/assets/images/screenshot5.png)
+
+![Screenshot1](./toDoApp/src/assets/images/screenshot6.png)
+
+![Screenshot1](./toDoApp/src/assets/images/screenshot7.png)
+
+![Screenshot1](./toDoApp/src/assets/images/screenshot8.png)
+
+## Next steps
+
+- ToDos je Userin auslesen
+- Favicon einbinden
+- Passwort vergessen implementieren
+- Usability und Barrierefreiheit verbessern (aria-lables, Radiobutton)
+- Prio-Filter ergänzen um "alle"
+- Deployment
