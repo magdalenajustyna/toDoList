@@ -57,7 +57,6 @@ export class LoginComponent {
       !this.loginForm.controls['email'].hasError('required') &&
       !this.loginForm.controls['passwort'].hasError('required') &&
       !this.loginForm.controls['passwort'].hasError('minlength');
-    console.log('valid : ', check);
     return check;
   }
 }

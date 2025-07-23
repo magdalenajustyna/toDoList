@@ -4,6 +4,7 @@ import { HeaderComponent } from '../header/header.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BackendService } from '../shared/backend.service';
 import { Todo } from '../shared/todo';
+import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'app-createnewtodo',
@@ -16,7 +17,8 @@ import { Todo } from '../shared/todo';
 export class CreatenewtodoComponent {
   private dataservice = inject(BackendService);
   private router = inject(Router);
-  todo: Todo = { _id: '', status: '', todoName: '', prio: '', datum: '' };
+  private authService = inject(AuthService);
+  todo: Todo = { _id: '', status: '', todoName: '', prio: '', datum: '', user_id: '' };
   saved: boolean = false;
 
   form = new FormGroup({
@@ -31,9 +33,10 @@ export class CreatenewtodoComponent {
 
       let datumNeu = this.formatDateString_DDMMYYYY(values.datumControl!);
       this.todo.status = 'offen';
-      this.todo.todoName = values.todoNameControl || '';    // was genau bedeutet || '' ? kann das raus, da wir mit validators arbeiten?
+      this.todo.todoName = values.todoNameControl || '';    
       this.todo.prio = values.prioControl || '';
       this.todo.datum = datumNeu || '';
+      this.todo.user_id = this.authService.user()._id; // user_id des aktuellen Users, leider wird die ID nicht ausgelesen, warum?
 
       this.dataservice
         .create(this.todo)

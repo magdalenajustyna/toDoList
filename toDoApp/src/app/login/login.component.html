@@ -22,14 +22,15 @@
         aria-describedby="usernameHelp"
         formControlName="email"
         [class.is-invalid]="
-          loginForm.controls.email.invalid && loginForm.controls.email.touched" required
+          loginForm.controls.email.invalid && loginForm.controls.email.touched
+        "
+        required
       />
     </div>
 
     <div class="mb-3">
       <label for="passwordInput" class="form-label">Passwort</label>
 
-      <!--  hide code löschen oder benutzen?! -->
       <input
         [type]="hide ? 'password' : 'text'"
         class="form-control"
@@ -37,7 +38,9 @@
         formControlName="passwort"
         [class.is-invalid]="
           loginForm.controls.passwort.invalid &&
-          loginForm.controls.passwort.touched" required
+          loginForm.controls.passwort.touched
+        "
+        required
       />
     </div>
 

@@ -23,7 +23,7 @@ export class RegisterFormComponent {
 
   registerForm = new FormGroup({
     name: new FormControl('', Validators.required),
-    email: new FormControl('', [Validators.required, Validators.email]), 
+    email: new FormControl('', [Validators.required, Validators.email]),
     passwort: new FormControl('', [
       Validators.required,
       Validators.minLength(8),
@@ -34,23 +34,20 @@ export class RegisterFormComponent {
   onSubmit() {
     const values = this.registerForm.value;
 
-    const nameVar = values.name!; 
+    const nameVar = values.name!;
     const emailVar = values.email!.toLowerCase();
     const passwortVar = values.passwort!;
 
     const user = { email: emailVar, passwort: passwortVar, name: nameVar }; //user Objekt zusammenstellen
-    console.log('user RegisterFormComponent', user);
 
     //bekomme response true/false zurück
     this.auth
       .registerUser(user)
       .then((response) => {
         if (response) {
-          console.log('Register erfolgreich, weiter zu Login', user);
           this.router.navigate(['/register']); // nur bei erfolgreichem Register
           this.registered = true;
         } else {
-          console.log('Register failed Mail bereits vergeben', response);
           this.registerFailed = true;
         }
       })
@@ -65,7 +62,7 @@ export class RegisterFormComponent {
       !this.registerForm.controls['passwort'].hasError('required') &&
       !this.registerForm.controls['passwort'].hasError('minlength') &&
       !this.registerForm.controls['name'].hasError('required');
-    console.log('valid : ', check);
+
     return check;
   }
 }

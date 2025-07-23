@@ -6,7 +6,7 @@ import { Todo } from './todo';
 })
 export class BackendService {
 
-  user_id: string = '';
+  //user_id: string = '';
 
   URL = 'http://localhost:3000';
 
@@ -15,16 +15,14 @@ export class BackendService {
   //get all
   async getAllToDos(): Promise<Todo[]> {
     let response = await fetch(this.URL + '/todos/todo');
-    let todos = await response.json();
-    console.log('todos in service (getAll) : ', todos)
+    let todos = await response.json();    
     return todos;
   }
 
   // get one
   async getOne(id: string): Promise<Todo> {
     let response = await fetch(this.URL + '/todos/todo/' + id);
-    let todo = await response.json();
-    console.log('todo in service (getOne) : ', todo)
+    let todo = await response.json();    
     return todo;
   }
 
@@ -37,8 +35,7 @@ export class BackendService {
         "Content-Type": "application/json",
       },
     });
-    let todo = await response.json();
-    console.log('todo in service (update) : ', todo)
+    let todo = await response.json();    
     return todo;
   }
 
@@ -51,8 +48,7 @@ export class BackendService {
         "Content-Type": "application/json",
       },
     });
-    let todo = await response.json();
-    console.log('todo in service (create) : ', todo)
+    let todo = await response.json();    
     return todo;
   }
 
@@ -63,8 +59,7 @@ export class BackendService {
       method: "DELETE"
     });
     let status = await response.status;
-    let message = { message: status }
-    console.log('message in service (deleteOne) : ', message)
+    let message = { message: status }    
     return message;
   }
 

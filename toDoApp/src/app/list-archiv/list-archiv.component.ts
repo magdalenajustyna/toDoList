@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormControl } from '@angular/forms';
 import { BackendService } from '../shared/backend.service';
 import { Todo } from '../shared/todo';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-archiv',
@@ -11,11 +11,7 @@ import { Router, RouterLink } from '@angular/router';
   templateUrl: './list-archiv.component.html',
   styleUrl: './list-archiv.component.css',
 })
-
 export class ListArchivComponent implements OnInit {
-  // in dem Moment, in dem ListArchivComponent in Anwendung eingebunden wird, soll Service aufgerufen werden
-  // in dem Moment sollen alle Daten geladen werden
-
   private dataservice = inject(BackendService); // Injezierung des Services
   toDos: Todo[] = [];
   filteredToDos: Todo[] = [];
@@ -25,7 +21,8 @@ export class ListArchivComponent implements OnInit {
 
   search = new FormControl(''); // FormControl für die Suche, initial leer
 
-  async ngOnInit(): Promise<void> { // async Methode, die Promise zurückgibt
+  async ngOnInit(): Promise<void> {
+    // async Methode, die Promise zurückgibt
     this.toDos = await this.dataservice.getAllToDos();
     this.filteredToDos = this.toDos
       .filter((t) => t.status == 'erledigt')
@@ -34,7 +31,6 @@ export class ListArchivComponent implements OnInit {
         let dateB = new Date(b.datum.split('.').reverse().join('-'));
         return dateA.getTime() - dateB.getTime();
       });
-    console.log('todos in list: ', this.toDos);
   }
 
   delete(id: string): void {
@@ -44,8 +40,8 @@ export class ListArchivComponent implements OnInit {
   }
 
   filter() {
-    let input = this.search.value?.toLocaleLowerCase() || ''; //damit Zeile 35 funktioniert // ? prüft, ob null, wenn nicht, dann to lower Case
-    console.log('input: ', input);
+    let input = this.search.value?.toLocaleLowerCase() || ''; //? prüft, ob null, wenn nicht, dann to lower Case
+  
     this.filteredToDos = this.toDos.filter(
       (t) =>
         (t.todoName.toLowerCase().includes(input) ||
@@ -58,20 +54,15 @@ export class ListArchivComponent implements OnInit {
     const confirmed = window.confirm('Möchtest du das ToDo wirklich löschen?');
     if (confirmed) {
       this.delete(id);
-      console.log('Aktion bestätigt!');
       this.router.navigate(['/archiv']);
-    } else {
-      console.log('Aktion abgebrochen!');
     }
   }
 
   filterPrio(prio: string): void {
-    console.log('ausgewählte Priorität: ', prio);
     this.filteredToDos = this.toDos.filter(
       (t) =>
         t.prio.toLowerCase() === prio.toLowerCase() && t.status === 'erledigt'
     );
-    console.log('Gefilterte ToDos:', this.filteredToDos);
   }
 
   nochZuErledigen(_id: string): void {
@@ -90,7 +81,5 @@ export class ListArchivComponent implements OnInit {
           this.ngOnInit(); // refresh der Seite
         });
       });
-
-    // Auswahl Radiobutton muss noch aufgehoben werden
   }
 }

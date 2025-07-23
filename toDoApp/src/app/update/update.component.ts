@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute, Router} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { BackendService } from '../shared/backend.service';
@@ -12,7 +12,6 @@ import { Todo } from '../shared/todo';
   templateUrl: './update.component.html',
   styleUrl: './update.component.css',
 })
-
 export class UpdateComponent implements OnInit {
   private dataservice = inject(BackendService);
   private route = inject(ActivatedRoute);
@@ -31,7 +30,6 @@ export class UpdateComponent implements OnInit {
   ngOnInit(): void {
     //holt todo aus Datenbank und befüllt Formular
     this.id = this.route.snapshot.paramMap.get('id');
-    console.log('id = ', this.id);
     this.dataservice
       .getOne(this.id!)
       .then((response) => {
@@ -40,16 +38,14 @@ export class UpdateComponent implements OnInit {
           todoNameControl: this.todo?.todoName,
           prioControlButton: this.todo?.prio,
           // um den Datepicker mit altem Datum zu belegen, muss Datum aus DB ins richtige Format gebracht werden
-          // String 10.07.2025 muss zu 2025-07-10 
-          datumControl: this.todo?.datum.split('.').reverse().join('-')    //Vorschlag von VS Code
+          // String 10.07.2025 muss zu 2025-07-10
+          datumControl: this.todo?.datum.split('.').reverse().join('-'), //Vorschlag von VS Code
         });
         return this.todo;
       })
       .then((todo) => {
         if (!todo.todoName) {
-          this.router.navigate(['/home']); 
-        } else {
-          console.log('todo in DetailComponent : ', todo);
+          this.router.navigate(['/home']);
         }
       });
   }
@@ -60,28 +56,28 @@ export class UpdateComponent implements OnInit {
     return day + '.' + month + '.' + year;
   }
 
-  update(): void {     //soll nur funktionieren, wenn to doName ausgefüllt ist  (der Rest wird mit alten Werten befüllt)
-    if (this.form.controls.todoNameControl.valid) { 
+  update(): void {
+    //soll nur funktionieren, wenn to doName ausgefüllt ist  (der Rest wird mit alten Werten befüllt)
+    if (this.form.controls.todoNameControl.valid) {
+      const values = this.form.value;
+      let datumNeu;
+      this.todo.todoName = values.todoNameControl!;
+      this.todo.prio = values.prioControlButton!;
 
-    const values = this.form.value;
-    let datumNeu;   //Var für Datum
-    this.todo.todoName = values.todoNameControl!; //neuer Name aus Formular
-    this.todo.prio = values.prioControlButton!; //neue Prio aus Select Dropdown
+      if (values.datumControl!) {
+        //nur wenn Datepicker ausgefüllt, neues Datum auslesen und für ToDo verwenden
+        datumNeu = this.formatDateString_DDMMYYYY(values.datumControl!);
+        this.todo.datum = datumNeu;
+      } //ansonsten alten Wert behalten
+      else {
+        this.todo.datum = values.datumControl!;
+      }
 
-    if (values.datumControl!) {   
-      //nur wenn Datepicker ausgefüllt, neues Datum auslesen und für ToDo verwenden
-      datumNeu = this.formatDateString_DDMMYYYY(values.datumControl!);
-      this.todo.datum = datumNeu;
-    } //ansonsten alten Wert behalten
-    else {
-      this.todo.datum = values.datumControl!;
+      this.dataservice
+        .update(this.id!, this.todo)
+        .then(() => this.router.navigate(['/home'])); //geht nur zu Home wenn update erfolgreich
     }
-
-    this.dataservice
-      .update(this.id!, this.todo)
-      .then(() => this.router.navigate(['/home'])); //geht nur zu Home wenn update erfolgreich
   }
-}
 
   cancel(): void {
     this.router.navigate(['/home']);

@@ -4,7 +4,7 @@ import { ArchivbuttonComponent } from '../archivbutton/archivbutton.component';
 import { ListComponent } from '../list/list.component';
 import { LogoutbuttonComponent } from '../logoutbutton/logoutbutton.component';
 import { NewtodobuttonComponent } from '../newtodobutton/newtodobutton.component';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AuthService } from '../shared/auth.service';
 
 @Component({

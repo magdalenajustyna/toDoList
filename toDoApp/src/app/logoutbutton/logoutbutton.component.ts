@@ -14,11 +14,7 @@ export class LogoutbuttonComponent {
   private router = inject(Router);
 
   logout(): void {
-    // This method should call the AuthService to unset the user
-    // Assuming AuthService is injected and available as this.authService
     this.auth.unsetUser();
-    console.log('User logged out');   //mit gurad testen
     this.router.navigate(['/login']);
-
   }
 }

@@ -3,5 +3,6 @@ export interface Todo {
     status : string;
     todoName : string;
     prio : string;
-    datum : string
+    datum : string;
+    user_id : string
 }
