@@ -36,7 +36,7 @@ export class ListComponent implements OnInit {
     this.filteredToDos = this.toDos
 
       .filter((t) => t.status === 'offen') // nur offene Todos
-      //.filter((t) => t.user_id === userId) // nur Todos der aktuellen Userin
+      .filter((t) => t.user_id === userId) // nur Todos der aktuellen Userin
       .sort((a, b) => {
         let dateA = new Date(a.datum.split('.').reverse().join('-'));
         let dateB = new Date(b.datum.split('.').reverse().join('-'));

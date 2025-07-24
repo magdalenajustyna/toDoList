@@ -27,6 +27,7 @@ export class AuthService {
 
   setUser(token: string, user: User): void {
     this.user.set(user);
+    console.log('user', this.user())
     this.token.set(token);
   }
 
