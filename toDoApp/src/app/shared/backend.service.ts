@@ -6,7 +6,7 @@ import { Todo } from './todo';
 })
 export class BackendService {
 
-  //user_id: string = '';
+  
 
   URL = 'http://localhost:3000';
 
@@ -14,7 +14,7 @@ export class BackendService {
 
   //get all
   async getAllToDos(user_id : String): Promise<Todo[]> {
-   // let response = await fetch(this.URL + '/todos/todo');
+
     let response = await fetch(this.URL + '/todos/user/' + user_id + '/todos');
     let todos = await response.json();    
     return todos; 

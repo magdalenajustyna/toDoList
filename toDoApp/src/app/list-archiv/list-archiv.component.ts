@@ -62,11 +62,17 @@ export class ListArchivComponent implements OnInit {
   }
 
   filterPrio(prio: string): void {
+    if (prio === 'alle') {
+      this.ngOnInit();
+    }
+
+    else{
     this.filteredToDos = this.toDos.filter(
       (t) =>
         t.prio.toLowerCase() === prio.toLowerCase() && t.status === 'erledigt'
     );
   }
+}
 
   nochZuErledigen(_id: string): void {
     this.dataservice

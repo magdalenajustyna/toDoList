@@ -72,7 +72,7 @@ export class ListComponent implements OnInit {
   filterPrio(prio: string): void {
 
     if (prio === 'alle') {
-      this.filteredToDos = this.toDos.filter((t) => t.status === 'offen');
+      this.ngOnInit();    
     }
 
     else{
