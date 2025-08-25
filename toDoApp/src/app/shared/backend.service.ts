@@ -13,10 +13,11 @@ export class BackendService {
   constructor() { }
 
   //get all
-  async getAllToDos(): Promise<Todo[]> {
-    let response = await fetch(this.URL + '/todos/todo');
+  async getAllToDos(user_id : String): Promise<Todo[]> {
+   // let response = await fetch(this.URL + '/todos/todo');
+    let response = await fetch(this.URL + '/todos/user/' + user_id + '/todos');
     let todos = await response.json();    
-    return todos;
+    return todos; 
   }
 
   // get one

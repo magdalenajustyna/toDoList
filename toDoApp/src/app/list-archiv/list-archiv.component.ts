@@ -3,6 +3,7 @@ import { ReactiveFormsModule, FormControl } from '@angular/forms';
 import { BackendService } from '../shared/backend.service';
 import { Todo } from '../shared/todo';
 import { Router } from '@angular/router';
+import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'app-list-archiv',
@@ -18,12 +19,14 @@ export class ListArchivComponent implements OnInit {
   todo!: Todo;
 
   private router = inject(Router);
+  private auth = inject(AuthService);
 
   search = new FormControl(''); // FormControl für die Suche, initial leer
 
   async ngOnInit(): Promise<void> {
     // async Methode, die Promise zurückgibt
-    this.toDos = await this.dataservice.getAllToDos();
+    let userId = this.auth.user()._id; 
+    this.toDos = await this.dataservice.getAllToDos(userId);
     this.filteredToDos = this.toDos
       .filter((t) => t.status == 'erledigt')
       .sort((a, b) => {

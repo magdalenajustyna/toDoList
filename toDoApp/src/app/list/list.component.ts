@@ -30,18 +30,18 @@ export class ListComponent implements OnInit {
     // async Methode, die Promise zurückgibt
     // über authservice aktuelle userin auslesen, id speichern, um nur ToDos der userin anzuzeigen
 
-    const userId = this.auth.user()._id; //funktioniert leider nicht
-
-    this.toDos = await this.dataservice.getAllToDos();
+    let userId = this.auth.user()._id;     
+  
+    this.toDos = await this.dataservice.getAllToDos(userId); //hier will ich die Todos der Userin 
     this.filteredToDos = this.toDos
 
       .filter((t) => t.status === 'offen') // nur offene Todos
-      .filter((t) => t.user_id === userId) // nur Todos der aktuellen Userin
       .sort((a, b) => {
         let dateA = new Date(a.datum.split('.').reverse().join('-'));
         let dateB = new Date(b.datum.split('.').reverse().join('-'));
         return dateA.getTime() - dateB.getTime();
       });
+      
   }
 
   delete(id: string): void {
