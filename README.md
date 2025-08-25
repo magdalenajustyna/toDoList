@@ -59,9 +59,7 @@ ChatKI(ChatGPT an der HTW Berlin) zur Fehleranalyse, Fragen zu Layout-Design, Fo
 
 ## Next steps
 
-- ToDos je Userin auslesen
 - Favicon einbinden
 - Passwort vergessen implementieren
 - Usability und Barrierefreiheit verbessern (aria-lables, Radiobutton)
-- Prio-Filter ergänzen um "alle"
 - Deployment
