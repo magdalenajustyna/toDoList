@@ -70,9 +70,17 @@ export class ListComponent implements OnInit {
   }
 
   filterPrio(prio: string): void {
-    this.filteredToDos = this.toDos.filter(
-      (t) => t.prio.toLowerCase() === prio.toLowerCase() && t.status === 'offen'
-    );
+
+    if (prio === 'alle') {
+      this.filteredToDos = this.toDos.filter((t) => t.status === 'offen');
+    }
+
+    else{
+      this.filteredToDos = this.toDos.filter(
+        (t) =>
+          t.prio.toLowerCase() === prio.toLowerCase() && t.status === 'offen'
+      );
+    } 
   }
 
   erledigt(_id: string): void {
