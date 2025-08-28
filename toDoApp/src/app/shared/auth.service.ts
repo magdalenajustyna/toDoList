@@ -6,12 +6,13 @@ import {
   WritableSignal,
 } from '@angular/core';
 import { User } from './user';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  baseUrl = 'http://localhost:3000';
+  baseUrl = environment.apiUrl;
 
   user: WritableSignal<User> = signal({
     _id: '',
@@ -27,7 +28,7 @@ export class AuthService {
 
   setUser(token: string, user: User): void {
     this.user.set(user);
-    console.log('user', this.user())
+    console.log('user', this.user());
     this.token.set(token);
   }
 
