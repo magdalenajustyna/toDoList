@@ -19,7 +19,7 @@ export class CreatenewtodoComponent {
   private router = inject(Router);
   private authService = inject(AuthService);
   todo: Todo = { _id: '', status: '', todoName: '', prio: '', datum: '', user_id: '' };
-  saved: boolean = false;
+  saved: boolean = false;     // benutzen wir gar nicht?
 
   form = new FormGroup({
     todoNameControl: new FormControl<string>('', [Validators.required]),
