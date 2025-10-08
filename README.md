@@ -41,21 +41,21 @@ ChatKI(ChatGPT an der HTW Berlin) zur Fehleranalyse, Fragen zu Layout-Design, Fo
 
 ![Screenshot1](./src/assets/images/screenshot0.png)
 
-![Screenshot1](./toDoApp/src/assets/images/screenshot1.png)
+![Screenshot1](./src/assets/images/screenshot1.png)
 
-![Screenshot1](./toDoApp/src/assets/images/screenshot2.png)
+![Screenshot1](./src/assets/images/screenshot2.png)
 
-![Screenshot1](./toDoApp/src/assets/images/screenshot3.png)
+![Screenshot1](./src/assets/images/screenshot3.png)
 
-![Screenshot1](./toDoApp/src/assets/images/screenshot4.png)
+![Screenshot1](./src/assets/images/screenshot4.png)
 
-![Screenshot1](./toDoApp/src/assets/images/screenshot5.png)
+![Screenshot1](./src/assets/images/screenshot5.png)
 
-![Screenshot1](./toDoApp/src/assets/images/screenshot6.png)
+![Screenshot1](./src/assets/images/screenshot6.png)
 
-![Screenshot1](./toDoApp/src/assets/images/screenshot7.png)
+![Screenshot1](./src/assets/images/screenshot7.png)
 
-![Screenshot1](./toDoApp/src/assets/images/screenshot8.png)
+![Screenshot1](./src/assets/images/screenshot8.png)
 
 ## Next steps
 
