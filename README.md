@@ -1,59 +1,65 @@
-# ToDoApp
+# todoApp
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.13.
+## Beschreibung
 
-## Development server
+Die todoApp ist eine benutzerfreundliche, responsive und intuitive Anwendung zur Verwaltung von ToDos. Sie ermöglicht das Erstellen, Bearbeiten und Löschen von Aufgaben. Erledigte Aufgaben können archiviert werden, um den Fokus auf die aktuellen Aufgaben zu bewahren. Dank der integrierten Suchfunktion können Aufgaben schnell und effizient gefunden werden. Zudem bietet die App eine Filteroption, mit der Aufgaben basierend auf ihrer Priorität angezeigt werden können, was eine optimale Organisation und Priorisierung ermöglicht.
 
-To start a local development server, run:
+## Installation
 
-```bash
+Frontend-Repository:  
+`https://github.com/magdalenajustyna/toDoList.git`
+
+```
+cd toDoApp
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Backend-Repository:  
+`https://github.com/magdalenajustyna/toDoList_BE.git`
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```
+npm install
+node server.js
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Anwendung im Browser starten:  
+`http://localhost:4200`
 
-```bash
-ng generate --help
-```
+## Technologien
 
-## Building
+- Frontend: Angular
+- Backend: Node.js, Express
+- Datenbank: MongoDB (Atlas)
+- CSS-Framework: Bootstrap
 
-To build the project run:
+## KI-Nutzung
 
-```bash
-ng build
-```
+ChatKI(ChatGPT an der HTW Berlin) zur Fehleranalyse, Fragen zu Layout-Design, Formatierung Datepicker, Sort-Methoden 
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Screenshots
 
-## Running unit tests
+![Screenshot1](./toDoApp/src/assets/images/screenshot0.png)
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+![Screenshot1](./toDoApp/src/assets/images/screenshot1.png)
 
-```bash
-ng test
-```
+![Screenshot1](./toDoApp/src/assets/images/screenshot2.png)
 
-## Running end-to-end tests
+![Screenshot1](./toDoApp/src/assets/images/screenshot3.png)
 
-For end-to-end (e2e) testing, run:
+![Screenshot1](./toDoApp/src/assets/images/screenshot4.png)
 
-```bash
-ng e2e
-```
+![Screenshot1](./toDoApp/src/assets/images/screenshot5.png)
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+![Screenshot1](./toDoApp/src/assets/images/screenshot6.png)
 
-## Additional Resources
+![Screenshot1](./toDoApp/src/assets/images/screenshot7.png)
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+![Screenshot1](./toDoApp/src/assets/images/screenshot8.png)
+
+## Next steps
+
+- Favicon einbinden
+- Passwort vergessen implementieren
+- Usability und Barrierefreiheit verbessern (aria-lables, Radiobutton)
+- Deployment
