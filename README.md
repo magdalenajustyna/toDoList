@@ -39,7 +39,7 @@ ChatKI(ChatGPT an der HTW Berlin) zur Fehleranalyse, Fragen zu Layout-Design, Fo
 
 ## Screenshots
 
-![Screenshot1](./toDoApp/src/assets/images/screenshot0.png)
+![Screenshot1](./src/assets/images/screenshot0.png)
 
 ![Screenshot1](./toDoApp/src/assets/images/screenshot1.png)
 
