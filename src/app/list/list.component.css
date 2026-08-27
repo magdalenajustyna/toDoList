@@ -36,20 +36,16 @@ th {
   margin-right: 2%;
 }
 
-.pencilButton {
+.pencilButton,
+.trashButton,
+.doneButton {
   color: blueviolet;
   border: none;
 }
 
-.pencilButton:hover {
+.pencilButton:hover,
+.trashButton:hover,
+.doneButton:hover {
   background-color: yellow;
 }
 
-.trashButton {
-  color: blueviolet;
-  border: none;
-}
-
-.trashButton:hover {
-  background-color: yellow;
-}

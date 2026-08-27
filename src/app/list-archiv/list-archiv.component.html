@@ -28,16 +28,18 @@
 
     @for(Todo of filteredToDos; track $index) {
     <tr>
-      <td>
-        <div class="form-check d-flex justify-content-center">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
-            (change)="nochZuErledigen(Todo._id)" />
+      <td class="text-center align-middle">
+        <div class="d-flex justify-content-center">
+          <button (click)="nochZuErledigen(Todo._id)" type="button" class="btn undoButton"
+            aria-label="ToDo wieder öffnen" title="ToDo wieder öffnen">
+            <i class="bi bi-arrow-counterclockwise"></i>
+          </button>
         </div>
       </td>
-      <td>{{ Todo.todoName }}</td>
-      <td>{{ Todo.prio }}</td>
-      <td>{{ Todo.datum }}</td>
-      <td>
+      <td class="align-middle">{{ Todo.todoName }}</td>
+      <td class="align-middle">{{ Todo.prio }}</td>
+      <td class="align-middle">{{ Todo.datum }}</td>
+      <td class="text-center align-middle">
         <button class="btn trashButton btn-outline-primary">
           <i (click)="confirmAction(Todo._id)" class="bi bi-trash align-items-center"></i>
         </button>
