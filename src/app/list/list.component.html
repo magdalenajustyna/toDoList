@@ -30,26 +30,24 @@
   <tbody> 
     @for(Todo of filteredToDos; track $index) {
     <tr>
-      <td>
-        <div class="form-check d-flex justify-content-center">
-
-
-          <input class="form-check-input" type="radio" name="radioNoLabel" id="flexRadioDefault1" 
-            (change)="erledigt(Todo._id)" />
-
-
+      <td class="text-center align-middle">
+        <div class="d-flex justify-content-center">
+          <button (click)="erledigt(Todo._id)" type="button" class="btn doneButton" aria-label="ToDo als erledigt markieren"
+            title="Als erledigt markieren">
+            <i class="bi bi-check-circle"></i>
+          </button>
         </div>
       </td>
-      <td>{{ Todo.todoName }}</td>
-      <td>{{ Todo.prio }}</td>
-      <td>{{ Todo.datum }}</td>
-      <td>
+      <td class="align-middle">{{ Todo.todoName }}</td>
+      <td class="align-middle">{{ Todo.prio }}</td>
+      <td class="align-middle">{{ Todo.datum }}</td>
+      <td class="text-center align-middle">
         <a class="btn pencilButton btn-outline-primary" [routerLink]="['/todo', Todo._id]">
           <span class="bi bi-pencil-square" aria-label="Bearbeiten"></span>
         </a>
       </td>
 
-      <td>
+      <td class="text-center align-middle">
         <button class="btn trashButton btn-outline-primary" aria-label="Löschen" (click)="confirmAction(Todo._id)">
           <i class="bi bi-trash "></i>
         </button>
