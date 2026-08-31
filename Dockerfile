@@ -9,7 +9,7 @@ RUN npm run build -- --configuration production
 
 FROM nginx:alpine
 
-COPY --from=build /app/dist/to-do-app /usr/share/nginx/html
+COPY --from=build /app/dist/to-do-app/browser /usr/share/nginx/html
 COPY nginx/default.conf.template /etc/nginx/templates/default.conf.template
 
 EXPOSE 8080
