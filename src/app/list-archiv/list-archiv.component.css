@@ -26,12 +26,14 @@
     margin-right: 2%;
 }
 
-.trashButton {
+.trashButton,
+.undoButton {
     color: blueviolet;
     border: none;
 }
 
-.trashButton:hover {
+.trashButton:hover,
+.undoButton:hover {
     background-color: yellow;
 }
 
