@@ -50,4 +50,4 @@ jobs:
             --region="${{ env.GCP_REGION }}" \
             --platform=managed \
             --allow-unauthenticated \
-            --port=80
+            --port=8080
