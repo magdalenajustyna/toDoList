@@ -13,6 +13,6 @@ RUN apk add --no-cache gettext
 COPY --from=build /app/dist/to-do-app/browser /usr/share/nginx/html
 COPY nginx/default.conf.template /etc/nginx/templates/default.conf.template
 
-EXPOSE 8080
+EXPOSE 80
 
 CMD ["/bin/sh", "-c", "envsubst '$PORT' < /etc/nginx/templates/default.conf.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"]
