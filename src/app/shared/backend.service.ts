@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Todo } from './todo';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class BackendService {
 
   
 
-  URL = 'http://localhost:3000';
+  URL = environment.apiUrl;
 
   constructor() { }
 

@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://todolist-backend-7jyq.onrender.com'
+  apiUrl: 'https://todoapp-backend-service-168530441989.europe-west10.run.app'
 };
