@@ -1,0 +1,90 @@
+name: Deploy Frontend to Cloud Run (Canary)
+
+on:
+  push:
+    branches:
+      - canary_deployment
+
+env:
+  GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+  GCP_REGION: europe-west10
+  GAR_REPOSITORY: todoapp
+  SERVICE_NAME: todoapp-frontend-service
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Configure Docker for Artifact Registry
+        run: gcloud auth configure-docker ${{ env.GCP_REGION }}-docker.pkg.dev --quiet
+
+      - name: Build Docker image
+        run: |
+          IMAGE="${{ env.GCP_REGION }}-docker.pkg.dev/${{ env.GCP_PROJECT_ID }}/${{ env.GAR_REPOSITORY }}/frontend:${{ github.sha }}"
+          echo "IMAGE=$IMAGE" >> $GITHUB_ENV
+          docker build -t "$IMAGE" .
+
+      - name: Push image to Artifact Registry
+        run: docker push "${IMAGE}"
+
+      # Creates a new revision that receives NO traffic yet.
+      # All real users stay on the current revision until the traffic is
+      # shifted on purpose via the "Control Canary Traffic" workflow.
+      # --tag gives the new revision its own URL for testing it in isolation.
+      - name: Deploy new revision (0 % traffic)
+        run: |
+          CANARY_TAG="canary-${GITHUB_SHA::7}"
+          echo "CANARY_TAG=$CANARY_TAG" >> $GITHUB_ENV
+
+          gcloud run deploy "${{ env.SERVICE_NAME }}" \
+            --image="${{ env.IMAGE }}" \
+            --region="${{ env.GCP_REGION }}" \
+            --platform=managed \
+            --allow-unauthenticated \
+            --port=8080 \
+            --session-affinity \
+            --no-traffic \
+            --tag="$CANARY_TAG"
+
+      - name: Show canary URL and traffic split
+        run: |
+          gcloud run services describe "${{ env.SERVICE_NAME }}" \
+            --region="${{ env.GCP_REGION }}" --format=json > service.json
+
+          CANARY_URL=$(jq -r --arg t "$CANARY_TAG" \
+            '.status.traffic[] | select(.tag == $t) | .url' service.json)
+
+          {
+            echo "## New revision deployed - 0 % traffic"
+            echo ""
+            echo "Canary tag: \`$CANARY_TAG\`"
+            echo ""
+            echo "Test URL (serves 100 % the new version, real users do not see it):"
+            echo ""
+            echo "$CANARY_URL"
+            echo ""
+            echo "### Current traffic split"
+            echo ""
+            echo '```'
+            jq -r '.status.traffic[] | "\(.revisionName)  \(.percent // 0) %  \(.tag // "")"' service.json
+            echo '```'
+            echo ""
+            echo "To shift traffic: Actions -> \"Control Canary Traffic\" -> Run workflow,"
+            echo "enter tag \`$CANARY_TAG\` and start with 10 %."
+          } >> $GITHUB_STEP_SUMMARY
