@@ -16,8 +16,9 @@ FROM nginx:alpine
 COPY --from=build /app/dist/to-do-app/browser /usr/share/nginx/html
 COPY nginx/default.conf.template /etc/nginx/templates/default.conf.template
 
-# Cloud Run expects the container to listen on 8080
+# set port variable to 8080, variable is used for nginx template (must match deploy.yaml)
 ENV PORT=8080
 EXPOSE 8080
 
+# start nginx in the foreground (otherwise the container will exit)
 CMD ["nginx", "-g", "daemon off;"]
