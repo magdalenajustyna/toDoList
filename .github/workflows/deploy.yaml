@@ -17,7 +17,6 @@ jobs:
 
     permissions:
       contents: read
-      id-token: write
 
     steps:
       - name: Checkout code
@@ -43,6 +42,7 @@ jobs:
       - name: Push image to Artifact Registry
         run: docker push "${IMAGE}"
 
+      # --port = 8080 tells GCP which port container runs on (must match Dockerfile)
       - name: Deploy to Cloud Run
         run: |
           gcloud run deploy "${{ env.SERVICE_NAME }}" \
